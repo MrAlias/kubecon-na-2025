@@ -1,0 +1,153 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: obi
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: obi-role
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["update"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: obi-role-binding
+subjects:
+  - kind: ServiceAccount
+    name: obi
+roleRef:
+  kind: Role
+  name: obi-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: obi-cluster-role
+rules:
+  - apiGroups: [""]
+    resources: ["namespaces", "nodes", "pods"]
+    verbs: ["get", "watch", "list"]
+  - apiGroups: [""]
+    resources: ["services"]
+    # list services is needed by network-policy obi.
+    verbs: ["get", "watch", "list"]
+  - apiGroups: ["*"]
+    resources:
+      [
+        "deployments",
+        "replicasets",
+        "statefulsets",
+        "daemonsets",
+        "jobs",
+        "cronjobs",
+        "replicationcontrollers",
+      ]
+    # Required to retrieve the owner references used by the seccomp obi.
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["security-profiles-operator.x-k8s.io"]
+    resources: ["seccompprofiles"]
+    # Required for integration with the Kubernetes Security Profiles Operator
+    verbs: ["list", "watch", "create"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: obi-cluster-role-binding
+subjects:
+  - kind: ServiceAccount
+    name: obi
+    namespace: default
+roleRef:
+  kind: ClusterRole
+  name: obi-cluster-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: obi-config
+data:
+  obi-config.yml: |
+    discovery:
+      services:
+        - k8s_owner_name: .
+    routes:
+      ignored_patterns:
+        - /health
+        - /ready
+      unmatched: heuristic
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: obi
+  labels:
+    app: obi
+spec:
+  selector:
+    matchLabels:
+      app: obi
+  template:
+    metadata:
+      labels:
+        app: obi
+    spec:
+      serviceAccount: obi
+      hostPID: true # <-- Important. Required in Daemonset mode so obi can discover all monitored processes
+      hostNetwork: true # <-- Important. Required in Daemonset mode so obi can inject headers in outgoing requests
+      dnsPolicy: ClusterFirstWithHostNet
+      containers:
+        - name: obi
+          terminationMessagePolicy: FallbackToLogsOnError
+          image: "obi:local"
+          imagePullPolicy: "Never"
+          command: ["/ebpf-instrument", "--config=/config/obi-config.yml"]
+          env:
+            - name: OTEL_EBPF_TRACE_PRINTER
+              value: "text"
+            - name: OTEL_EBPF_PROFILE_PORT
+              value: "6060"
+            - name: OTEL_EBPF_LOG_LEVEL
+              value: "DEBUG"
+            - name: OTEL_EBPF_KUBE_CLUSTER_NAME
+              value: "bookinfo-demo"
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: "http://172.17.0.1:4318"
+            - name: OTEL_EBPF_METRIC_FEATURES
+              value: "application,application_span,application_service_graph"
+            - name: OTEL_EBPF_BPF_CONTEXT_PROPAGATION
+              value: "all"
+            # some settings to make sure data shows up faster in the demo
+            - name: OTEL_EBPF_METRICS_INTERVAL
+              value: "1s"
+            - name: OTEL_EBPF_ROUTE_HARVESTER_TIMEOUT
+              value: "1s"
+            - name: OTEL_EBPF_OTLP_TRACES_BATCH_TIMEOUT
+              value: "1s"
+          securityContext:
+            runAsUser: 0
+            readOnlyRootFilesystem: true
+            privileged: true
+          volumeMounts:
+            - name: cgroup
+              mountPath: /sys/fs/cgroup
+            - mountPath: /config
+              name: obi-config
+      tolerations:
+        - effect: NoSchedule
+          operator: Exists
+        - effect: NoExecute
+          operator: Exists
+      volumes:
+        - name: obi-config
+          configMap:
+            name: obi-config
+        - name: cgroup
+          hostPath:
+            path: /sys/fs/cgroup

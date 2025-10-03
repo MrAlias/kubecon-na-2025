@@ -1,0 +1,520 @@
+# Copyright Istio Authors
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+
+##################################################################################################
+# This file defines the services, service accounts, and deployments for the Bookinfo sample.
+#
+# To apply all 4 Bookinfo services, their corresponding service accounts, and deployments:
+#
+#   kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+#
+# Alternatively, you can deploy any resource separately:
+#
+#   kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml -l service=reviews # reviews Service
+#   kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml -l account=reviews # reviews ServiceAccount
+#   kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml -l app=reviews,version=v3 # reviews-v3 Deployment
+##################################################################################################
+
+##################################################################################################
+# Details service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: details
+  labels:
+    app: details
+    service: details
+spec:
+  ports:
+    - port: 9080
+      name: http
+  selector:
+    app: details
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-details
+  labels:
+    account: details
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: details-v1
+  labels:
+    app: details
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: details
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: details
+        version: v1
+    spec:
+      containers:
+        - name: details
+          image: details:local
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 9080
+          env:
+            - name: ENABLE_EXTERNAL_BOOK_SERVICE
+              value: "true"
+---
+##################################################################################################
+# Ratings service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: ratings
+  labels:
+    app: ratings
+    service: ratings
+spec:
+  ports:
+    - port: 9080
+      name: http
+  selector:
+    app: ratings
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratings-v1
+  labels:
+    app: ratings
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ratings
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: ratings
+        version: v1
+    spec:
+      containers:
+        - name: ratings
+          image: ratings:local
+          imagePullPolicy: Never
+          env:
+            # ratings-v2 will use mongodb as the default db backend.
+            # if you would like to use mysqldb then set DB_TYPE = 'mysql', set
+            # the rest of the parameters shown here and also create the
+            # mysqldb service using bookinfo-mysql.yaml
+            # - name: DB_TYPE #default to
+            #   value: "mysql"
+            # - name: MYSQL_DB_HOST
+            #   value: mysqldb
+            # - name: MYSQL_DB_PORT
+            #   value: "3306"
+            # - name: MYSQL_DB_USER
+            #   value: root
+            # - name: MYSQL_DB_PASSWORD
+            #  value: password
+            - name: MONGO_DB_URL
+              value: mongodb://mongodb:27017/test
+          ports:
+            - containerPort: 9080
+---
+##################################################################################################
+# Ratings-v2 service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: ratings-v2
+  labels:
+    app: ratings-v2
+    service: ratings
+spec:
+  ports:
+    - port: 9080
+      name: http
+  selector:
+    app: ratings-v2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ratings-v2
+  labels:
+    app: ratings-v2
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ratings-v2
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: ratings-v2
+        version: v2
+    spec:
+      containers:
+        - name: ratings-v2
+          image: ratings-v2:local
+          imagePullPolicy: Never
+          env:
+            # ratings-v2 will use mongodb as the default db backend.
+            - name: SERVICE_VERSION
+              value: "v2"
+            - name: MONGO_DB_URL
+              value: mongodb://mongodb:27017/test
+          ports:
+            - containerPort: 9080
+---
+##################################################################################################
+# Reviews service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: reviews
+  labels:
+    app: reviews
+    service: reviews
+spec:
+  ports:
+    - port: 9080
+      name: http
+  selector:
+    app: reviews
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-reviews
+  labels:
+    account: reviews
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reviews-v1
+  labels:
+    app: reviews
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reviews
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: reviews
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-reviews
+      containers:
+        - name: reviews
+          image: reviews:local
+          imagePullPolicy: Never
+          env:
+            - name: LOG_DIR
+              value: "/tmp/logs"
+          ports:
+            - containerPort: 9080
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+            - name: wlp-output
+              mountPath: /opt/ibm/wlp/output
+      volumes:
+        - name: wlp-output
+          emptyDir: {}
+        - name: tmp
+          emptyDir: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reviews-v2
+  labels:
+    app: reviews
+    version: v2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reviews
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: reviews
+        version: v2
+    spec:
+      containers:
+        - name: reviews
+          image: reviews:local
+          imagePullPolicy: Never
+          env:
+            - name: ENABLE_RATINGS
+              value: "true"
+            - name: LOG_DIR
+              value: "/tmp/logs"
+          ports:
+            - containerPort: 9080
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+            - name: wlp-output
+              mountPath: /opt/ibm/wlp/output
+      volumes:
+        - name: wlp-output
+          emptyDir: {}
+        - name: tmp
+          emptyDir: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reviews-v3
+  labels:
+    app: reviews
+    version: v3
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reviews
+      version: v3
+  template:
+    metadata:
+      labels:
+        app: reviews
+        version: v3
+    spec:
+      serviceAccountName: bookinfo-reviews
+      containers:
+        - name: reviews
+          image: reviews:local
+          imagePullPolicy: Never
+          env:
+            - name: ENABLE_RATINGS
+              value: "true"
+            - name: STAR_COLOR
+              value: "orange"
+            - name: LOG_DIR
+              value: "/tmp/logs"
+            - name: RATINGS_HOSTNAME
+              value: "ratings-v2"
+          ports:
+            - containerPort: 9080
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+            - name: wlp-output
+              mountPath: /opt/ibm/wlp/output
+      volumes:
+        - name: wlp-output
+          emptyDir: {}
+        - name: tmp
+          emptyDir: {}
+---
+##################################################################################################
+# Productpage services
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: productpage
+  labels:
+    app: productpage
+    service: productpage
+spec:
+  ports:
+    - port: 9080
+      name: http
+  selector:
+    app: productpage
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-productpage
+  labels:
+    account: productpage
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productpage-v1
+  labels:
+    app: productpage
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: productpage
+      version: v1
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9080"
+        prometheus.io/path: "/metrics"
+      labels:
+        app: productpage
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-productpage
+      containers:
+        - name: productpage
+          image: docker.io/istio/examples-bookinfo-productpage-v1:1.20.3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9080
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+      volumes:
+        - name: tmp
+          emptyDir: {}
+---
+##################################################################################################
+# Mysql db services
+# credentials: root/password
+##################################################################################################
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-credentials
+type: Opaque
+data:
+  rootpasswd: cGFzc3dvcmQ=
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysqldb
+  labels:
+    app: mysqldb
+    service: mysqldb
+spec:
+  ports:
+    - port: 3306
+      name: tcp
+  selector:
+    app: mysqldb
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqldb-v1
+  labels:
+    app: mysqldb
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysqldb
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: mysqldb
+        version: v1
+    spec:
+      containers:
+        - name: mysqldb
+          image: docker.io/istio/examples-bookinfo-mysqldb:1.20.3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3306
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-credentials
+                  key: rootpasswd
+          args: ["--default-authentication-plugin", "mysql_native_password"]
+          volumeMounts:
+            - name: var-lib-mysql
+              mountPath: /var/lib/mysql
+      volumes:
+        - name: var-lib-mysql
+          emptyDir: {}
+---
+##################################################################################################
+# Mongo db services
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb
+  labels:
+    app: mongodb
+    service: mongodb
+spec:
+  ports:
+    - port: 27017
+      name: mongo
+  selector:
+    app: mongodb
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-v1
+  labels:
+    app: mongodb
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongodb
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: mongodb
+        version: v1
+    spec:
+      containers:
+        - name: mongodb
+          image: docker.io/istio/examples-bookinfo-mongodb:1.20.3
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 27017
+          args:
+            - "--ipv6"
+            - "--bind_ip_all"
+          volumeMounts:
+            - name: data-db
+              mountPath: /data/db
+      volumes:
+        - name: data-db
+          emptyDir: {}
+---
+
