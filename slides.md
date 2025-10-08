@@ -28,6 +28,10 @@ Building B | Level 5 | Thomas Murphy Ballroom 4
   </span>
 </div>
 
+<!--
+Speaker: Both
+-->
+
 ---
 layout: center
 class: text-center
@@ -65,6 +69,10 @@ class: text-center
 <div v-click="3" class="mt-8 text-xl text-red-400">
 Sound familiar? 😅
 </div>
+
+<!--
+Speaker: Nikola
+-->
 
 ---
 layout: default
@@ -108,6 +116,10 @@ layout: default
 <h2 class="text-center text-xl">We're stuck in a catch-22! 🔒</h2>
 </div>
 
+<!--
+Speaker: Nikola
+-->
+
 ---
 layout: center
 class: text-center
@@ -130,6 +142,10 @@ class: text-center
 <div v-click="2" class="mt-12 text-2xl text-green-400">
 Today we'll show you how. 🚀
 </div>
+
+<!--
+Speaker: Nikola
+-->
 
 ---
 layout: default
@@ -173,6 +189,10 @@ layout: default
 <strong>But traditional OTel still requires code changes... 🤔</strong>
 </div>
 
+<!--
+Speaker: Tyler
+-->
+
 ---
 layout: center
 ---
@@ -215,6 +235,10 @@ layout: center
 <div v-click="3" class="mt-8 text-center text-xl text-green-400">
 The best of both worlds! 🌟
 </div>
+
+<!--
+Speaker: Tyler
+-->
 
 ---
 layout: default
@@ -265,6 +289,10 @@ layout: default
 </code>
 </div>
 
+<!--
+Speaker: Tyler
+-->
+
 ---
 layout: center
 ---
@@ -276,12 +304,12 @@ layout: center
 <div v-click="1">
 
 ## Our Demo App:
-**Google Online Boutique**
+**Istio Bookinfo Sample**
 <div class="text-left">
 
-🏪 **10 microservices**  
-🌍 **5 programming languages** (Go, Java, Python, C#, Node.js)  
-💳 Real e-commerce workload  
+📚 **4 core microservices** (productpage, details, reviews, ratings)  
+🌍 **4 programming languages** (Python, Ruby, Java, Node.js/Go)  
+� Real book review application  
 🔥 **With simulated problems!**
 
 </div>
@@ -293,7 +321,7 @@ layout: center
 ## Observability Stack:
 <div class="text-left">
 
-🔍 **Jaeger** for distributed tracing  
+🔍 **Grafana LGTM stack** for observability  
 📊 Service topology visualization  
 🎯 **CNCF open-source** tools only  
 📈 Real-time insights
@@ -308,6 +336,10 @@ layout: center
 Let's see it in action! 🚀
 </div>
 
+<!--
+Speaker: Tyler
+-->
+
 ---
 layout: center
 transition: fade
@@ -319,7 +351,7 @@ transition: fade
 
 <div v-click="1" class="space-y-4 text-left">
 
-✅ Online Boutique is **running**  
+✅ Bookinfo application is **running**  
 ⚠️ Users are **reporting issues**  
 📉 Some services showing **problems**  
 ❓ But **what's really wrong?**
@@ -330,6 +362,10 @@ transition: fade
 $ kubectl get pods
 </div>
 
+<!--
+Speaker: Both
+-->
+
 ---
 layout: center
 ---
@@ -339,11 +375,11 @@ layout: center
 <div class="space-y-6">
 
 <div v-click="1" class="text-xl">
-One command deployment:
+Simple deployment script:
 </div>
 
 <div v-click="2" class="bg-gray-900 p-6 rounded-lg font-mono text-lg">
-<span class="text-green-400">$</span> kubectl apply -f obi-installation.yaml
+<span class="text-green-400">$</span> ./obi.sh
 </div>
 
 <div v-click="3" class="grid grid-cols-3 gap-4 mt-8">
@@ -368,6 +404,10 @@ One command deployment:
 Watch the magic happen! ✨
 </div>
 
+<!--
+Speaker: Both
+-->
+
 ---
 layout: center
 ---
@@ -375,7 +415,7 @@ layout: center
 # Immediate Trace Collection 📊
 
 <div v-click="1" class="mb-8 text-xl">
-Switching to Jaeger UI...
+Switching to Grafana observability stack...
 </div>
 
 <div class="grid grid-cols-2 gap-8">
@@ -413,6 +453,10 @@ Switching to Jaeger UI...
 <div v-click="4" class="mt-8 text-center text-lg text-blue-400">
 From zero to observability in seconds! 🚀
 </div>
+
+<!--
+Speaker: Both
+-->
 
 ---
 layout: center
@@ -460,6 +504,10 @@ Auto-generated service topology:
 Instantly understand your architecture! 🏗️
 </div>
 
+<!--
+Speaker: Both
+-->
+
 ---
 layout: center
 ---
@@ -497,6 +545,10 @@ From symptoms to root cause analysis:
 <div v-click="6" class="mt-8 text-center text-lg text-blue-400">
 From chaos to clarity in minutes! ✨
 </div>
+
+<!--
+Speaker: Both
+-->
 
 ---
 layout: center
@@ -546,6 +598,10 @@ eBPF captures what traditional APM misses:
 </div>
 </div>
 
+<!--
+Speaker: Both
+-->
+
 ---
 layout: center
 ---
@@ -563,10 +619,10 @@ What our investigation revealed:
 ## Issues Found:
 <div class="text-left">
 
-🐌 **Slow database queries** in Cart Service  
-🔄 **Inefficient service calls** in Checkout  
-💾 **Memory pressure** in Product Catalog  
-🌐 **External API timeouts** in Currency
+🐌 **Slow database connections** in Ratings Service  
+🔄 **Inefficient review calls** in Reviews Service  
+💾 **Memory pressure** in Details Service  
+🌐 **Network latency** between services
 
 </div>
 
@@ -577,10 +633,10 @@ What our investigation revealed:
 ## Action Items:
 <div class="text-left">
 
-📊 **Optimize database** connections  
-⚡ **Cache expensive** operations  
-🔧 **Tune memory** settings  
-⏱️ **Add circuit breakers** for APIs
+📊 **Optimize database** connection pooling  
+⚡ **Cache book details** responses  
+🔧 **Tune service** resource limits  
+⏱️ **Add retries** for failing calls
 
 </div>
 
@@ -593,6 +649,10 @@ What our investigation revealed:
 <strong>Clear, actionable insights for the team! 🎯</strong>
 </div>
 </div>
+
+<!--
+Speaker: Both
+-->
 
 ---
 layout: default
@@ -622,7 +682,7 @@ layout: default
 ## After OBI: 🎯
 <div class="text-left">
 
-✅ **"Cart Service database pool exhaustion"**  
+✅ **"Ratings Service database connection timeout"**  
 📊 **5 minutes** to root cause  
 🎯 **Specific fix** identified  
 😌 **Confidence** in solution  
@@ -637,6 +697,10 @@ layout: default
 <div v-click="3" class="mt-8 p-4 bg-blue-900 bg-opacity-50 rounded-lg text-center">
 <h2 class="text-2xl">The power of instant observability! 🌟</h2>
 </div>
+
+<!--
+Speaker: Both
+-->
 
 ---
 layout: center
@@ -682,6 +746,10 @@ layout: center
 </div>
 </div>
 
+<!--
+Speaker: Tyler
+-->
+
 ---
 layout: center
 ---
@@ -726,6 +794,10 @@ layout: center
 </div>
 </div>
 
+<!--
+Speaker: Tyler
+-->
+
 ---
 layout: center
 ---
@@ -767,6 +839,10 @@ layout: center
 </div>
 
 </div>
+
+<!--
+Speaker: Tyler
+-->
 
 ---
 layout: center
@@ -837,11 +913,15 @@ layout: center
 
 </div>
 
+<!--
+Speaker: Tyler
+-->
+
 ---
 layout: center
 ---
 
-# Your Next Steps 🚀
+## Your Next Steps 🚀
 
 <div class="space-y-6 mt-8">
 
@@ -856,8 +936,8 @@ layout: center
 </div>
 
 <div v-click="3" class="p-6 bg-gray-800 rounded-lg">
-<h3 class="text-xl font-bold mb-2">🧪 Try It Out</h3>
-<p>Follow our getting started guide and sample configurations</p>
+<h3 class="text-xl font-bold mb-2">🧪 Try the Demo</h3>
+<p>Use our Bookinfo demo setup with Kind cluster and Grafana LGTM stack</p>
 </div>
 
 </div>
@@ -865,6 +945,10 @@ layout: center
 <div v-click="4" class="mt-8 text-center text-xl text-green-400">
 It's easier than you think! ✨
 </div>
+
+<!--
+Speaker: Nikola
+-->
 
 ---
 layout: center
@@ -902,6 +986,10 @@ layout: center
 <strong>We're here to help! 🙌</strong>
 </div>
 </div>
+
+<!--
+Speaker: Nikola
+-->
 
 ---
 layout: end
