@@ -913,23 +913,49 @@ Speaker: Nikola
 layout: center
 ---
 
-## Your Next Steps 🚀
+# Next Steps 🚀
 
-<div class="space-y-6 mt-8">
+<div class="grid grid-cols-3 gap-8 mt-8">
 
-<div v-click="1" class="p-4 bg-gray-800 rounded-lg">
-<h3 class="text-xl font-bold mb-2">📚 Documentation</h3>
+<div v-click="1" >
+
+### 📚 Documentation
+
+<CncfQRCode 
+  value="https://opentelemetry.io/docs/zero-code/obi/" 
+  :width="200"
+  :height="200"
+  :margin="2"
+/>
 <a href="https://opentelemetry.io/docs/zero-code/obi/">opentelemetry.io/docs/zero-code/obi</a>
 </div>
 
-<div v-click="2" class="p-6 bg-gray-800 rounded-lg">
-<h3 class="text-xl font-bold mb-2">💻 GitHub Repository</h3>
-<a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">github.com/open-telemetry/opentelemetry-ebpf-instrumentation</a>
+<div v-click="2">
+
+### 💻 GitHub Repository
+
+<CncfQRCode 
+  value="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation" 
+  :width="200"
+  :height="200"
+  :margin="2"
+/>
+
+<a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">open-telemetry/opentelemetry-ebpf-instrumentation</a>
 </div>
 
-<div v-click="3" class="p-6 bg-gray-800 rounded-lg">
-<h3 class="text-xl font-bold mb-2">🧪 Try the Demo</h3>
-<p>Use our Bookinfo demo setup with Kind cluster and Grafana LGTM stack</p>
+<div v-click="3">
+
+### 🧪 Try the Demo
+
+<CncfQRCode 
+  value="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation" 
+  :width="200"
+  :height="200"
+  :margin="2"
+/>
+
+<a href="https://github.com/MrAlias/kubecon-na-2025">MrAlias/kubecon-na-2025</a>
 </div>
 
 </div>
