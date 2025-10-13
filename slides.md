@@ -29,7 +29,7 @@ Building B | Level 5 | Thomas Murphy Ballroom 4
 </div>
 
 <!--
-Speaker: Both
+Speaker: Tyler (with Nikola introducing himself)
 -->
 
 ---
@@ -71,7 +71,7 @@ Sound familiar? 😅
 </div>
 
 <!--
-Speaker: Nikola
+Speaker: Tyler
 -->
 
 ---
@@ -363,7 +363,7 @@ $ kubectl get pods
 </div>
 
 <!--
-Speaker: Both
+Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
@@ -405,7 +405,7 @@ Watch the magic happen! ✨
 </div>
 
 <!--
-Speaker: Both
+Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
@@ -455,7 +455,7 @@ From zero to observability in seconds! 🚀
 </div>
 
 <!--
-Speaker: Both
+Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
@@ -505,7 +505,7 @@ Instantly understand your architecture! 🏗️
 </div>
 
 <!--
-Speaker: Both
+Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
@@ -547,7 +547,7 @@ From chaos to clarity in minutes! ✨
 </div>
 
 <!--
-Speaker: Both
+Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
@@ -599,7 +599,7 @@ eBPF captures what traditional APM misses:
 </div>
 
 <!--
-Speaker: Both
+Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
@@ -651,7 +651,7 @@ What our investigation revealed:
 </div>
 
 <!--
-Speaker: Both
+Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
@@ -699,7 +699,7 @@ layout: default
 </div>
 
 <!--
-Speaker: Both
+Speaker: T
 -->
 
 ---
@@ -747,7 +747,7 @@ layout: center
 </div>
 
 <!--
-Speaker: Tyler
+Speaker: Nikola
 -->
 
 ---
@@ -914,7 +914,7 @@ layout: center
 </div>
 
 <!--
-Speaker: Tyler
+Speaker: Nikola
 -->
 
 ---
@@ -947,7 +947,7 @@ It's easier than you think! ✨
 </div>
 
 <!--
-Speaker: Nikola
+Speaker: Tyler
 -->
 
 ---
@@ -988,7 +988,7 @@ layout: center
 </div>
 
 <!--
-Speaker: Nikola
+Speaker: Tyler
 -->
 
 ---
