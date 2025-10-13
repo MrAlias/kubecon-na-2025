@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNCF/KubeCon Theme Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #0086FF;
+        }
+        
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #93EAFF;
+        }
+        
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .color-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .color-swatch {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        
+        .color-info {
+            background: #1a1a1a;
+            padding: 1rem;
+        }
+        
+        .color-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .color-values {
+            font-size: 0.9rem;
+            color: #E5E5E5;
+        }
+        
+        .color-values div {
+            margin: 0.25rem 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: #1a1a1a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #0086FF;
+        }
+        
+        .feature-card h3 {
+            color: #0086FF;
+            margin-bottom: 0.75rem;
+        }
+        
+        .feature-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature-card li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .feature-card li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #93EAFF;
+        }
+        
+        .logo-showcase {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: #1a1a1a;
+            border-radius: 8px;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .logo-box {
+            text-align: center;
+        }
+        
+        .logo-box img {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 0.5rem;
+        }
+        
+        .logo-box p {
+            color: #E5E5E5;
+            font-size: 0.9rem;
+        }
+        
+        .typography-example {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .typography-example h1,
+        .typography-example h2,
+        .typography-example h3 {
+            margin-top: 1rem;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #0086FF, #93EAFF);
+            color: #000000;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .cta h2 {
+            color: #000000;
+            margin: 0 0 1rem 0;
+        }
+        
+        .cta button {
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 0.5rem;
+        }
+        
+        .cta button:hover {
+            background: #1a1a1a;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+        }
+        
+        code {
+            background: rgba(0, 134, 255, 0.2);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #93EAFF;
+            color: #000000;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 CNCF/KubeCon Slidev Theme</h1>
+        <p>
+            <span class="badge">Official CNCF Branding</span>
+            <span class="badge">Brand Compliant</span>
+            <span class="badge">Production Ready</span>
+        </p>
+        
+        <h2>Official CNCF Color Palette</h2>
+        <p>Colors from <a href="https://www.cncf.io/brand-guidelines/" style="color: #0086FF;">CNCF Brand Guidelines</a></p>
+        
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background: #0086FF; color: white;">
+                    CNCF Blue
+                </div>
+                <div class="color-info">
+                    <div class="color-name">CNCF Blue</div>
+                    <div class="color-values">
+                        <div><strong>HEX:</strong> #0086FF</div>
+                        <div><strong>RGB:</strong> 0, 134, 255</div>
+                        <div><strong>Usage:</strong> Primary brand color</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-swatch" style="background: #93EAFF; color: black;">
+                    Turquoise
+                </div>
+                <div class="color-info">
+                    <div class="color-name">CNCF Turquoise</div>
+                    <div class="color-values">
+                        <div><strong>HEX:</strong> #93EAFF</div>
+                        <div><strong>RGB:</strong> 147, 234, 255</div>
+                        <div><strong>Usage:</strong> Accent color</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-swatch" style="background: #D62293; color: white;">
+                    Pink
+                </div>
+                <div class="color-info">
+                    <div class="color-name">CNCF Pink</div>
+                    <div class="color-values">
+                        <div><strong>HEX:</strong> #D62293</div>
+                        <div><strong>RGB:</strong> 214, 34, 147</div>
+                        <div><strong>Usage:</strong> Highlight color</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-swatch" style="background: #E5E5E5; color: black;">
+                    Stone
+                </div>
+                <div class="color-info">
+                    <div class="color-name">CNCF Stone</div>
+                    <div class="color-values">
+                        <div><strong>HEX:</strong> #E5E5E5</div>
+                        <div><strong>RGB:</strong> 229, 229, 229</div>
+                        <div><strong>Usage:</strong> Secondary text</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-swatch" style="background: #000000; color: white;">
+                    Black
+                </div>
+                <div class="color-info">
+                    <div class="color-name">CNCF Black</div>
+                    <div class="color-values">
+                        <div><strong>HEX:</strong> #000000</div>
+                        <div><strong>RGB:</strong> 0, 0, 0</div>
+                        <div><strong>Usage:</strong> Text, backgrounds</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="color-card">
+                <div class="color-swatch" style="background: #FFFFFF; color: black; border: 1px solid #E5E5E5;">
+                    Cloud White
+                </div>
+                <div class="color-info">
+                    <div class="color-name">CNCF Cloud White</div>
+                    <div class="color-values">
+                        <div><strong>HEX:</strong> #FFFFFF</div>
+                        <div><strong>RGB:</strong> 255, 255, 255</div>
+                        <div><strong>Usage:</strong> Backgrounds, light text</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h2>Typography - Clarity City</h2>
+        <p>Official CNCF font from VMware's <a href="https://github.com/vmware/clarity-city" style="color: #0086FF;">Clarity City</a></p>
+        
+        <div class="typography-example">
+            <p style="font-size: 3rem; font-weight: 700; color: #0086FF; line-height: 1.2;">
+                Headline Example
+            </p>
+            <p style="font-size: 2rem; font-weight: 700; color: #93EAFF; margin-top: 1rem;">
+                Subheadline Example
+            </p>
+            <p style="font-size: 1.25rem; color: #E5E5E5; margin-top: 1rem;">
+                Body text example using Clarity City Regular. This modern, clean sans-serif font represents CNCF's character with a neutral, bold yet friendly appearance.
+            </p>
+            <p style="font-size: 1rem; color: #E5E5E5; margin-top: 0.5rem;">
+                <code>Code text using monospace fallback</code>
+            </p>
+        </div>
+        
+        <h2>Key Features</h2>
+        
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🎨 Brand Compliant</h3>
+                <ul>
+                    <li>Official CNCF colors</li>
+                    <li>Clarity City typography</li>
+                    <li>Proper logo usage</li>
+                    <li>Style guide adherence</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>📐 Professional Layouts</h3>
+                <ul>
+                    <li>Cover (title slides)</li>
+                    <li>Center (focused content)</li>
+                    <li>Default (standard slides)</li>
+                    <li>End (thank you)</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🎯 Content Safety</h3>
+                <ul>
+                    <li>Safe viewing margins</li>
+                    <li>Responsive typography</li>
+                    <li>Overflow protection</li>
+                    <li>Viewport constraints</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>♿ Accessible</h3>
+                <ul>
+                    <li>WCAG AA contrast</li>
+                    <li>Reduced motion support</li>
+                    <li>Semantic HTML</li>
+                    <li>Screen reader friendly</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>⚡ Performance</h3>
+                <ul>
+                    <li>Optimized fonts</li>
+                    <li>CSS-only animations</li>
+                    <li>SVG logos</li>
+                    <li>Minimal JavaScript</li>
+                </ul>
+            </div>
+            
+            <div class="feature-card">
+                <h3>📝 Style Guide</h3>
+                <ul>
+                    <li>"cloud native" (no hyphen)</li>
+                    <li>"open source" (no hyphen)</li>
+                    <li>Proper capitalization</li>
+                    <li>Writing conventions</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="logo-showcase">
+            <div class="logo-box">
+                <img src="https://raw.githubusercontent.com/cncf/artwork/main/other/cncf/horizontal/color/cncf-color.svg" alt="CNCF Logo">
+                <p>CNCF Logo</p>
+            </div>
+            <div class="logo-box">
+                <img src="https://raw.githubusercontent.com/cncf/artwork/main/other/kubecon-cloudnativecon/2024-kubecon-cloudnativecon-north-america/color/2024-kubecon-na-color.svg" alt="KubeCon Logo">
+                <p>KubeCon + CloudNativeCon</p>
+            </div>
+        </div>
+        
+        <div class="cta">
+            <h2>Ready to Present!</h2>
+            <p style="margin-bottom: 1.5rem; color: #000000;">Your presentation is configured with official CNCF/KubeCon branding</p>
+            <button onclick="alert('Run: npm run dev')">Start Development</button>
+            <button onclick="alert('Run: npm run build')">Build Production</button>
+        </div>
+        
+        <h2>Documentation</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>📖 THEME_SETUP.md</h3>
+                <p>Complete setup and usage guide with examples and best practices</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>⚡ QUICK_REFERENCE.md</h3>
+                <p>Quick reference card for colors, layouts, and components</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>✅ COMPLIANCE.md</h3>
+                <p>Brand compliance checklist ensuring all guidelines are met</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🎯 IMPLEMENTATION_SUMMARY.md</h3>
+                <p>Complete summary of implementation and next steps</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid #1a1a1a; text-align: center; color: #E5E5E5;">
+            <p><strong>Theme Version:</strong> 1.0.0</p>
+            <p><strong>Last Updated:</strong> October 13, 2025</p>
+            <p><strong>Conference:</strong> KubeCon + CloudNativeCon North America 2025</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                "CNCF and the CNCF logo design are registered trademarks of the Cloud Native Computing Foundation."
+            </p>
+        </div>
+    </div>
+</body>
+</html>

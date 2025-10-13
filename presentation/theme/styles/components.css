@@ -1,0 +1,234 @@
+/* CNCF Component Styles */
+
+/* Logo placement and spacing */
+.cncf-logo-container {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  max-width: 150px;
+  /* Ensure clear space around logo as per brand guidelines */
+  padding: 1rem;
+}
+
+.cncf-logo {
+  width: 100%;
+  height: auto;
+}
+
+.kubecon-logo-container {
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  max-width: 200px;
+  padding: 1rem;
+}
+
+/* Footer with logos */
+.slide-footer {
+  position: absolute;
+  bottom: 1rem;
+  left: 3rem;
+  right: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 2px solid var(--cncf-blue);
+}
+
+.slide-footer .logo-small {
+  max-height: 40px;
+  width: auto;
+}
+
+/* Hashtag styling */
+.hashtag {
+  color: var(--cncf-turquoise);
+  font-weight: 700;
+}
+
+/* Click-through areas */
+.clickable {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clickable:hover {
+  transform: scale(1.05);
+  color: var(--cncf-turquoise);
+}
+
+/* v-click animations */
+.slidev-vclick-target {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slidev-vclick-fade {
+  transition: opacity 0.5s ease;
+}
+
+/* Background cards/boxes - Dark mode */
+.dark .info-box {
+  background: rgba(0, 134, 255, 0.15);
+  border-left: 4px solid var(--cncf-blue);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  color: var(--cncf-turquoise);
+}
+
+.dark .warning-box {
+  background: rgba(214, 34, 147, 0.15);
+  border-left: 4px solid var(--cncf-pink);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  color: #ffb3d9;
+}
+
+.dark .success-box {
+  background: rgba(147, 234, 255, 0.15);
+  border-left: 4px solid var(--cncf-turquoise);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  color: var(--cncf-turquoise);
+}
+
+/* Background cards/boxes - Light mode */
+.light .info-box {
+  background: rgba(0, 134, 255, 0.08);
+  border-left: 4px solid var(--cncf-blue);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  color: #005bcc;
+}
+
+.light .warning-box {
+  background: rgba(214, 34, 147, 0.08);
+  border-left: 4px solid var(--cncf-pink);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  color: #b01e75;
+}
+
+.light .success-box {
+  background: rgba(0, 134, 255, 0.06);
+  border-left: 4px solid var(--cncf-blue);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  color: #005bcc;
+}
+
+/* Grid layouts */
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.three-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+/* Emoji styling (ensuring they don't break layout) */
+.emoji {
+  display: inline-block;
+  font-style: normal;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+/* Button styles */
+.cncf-button {
+  background: var(--cncf-blue);
+  color: var(--cncf-cloud-white);
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.cncf-button:hover {
+  background: var(--cncf-turquoise);
+  color: var(--cncf-black);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 134, 255, 0.3);
+}
+
+.cncf-button-secondary {
+  background: transparent;
+  color: var(--cncf-blue);
+  border: 2px solid var(--cncf-blue);
+}
+
+.cncf-button-secondary:hover {
+  background: var(--cncf-blue);
+  color: var(--cncf-cloud-white);
+}
+
+/* Presentation metadata */
+.presentation-meta {
+  font-size: 0.9rem;
+  color: var(--cncf-stone);
+  margin-top: 1rem;
+}
+
+/* Code highlighting adjustments - Dark mode */
+.dark .shiki {
+  background: rgba(0, 0, 0, 0.8) !important;
+  padding: 1.5rem !important;
+  border-radius: 8px !important;
+  overflow-x: auto !important;
+  max-width: 100% !important;
+}
+
+/* Code highlighting adjustments - Light mode */
+.light .shiki {
+  background: rgba(229, 229, 229, 0.5) !important;
+  padding: 1.5rem !important;
+  border-radius: 8px !important;
+  overflow-x: auto !important;
+  max-width: 100% !important;
+}
+
+/* Ensure images don't overflow */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Speaker notes indicator - Dark mode */
+.dark .slidev-note {
+  border-left: 4px solid var(--cncf-pink);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: var(--cncf-stone);
+}
+
+/* Speaker notes indicator - Light mode */
+.light .slidev-note {
+  border-left: 4px solid var(--cncf-pink);
+  padding-left: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.6);
+}

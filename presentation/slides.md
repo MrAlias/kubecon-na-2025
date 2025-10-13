@@ -1,32 +1,24 @@
 ---
-theme: default
-background: https://source.unsplash.com/1920x1080/?kubernetes,server,fire
-class: text-center
+theme: ./theme
+layout: cover
 highlighter: shiki
 lineNumbers: false
 info: |
   ## Debugging Your Cluster When It's on Fire
-  KubeCon NA 2025 - Nikola Grcevski & Tyler Yahn
+  KubeCon + CloudNativeCon NA 2025 - Nikola Grcevski & Tyler Yahn
 drawings:
   persist: false
-transition: slide-left
 title: Debugging Your Cluster When It's on Fire
 colorSchema: dark
+fonts:
+  sans: 'Clarity City'
+  serif: 'Clarity City'
+  mono: 'Fira Code'
 ---
 
 # Debugging Your Cluster When It's on Fire 🔥
 
-**Presenters:** Nikola Grcevski, Grafana Labs & Tyler Yahn, Splunk
-
-**KubeCon NA 2025**  
-Wednesday November 12, 2025 | 4:00pm - 4:25pm EST  
-Building B | Level 5 | Thomas Murphy Ballroom 4
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Let's begin <carbon:arrow-right class="inline"/>
-  </span>
-</div>
+Nikola Grcevski, Grafana Labs & Tyler Yahn, Splunk
 
 <!--
 Speaker: Tyler (with Nikola introducing himself)
@@ -859,7 +851,7 @@ layout: center
 
 🔬 **Fine-grained capabilities** instead of root  
 🛡️ **Unprivileged deployment** options  
-📋 **Linux capability controls** (CAP_BPF, CAP_PERFMON, etc.)  
+📋 **Capability controls** (CAP_BPF, CAP_PERFMON, etc.)  
 🧩 **No kernel modules** required  
 
 </div>
@@ -925,7 +917,7 @@ layout: center
 
 <div class="space-y-6 mt-8">
 
-<div v-click="1" class="p-6 bg-gray-800 rounded-lg">
+<div v-click="1" class="p-4 bg-gray-800 rounded-lg">
 <h3 class="text-xl font-bold mb-2">📚 Documentation</h3>
 <a href="https://opentelemetry.io/docs/zero-code/obi/">opentelemetry.io/docs/zero-code/obi</a>
 </div>
@@ -940,10 +932,6 @@ layout: center
 <p>Use our Bookinfo demo setup with Kind cluster and Grafana LGTM stack</p>
 </div>
 
-</div>
-
-<div v-click="4" class="mt-8 text-center text-xl text-green-400">
-It's easier than you think! ✨
 </div>
 
 <!--
@@ -1017,10 +1005,6 @@ class: text-center
 <div class="mt-12 space-y-4">
 <div class="text-xl">🤔 <strong>Questions?</strong> Find us in the hallway track!</div>
 <div class="text-lg">🧪 <strong>Try OBI:</strong> <a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">github.com/open-telemetry/opentelemetry-ebpf-instrumentation</a></div>
-</div>
-
-<div class="mt-8 text-2xl">
-🔥 → 📊 → 🎯 → 🚀
 </div>
 
 ---
