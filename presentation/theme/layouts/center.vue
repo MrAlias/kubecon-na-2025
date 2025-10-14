@@ -34,9 +34,9 @@ const { $slidev } = useSlideContext()
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  padding: 3rem 4rem;
+  padding: 3rem 4rem 2rem 4rem;
   max-width: 100%;
   box-sizing: border-box;
 }
@@ -45,6 +45,8 @@ const { $slidev } = useSlideContext()
   color: #0086FF;
   margin-bottom: 2rem;
   text-align: center;
+  align-self: flex-start;
+  width: 100%;
 }
 
 .center-content :deep(h2) {
