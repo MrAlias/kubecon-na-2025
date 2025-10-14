@@ -6,22 +6,6 @@ const { $slidev } = useSlideContext()
 
 <template>
   <div class="slidev-layout cncf-default">
-    <!-- CNCF Logo in corner -->
-    <div class="cncf-logo-container">
-      <!-- Dark mode logo -->
-      <img 
-        src="https://raw.githubusercontent.com/cncf/artwork/main/other/cncf/icon/white/cncf-icon-white.svg" 
-        alt="CNCF" 
-        class="cncf-logo dark-logo"
-      />
-      <!-- Light mode logo -->
-      <img 
-        src="https://raw.githubusercontent.com/cncf/artwork/main/other/cncf/icon/color/cncf-icon-color.svg" 
-        alt="CNCF" 
-        class="cncf-logo light-logo"
-      />
-    </div>
-    
     <!-- Main content -->
     <div class="default-content">
       <slot />
@@ -44,45 +28,6 @@ const { $slidev } = useSlideContext()
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-
-.cncf-logo-container {
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
-  width: 60px;
-  z-index: 10;
-}
-
-.cncf-logo {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Logo visibility control */
-.dark-logo {
-  display: none;
-}
-
-.light-logo {
-  display: block;
-}
-
-.dark .dark-logo {
-  display: block;
-}
-
-.dark .light-logo {
-  display: none;
-}
-
-.light .dark-logo {
-  display: none;
-}
-
-.light .light-logo {
-  display: block;
 }
 
 .default-content {
