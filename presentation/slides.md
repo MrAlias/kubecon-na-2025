@@ -1044,34 +1044,3 @@ class: text-center
 <div class="text-xl">🤔 <strong>Questions?</strong> Find us in the hallway track!</div>
 <div class="text-lg">🧪 <strong>Try OBI:</strong> <a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">github.com/open-telemetry/opentelemetry-ebpf-instrumentation</a></div>
 </div>
-
----
-layout: center
-class: text-center
----
-
-# Bonus: Key Takeaways 📝
-
-<div v-click="1" class="space-y-6 mt-8">
-
-<div class="p-4 bg-green-900 bg-opacity-50 rounded-lg">
-<strong>⚡ Instant Observability:</strong> OBI provides immediate insights without downtime
-</div>
-
-<div v-click="2" class="p-4 bg-blue-900 bg-opacity-50 rounded-lg">
-<strong>🛡️ Production Safe:</strong> Designed for critical environments with minimal overhead
-</div>
-
-<div v-click="3" class="p-4 bg-purple-900 bg-opacity-50 rounded-lg">
-<strong>🎯 Beginner Friendly:</strong> Start your OpenTelemetry journey without deep expertise
-</div>
-
-<div v-click="4" class="p-4 bg-orange-900 bg-opacity-50 rounded-lg">
-<strong>📊 Actionable Insights:</strong> From "something's wrong" to "here's exactly what to fix"
-</div>
-
-<div v-click="5" class="p-4 bg-gray-700 rounded-lg">
-<strong>🤝 Open Source:</strong> Built on CNCF projects with strong community support
-</div>
-
-</div>
