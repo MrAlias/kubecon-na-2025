@@ -236,7 +236,7 @@ Speaker: Tyler
 layout: default
 ---
 
-# Introducing <span class="text-green-400">O</span>penTelemetry e<span class="text-green-400">B</span>PF <span class="text-green-400">I</span>nstrumentation 🎉
+# Introducing <span class="text-green-400 text-[1em]">O</span>penTelemetry e<span class="text-green-400 text-[1em]">B</span>PF <span class="text-green-400 text-[1em]">I</span>nstrumentation 🎉
 
 <div class="text-center mb-8">
 </div>
@@ -796,37 +796,49 @@ layout: center
 
 # Gradual Rollout Strategy 📈
 
-<div class="space-y-6 mt-8">
+<div class="space-y-4 mt-8">
 
 <div v-click="1" class="flex items-center space-x-6">
 <div class="text-4xl">🎯</div>
 <div class="flex-1">
-<h3 class="text-xl font-bold">Namespace-level targeting</h3>
-<p class="text-gray-300">Start with dev/staging environments</p>
+
+### Namespace-level targeting
+
+Start with dev/staging environments
+
 </div>
 </div>
 
 <div v-click="2" class="flex items-center space-x-6">
 <div class="text-4xl">🔧</div>
 <div class="flex-1">
-<h3 class="text-xl font-bold">Selective service instrumentation</h3>
-<p class="text-gray-300">Choose specific services to monitor</p>
+
+### Selective service instrumentation
+
+Choose specific services to monitor
+
 </div>
 </div>
 
 <div v-click="3" class="flex items-center space-x-6">
 <div class="text-4xl">⚙️</div>
 <div class="flex-1">
-<h3 class="text-xl font-bold">Granular configuration controls</h3>
-<p class="text-gray-300">Fine-tune what data is collected</p>
+
+### Granular configuration controls
+
+Fine-tune what data is collected
+
 </div>
 </div>
 
 <div v-click="4" class="flex items-center space-x-6">
 <div class="text-4xl">🔄</div>
 <div class="flex-1">
-<h3 class="text-xl font-bold">Easy disable/enable</h3>
-<p class="text-gray-300">Turn off instantly if needed</p>
+
+### Easy disable/enable
+
+Turn off instantly if needed
+
 </div>
 </div>
 
