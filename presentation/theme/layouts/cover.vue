@@ -1,5 +1,83 @@
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import QRCodeStyling from 'qr-code-styling'
+
+const qrCodeContainer = ref<HTMLElement>()
+
+onMounted(() => {
+  if (qrCodeContainer.value) {
+    const isDark = document.documentElement.classList.contains('dark')
+    
+    const qrCode = new QRCodeStyling({
+      width: 120,
+      height: 120,
+      data: 'https://mralias.github.io/kubecon-na-2025',
+      margin: 0,
+      qrOptions: {
+        typeNumber: 0,
+        mode: 'Byte',
+        errorCorrectionLevel: 'M'
+      },
+      imageOptions: {
+        hideBackgroundDots: true,
+        imageSize: 0.4,
+        margin: 0
+      },
+      dotsOptions: {
+        type: 'rounded',
+        color: isDark ? '#ffffff' : '#000000'
+      },
+      backgroundOptions: {
+        color: 'transparent'
+      },
+      cornersSquareOptions: {
+        type: 'extra-rounded',
+        color: isDark ? '#ffffff' : '#000000'
+      },
+      cornersDotOptions: {
+        type: 'dot',
+        color: isDark ? '#ffffff' : '#000000'
+      }
+    })
+    
+    qrCode.append(qrCodeContainer.value)
+    
+    // Watch for theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          const isDark = document.documentElement.classList.contains('dark')
+          qrCode.update({
+            dotsOptions: {
+              type: 'rounded',
+              color: isDark ? '#ffffff' : '#000000'
+            },
+            cornersSquareOptions: {
+              type: 'extra-rounded',
+              color: isDark ? '#ffffff' : '#000000'
+            },
+            cornersDotOptions: {
+              type: 'dot',
+              color: isDark ? '#ffffff' : '#000000'
+            }
+          })
+        }
+      })
+    })
+    
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    })
+  }
+})
+</script>
+
 <template>
   <div class="slidev-layout cncf-cover">
+    <!-- QR Code in top right -->
+    <div class="qr-code-container" ref="qrCodeContainer"></div>
+    
     <!-- Header with KubeCon Logo -->
     <div class="cover-header">
       <!-- Dark mode logo -->
@@ -51,6 +129,17 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  position: relative;
+}
+
+/* QR Code positioning */
+.qr-code-container {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  z-index: 10;
+  width: 120px;
+  height: 120px;
 }
 
 /* Header - fixed height for logo */
