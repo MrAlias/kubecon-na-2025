@@ -930,7 +930,7 @@ layout: default
 
 <div>
 
-### 📚 <a href="https://opentelemetry.io/docs/zero-code/obi/">Documentation</a>
+### 📚 <a href="https://opentelemetry.io/docs/zero-code/obi/">Docs</a>
 
 <CncfQRCode 
   value="https://opentelemetry.io/docs/zero-code/obi/" 
