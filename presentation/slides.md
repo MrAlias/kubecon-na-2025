@@ -961,7 +961,7 @@ layout: center
 ### 🧪 Try the Demo
 
 <CncfQRCode 
-  value="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation" 
+  value="https://github.com/MrAlias/kubecon-na-2025" 
   :width="200"
   :height="200"
   :margin="2"
