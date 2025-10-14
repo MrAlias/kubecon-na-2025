@@ -75,10 +75,9 @@ layout: default
 
 <div class="grid grid-cols-2 gap-8 mt-8">
 
-<div v-click="1">
+<div>
 
 ## Adding Observability:
-<div class="text-left">
 
 ✏️ Code changes  
 🧪 Testing  
@@ -87,12 +86,9 @@ layout: default
 
 </div>
 
-</div>
-
-<div v-click="2">
+<div>
 
 ## During an Incident:
-<div class="text-left">
 
 ❌ Can't restart services  
 ❌ Can't deploy changes  
@@ -103,10 +99,12 @@ layout: default
 
 </div>
 
-</div>
+<div v-click="1" class="mt-8 flex justify-center items-center">
+  <div class="px-8 py-4 bg-red-900 bg-opacity-50 rounded-lg text-center inline-block">
 
-<div v-click="3" class="mt-12 p-4 bg-red-900 bg-opacity-50 rounded-lg">
-<h2 class="text-center text-xl">We're stuck in a catch-22! 🔒</h2>
+### We're stuck in a catch-22! 🔒
+
+  </div>
 </div>
 
 <!--
