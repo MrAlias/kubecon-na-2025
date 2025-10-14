@@ -28,8 +28,7 @@ Speaker: Tyler (with Nikola introducing himself)
 -->
 
 ---
-layout: center
-class: text-center
+layout: default
 ---
 
 # The 3 AM Page 📞
@@ -61,7 +60,7 @@ class: text-center
 
 </div>
 
-<div v-click="1" class="mt-8 text-xl text-red-400">
+<div v-click="1" class="mt-8 text-xl text-red-400 text-center">
 Sound familiar? 😅
 </div>
 
@@ -114,13 +113,12 @@ Speaker: Nikola
 -->
 
 ---
-layout: center
-class: text-center
+layout: default
 ---
 
 # What if we could instrument instantly? ⚡
 
-<div v-click="1" class="mt-8 space-y-4">
+<div>
 
 ## Imagine 🤔💭
 
@@ -132,7 +130,7 @@ class: text-center
 
 </div>
 
-<div v-click="2" class="mt-12 text-2xl text-green-400">
+<div v-click="1" class="mt-12 text-2xl text-green-400">
 Today we'll show you how. 🚀
 </div>
 
@@ -187,7 +185,7 @@ Speaker: Tyler
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # The eBPF Advantage 🚀
@@ -287,7 +285,7 @@ Speaker: Tyler
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # Demo Setup Preview 🎬
@@ -360,7 +358,7 @@ Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # Deploy OBI in 30 Seconds ⚡
@@ -402,7 +400,7 @@ Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # Immediate Trace Collection 📊
@@ -452,7 +450,7 @@ Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # Service Map Visualization 🗺️
@@ -502,7 +500,7 @@ Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # Drilling Down: Finding Root Cause 🔍
@@ -544,7 +542,7 @@ Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # Network-Level Insights 🌐
@@ -596,7 +594,7 @@ Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # Performance Optimization Opportunities 🚀
@@ -696,7 +694,7 @@ Speaker: T
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # Production-Safe by Design 🛡️
@@ -744,7 +742,7 @@ Speaker: Nikola
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # No Application Changes Required 🚫
@@ -850,7 +848,7 @@ Speaker: Tyler
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # Enterprise Considerations 🏢
@@ -923,7 +921,7 @@ Speaker: Nikola
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # Next Steps 🚀
@@ -978,7 +976,7 @@ Speaker: Tyler
 -->
 
 ---
-layout: center
+layout: default
 ---
 
 # Join the Community 🤝
