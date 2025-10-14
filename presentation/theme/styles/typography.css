@@ -1,0 +1,118 @@
+/* CNCF Typography Styles */
+/* Using Clarity City as per brand guidelines */
+
+body, .slidev-layout {
+  font-family: 'Clarity City', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Headlines - Clarity City Bold */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Clarity City', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--cncf-blue);
+}
+
+.dark h1, .dark h2, .dark h3, 
+.dark h4, .dark h5, .dark h6 {
+  color: var(--cncf-cloud-white);
+}
+
+/* Specific heading sizes with responsive scaling */
+h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 3vw, 1.875rem);
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+}
+
+/* Body copy - Clarity City Regular */
+p, li, span, div {
+  font-family: 'Clarity City', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+}
+
+/* Strong/bold text */
+strong, b {
+  font-weight: 700;
+}
+
+/* Links */
+a {
+  color: var(--cncf-blue);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--cncf-turquoise);
+  text-decoration: underline;
+}
+
+.dark a {
+  color: var(--cncf-turquoise);
+}
+
+.dark a:hover {
+  color: var(--cncf-blue);
+}
+
+/* Code blocks */
+code {
+  font-family: 'Fira Code', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  background: rgba(0, 134, 255, 0.1);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre code {
+  display: block;
+  padding: 1rem;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--cncf-blue);
+  padding-left: 1.5rem;
+  margin-left: 0;
+  font-style: italic;
+  color: var(--cncf-stone);
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* Ensure text remains legible at all sizes */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  p, li { font-size: 1rem; }
+}

@@ -1,0 +1,255 @@
+/* CNCF/KubeCon Slidev Theme */
+/* Main stylesheet importing all components */
+
+/* Import fonts first */
+@import './fonts.css';
+
+/* Import color variables */
+@import './cncf-colors.css';
+
+/* Import typography */
+@import './typography.css';
+
+/* Import layout */
+@import './layout.css';
+
+/* Import components */
+@import './components.css';
+
+/* Global resets and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark mode background with subtle animation */
+body.dark {
+  background: linear-gradient(135deg, #0a0f1a 0%, #0d1421 25%, #0a0f1a 50%, #0f1825 75%, #0a0f1a 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 30s ease infinite;
+  color: var(--slidev-theme-text, #ffffff);
+  overflow: hidden;
+}
+
+/* Light mode background with subtle CNCF stone tint */
+body.light {
+  background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 25%, #f5f5f5 50%, #fafafa 75%, #f8f8f8 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 30s ease infinite;
+  color: var(--slidev-theme-text, #000000);
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Slidev specific overrides */
+.slidev-layout {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: var(--slidev-theme-text);
+}
+
+/* Slide transitions */
+.slidev-page {
+  background: transparent;
+}
+
+/* Navigation hints - adapt to color scheme */
+.dark .slidev-nav-btn {
+  color: var(--cncf-blue) !important;
+}
+
+.dark .slidev-nav-btn:hover {
+  color: var(--cncf-turquoise) !important;
+}
+
+.light .slidev-nav-btn {
+  color: var(--cncf-blue) !important;
+}
+
+.light .slidev-nav-btn:hover {
+  color: var(--cncf-pink) !important;
+}
+
+/* Page number styling */
+.dark .slidev-page-number {
+  color: var(--cncf-stone);
+  font-weight: 500;
+}
+
+.light .slidev-page-number {
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+}
+
+/* Progress bar */
+.slidev-progress-bar {
+  background: var(--cncf-blue) !important;
+}
+
+/* Slide content wrapper to ensure safe margins */
+.slidev-layout > * {
+  max-width: 100%;
+  overflow: visible;
+}
+
+/* Dark mode specific adjustments */
+.dark .slidev-layout {
+  background: transparent;
+  color: #ffffff;
+}
+
+.dark .info-box {
+  background: rgba(0, 134, 255, 0.15);
+  border-left: 4px solid var(--cncf-blue);
+  color: var(--cncf-turquoise);
+}
+
+.dark .warning-box {
+  background: rgba(214, 34, 147, 0.15);
+  border-left: 4px solid var(--cncf-pink);
+  color: #ffb3d9;
+}
+
+.dark .success-box {
+  background: rgba(147, 234, 255, 0.15);
+  border-left: 4px solid var(--cncf-turquoise);
+  color: var(--cncf-turquoise);
+}
+
+.dark a {
+  color: var(--cncf-turquoise);
+}
+
+.dark a:hover {
+  color: var(--cncf-blue);
+}
+
+.dark code {
+  background-color: rgba(0, 134, 255, 0.1);
+  color: var(--cncf-turquoise);
+}
+
+.dark pre {
+  background-color: rgba(10, 15, 26, 0.6);
+  border-left: 3px solid var(--cncf-blue);
+}
+
+.dark pre code {
+  color: #e5e5e5;
+}
+
+/* Light mode specific adjustments */
+.light .slidev-layout {
+  background: transparent;
+  color: #000000;
+}
+
+.light .info-box {
+  background: rgba(0, 134, 255, 0.08);
+  border-left: 4px solid var(--cncf-blue);
+  color: #005bcc;
+}
+
+.light .warning-box {
+  background: rgba(214, 34, 147, 0.08);
+  border-left: 4px solid var(--cncf-pink);
+  color: #b01e75;
+}
+
+.light .success-box {
+  background: rgba(0, 134, 255, 0.06);
+  border-left: 4px solid var(--cncf-blue);
+  color: #005bcc;
+}
+
+.light a {
+  color: var(--cncf-blue);
+}
+
+.light a:hover {
+  color: var(--cncf-pink);
+}
+
+.light code {
+  background-color: rgba(0, 134, 255, 0.08);
+  color: #005bcc;
+}
+
+.light pre {
+  background-color: rgba(229, 229, 229, 0.4);
+  border-left: 3px solid var(--cncf-blue);
+}
+
+.light pre code {
+  color: #1a1a1a;
+}
+
+/* Ensure proper contrast in both modes */
+.dark h1, .dark h2, .dark h3 {
+  color: #ffffff;
+}
+
+.light h1, .light h2, .light h3 {
+  color: #000000;
+}
+
+.dark p, .dark li {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.light p, .light li {
+  color: rgba(0, 0, 0, 0.87);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .slidev-layout {
+    padding: 1cm;
+  }
+  
+  .cncf-logo-container,
+  .kubecon-logo-container,
+  .slide-footer {
+    position: relative;
+  }
+}
+
+/* Ensure content stays within viewport */
+@media (max-height: 600px) {
+  .slidev-layout {
+    padding: 1rem 2rem;
+  }
+  
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.25rem; }
+  p, li { font-size: 0.95rem; }
+}

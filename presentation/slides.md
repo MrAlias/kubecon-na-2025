@@ -1,32 +1,24 @@
 ---
-theme: default
-background: https://source.unsplash.com/1920x1080/?kubernetes,server,fire
-class: text-center
+theme: ./theme
+layout: cover
 highlighter: shiki
 lineNumbers: false
 info: |
   ## Debugging Your Cluster When It's on Fire
-  KubeCon NA 2025 - Nikola Grcevski & Tyler Yahn
+  KubeCon + CloudNativeCon NA 2025 - Nikola Grcevski & Tyler Yahn
 drawings:
   persist: false
-transition: slide-left
 title: Debugging Your Cluster When It's on Fire
 colorSchema: dark
+fonts:
+  sans: 'Clarity City'
+  serif: 'Clarity City'
+  mono: 'Fira Code'
 ---
 
 # Debugging Your Cluster When It's on Fire 🔥
 
-**Presenters:** Nikola Grcevski, Grafana Labs & Tyler Yahn, Splunk
-
-**KubeCon NA 2025**  
-Wednesday November 12, 2025 | 4:00pm - 4:25pm EST  
-Building B | Level 5 | Thomas Murphy Ballroom 4
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Let's begin <carbon:arrow-right class="inline"/>
-  </span>
-</div>
+Nikola Grcevski, Grafana Labs & Tyler Yahn, Splunk
 
 <!--
 Speaker: Tyler (with Nikola introducing himself)
@@ -244,7 +236,7 @@ Speaker: Tyler
 layout: default
 ---
 
-# Introducing <span class="text-green-400">O</span>penTelemetry e<span class="text-green-400">B</span>PF <span class="text-green-400">I</span>nstrumentation 🎉
+# Introducing <span class="text-green-400 text-[1em]">O</span>penTelemetry e<span class="text-green-400 text-[1em]">B</span>PF <span class="text-green-400 text-[1em]">I</span>nstrumentation 🎉
 
 <div class="text-center mb-8">
 </div>
@@ -804,37 +796,49 @@ layout: center
 
 # Gradual Rollout Strategy 📈
 
-<div class="space-y-6 mt-8">
+<div class="space-y-4 mt-8">
 
 <div v-click="1" class="flex items-center space-x-6">
 <div class="text-4xl">🎯</div>
 <div class="flex-1">
-<h3 class="text-xl font-bold">Namespace-level targeting</h3>
-<p class="text-gray-300">Start with dev/staging environments</p>
+
+### Namespace-level targeting
+
+Start with dev/staging environments
+
 </div>
 </div>
 
 <div v-click="2" class="flex items-center space-x-6">
 <div class="text-4xl">🔧</div>
 <div class="flex-1">
-<h3 class="text-xl font-bold">Selective service instrumentation</h3>
-<p class="text-gray-300">Choose specific services to monitor</p>
+
+### Selective service instrumentation
+
+Choose specific services to monitor
+
 </div>
 </div>
 
 <div v-click="3" class="flex items-center space-x-6">
 <div class="text-4xl">⚙️</div>
 <div class="flex-1">
-<h3 class="text-xl font-bold">Granular configuration controls</h3>
-<p class="text-gray-300">Fine-tune what data is collected</p>
+
+### Granular configuration controls
+
+Fine-tune what data is collected
+
 </div>
 </div>
 
 <div v-click="4" class="flex items-center space-x-6">
 <div class="text-4xl">🔄</div>
 <div class="flex-1">
-<h3 class="text-xl font-bold">Easy disable/enable</h3>
-<p class="text-gray-300">Turn off instantly if needed</p>
+
+### Easy disable/enable
+
+Turn off instantly if needed
+
 </div>
 </div>
 
@@ -859,7 +863,7 @@ layout: center
 
 🔬 **Fine-grained capabilities** instead of root  
 🛡️ **Unprivileged deployment** options  
-📋 **Linux capability controls** (CAP_BPF, CAP_PERFMON, etc.)  
+📋 **Capability controls** (CAP_BPF, CAP_PERFMON, etc.)  
 🧩 **No kernel modules** required  
 
 </div>
@@ -921,29 +925,51 @@ Speaker: Nikola
 layout: center
 ---
 
-## Your Next Steps 🚀
+# Next Steps 🚀
 
-<div class="space-y-6 mt-8">
+<div class="grid grid-cols-3 gap-8 mt-8">
 
-<div v-click="1" class="p-6 bg-gray-800 rounded-lg">
-<h3 class="text-xl font-bold mb-2">📚 Documentation</h3>
+<div v-click="1" >
+
+### 📚 Documentation
+
+<CncfQRCode 
+  value="https://opentelemetry.io/docs/zero-code/obi/" 
+  :width="200"
+  :height="200"
+  :margin="2"
+/>
 <a href="https://opentelemetry.io/docs/zero-code/obi/">opentelemetry.io/docs/zero-code/obi</a>
 </div>
 
-<div v-click="2" class="p-6 bg-gray-800 rounded-lg">
-<h3 class="text-xl font-bold mb-2">💻 GitHub Repository</h3>
-<a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">github.com/open-telemetry/opentelemetry-ebpf-instrumentation</a>
+<div v-click="2">
+
+### 💻 GitHub Repository
+
+<CncfQRCode 
+  value="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation" 
+  :width="200"
+  :height="200"
+  :margin="2"
+/>
+
+<a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">open-telemetry/opentelemetry-ebpf-instrumentation</a>
 </div>
 
-<div v-click="3" class="p-6 bg-gray-800 rounded-lg">
-<h3 class="text-xl font-bold mb-2">🧪 Try the Demo</h3>
-<p>Use our Bookinfo demo setup with Kind cluster and Grafana LGTM stack</p>
+<div v-click="3">
+
+### 🧪 Try the Demo
+
+<CncfQRCode 
+  value="https://github.com/MrAlias/kubecon-na-2025" 
+  :width="200"
+  :height="200"
+  :margin="2"
+/>
+
+<a href="https://github.com/MrAlias/kubecon-na-2025">MrAlias/kubecon-na-2025</a>
 </div>
 
-</div>
-
-<div v-click="4" class="mt-8 text-center text-xl text-green-400">
-It's easier than you think! ✨
 </div>
 
 <!--
@@ -1017,10 +1043,6 @@ class: text-center
 <div class="mt-12 space-y-4">
 <div class="text-xl">🤔 <strong>Questions?</strong> Find us in the hallway track!</div>
 <div class="text-lg">🧪 <strong>Try OBI:</strong> <a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">github.com/open-telemetry/opentelemetry-ebpf-instrumentation</a></div>
-</div>
-
-<div class="mt-8 text-2xl">
-🔥 → 📊 → 🎯 → 🚀
 </div>
 
 ---

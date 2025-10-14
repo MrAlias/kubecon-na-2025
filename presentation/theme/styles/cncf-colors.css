@@ -1,0 +1,37 @@
+/* CNCF Official Brand Colors */
+/* Source: https://www.cncf.io/brand-guidelines/ */
+
+:root {
+  /* Primary Colors */
+  --cncf-blue: #0086FF;
+  --cncf-blue-rgb: 0, 134, 255;
+  --cncf-black: #000000;
+  --cncf-black-rgb: 0, 0, 0;
+  
+  /* Secondary Colors */
+  --cncf-turquoise: #93EAFF;
+  --cncf-turquoise-rgb: 147, 234, 255;
+  --cncf-pink: #D62293;
+  --cncf-pink-rgb: 214, 34, 147;
+  --cncf-stone: #E5E5E5;
+  --cncf-stone-rgb: 229, 229, 229;
+  --cncf-cloud-white: #FFFFFF;
+  --cncf-cloud-white-rgb: 255, 255, 255;
+  
+  /* Semantic Mappings for Slidev */
+  --slidev-theme-primary: var(--cncf-blue);
+  --slidev-theme-accent: var(--cncf-turquoise);
+  --slidev-theme-highlight: var(--cncf-pink);
+}
+
+/* Dark mode adjustments */
+.dark {
+  --slidev-theme-background: #0a0a0a;
+  --slidev-theme-text: var(--cncf-cloud-white);
+}
+
+/* Light mode adjustments */
+.light {
+  --slidev-theme-background: var(--cncf-cloud-white);
+  --slidev-theme-text: var(--cncf-black);
+}
