@@ -142,33 +142,33 @@ Speaker: Nikola
 layout: default
 ---
 
-# OpenTelemetry in 60 Seconds
+# <img src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/projects/opentelemetry/icon/color/opentelemetry-icon-color.svg" alt="OpenTelemetry" style="display: inline-block; height: 1em; vertical-align: middle; margin-right: 0.3em;" /><span style="color: #f5a800; font-size: inherit;">Open</span><span style="color: #425cc7; font-size: inherit;">Telemetry</span> in 60 Seconds
 
 <div class="grid grid-cols-2 gap-8 mt-8">
 
-<div v-click="1">
+<div>
 
-## What is OpenTelemetry?
+## What?
 <div class="text-left">
 
-📈 Observability data standard (traces, metrics, logs)  
-🏆 **CNCF Graduated Project**  
-🌐 Vendor-neutral telemetry collection  
-🔧 Works with any backend
+🧰 Observability toolkit  
+🏆 **CNCF Incubating Project**  
+🌐 Vendor-agnostic  
+🔧 Works with most backends
 
 </div>
 
 </div>
 
-<div v-click="2">
+<div>
 
-## Why does it matter?
+## Why?
 <div class="text-left">
 
 ⭐ Industry standard for observability  
 🔓 No vendor lock-in  
 🌍 Rich ecosystem and community support  
-🎯 One SDK to rule them all
+💍 One API to rule them all
 
 </div>
 
@@ -176,12 +176,23 @@ layout: default
 
 </div>
 
-<div v-click="3" class="mt-8 p-4 bg-blue-900 bg-opacity-50 rounded-lg">
+<div v-click="1" class="mt-8 p-4 bg-blue-900 bg-opacity-50 rounded-lg">
 <strong>But traditional OTel still requires code changes... 🤔</strong>
 </div>
 
 <!--
 Speaker: Tyler
+
+* Open-source, vendor-agnostic project that provides APIs, SDKs, and other tools to help you add observability to your applications.
+* It used to be the case, that if you wanted to add observability to your application, you needed to take a dependency on a vendor’s agent or instrumentation packages.
+* This vendor dependency locked you into that relationship
+  * Required large code change to switch
+* OpenTelemetry prevents this vendor lock in
+  * Instrument once with the OpenTelemetry APIs and be compatible with most OSS observability platforms and OpenTelemetry vendor ecosystem
+* This high degree of compatibility comes from the rich set of tooling and SDKs OpenTelemetry provides
+  * These components allow for the custom processing and exporting of the telemetry data
+* Preventing vendor lock-in and interoperability is a big part of OpenTelemetry, but not the only ones
+  * Generating large amounts of data is only useful if you can interpret this data.
 -->
 
 ---
