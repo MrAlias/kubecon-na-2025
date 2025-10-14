@@ -926,11 +926,11 @@ layout: default
 
 # Next Steps 🚀
 
-<div class="grid grid-cols-3 gap-8 mt-8">
+<div class="grid grid-cols-3 gap-8 mt-8 text-center">
 
-<div v-click="1" >
+<div>
 
-### 📚 Documentation
+### 📚 <a href="https://opentelemetry.io/docs/zero-code/obi/">Documentation</a>
 
 <CncfQRCode 
   value="https://opentelemetry.io/docs/zero-code/obi/" 
@@ -938,12 +938,11 @@ layout: default
   :height="200"
   :margin="2"
 />
-<a href="https://opentelemetry.io/docs/zero-code/obi/">opentelemetry.io/docs/zero-code/obi</a>
 </div>
 
-<div v-click="2">
+<div>
 
-### 💻 GitHub Repository
+### 💻 <a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">Repository</a>
 
 <CncfQRCode 
   value="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation" 
@@ -952,12 +951,11 @@ layout: default
   :margin="2"
 />
 
-<a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">open-telemetry/opentelemetry-ebpf-instrumentation</a>
 </div>
 
-<div v-click="3">
+<div>
 
-### 🧪 Try the Demo
+### 🧪 <a href="https://github.com/MrAlias/kubecon-na-2025">Try the Demo</a>
 
 <CncfQRCode 
   value="https://github.com/MrAlias/kubecon-na-2025" 
@@ -966,7 +964,26 @@ layout: default
   :margin="2"
 />
 
-<a href="https://github.com/MrAlias/kubecon-na-2025">MrAlias/kubecon-na-2025</a>
+</div>
+
+</div>
+
+<div class="grid grid-cols-4 gap-8 mt-8 text-center">
+
+<div class="p-4 bg-blue-900 bg-opacity-50 rounded-lg">
+🐛 <p><strong>Report</strong> bugs</p>
+</div>
+
+<div class="p-4 bg-green-900 bg-opacity-50 rounded-lg">
+💡 <p><strong>Suggest</strong> features</p>
+</div>
+
+<div class="p-4 bg-purple-900 bg-opacity-50 rounded-lg">
+📖 <p><strong>Improve</strong>  docs</p>
+</div>
+
+<div class="p-4 bg-yellow-900 bg-opacity-50 rounded-lg">
+🧪 <p><strong>Share</strong> your use cases</p>
 </div>
 
 </div>
@@ -981,35 +998,39 @@ layout: default
 
 # Join the Community 🤝
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-2 gap-8 mt-8 text-center">
 
-<div v-click="1">
+<div>
 
-## Connect With Us:
+## 💬 <a href="https://cloud-native.slack.com/archives/C08P9L4FPKJ">CNCF Slack</a>
 
-💬 **CNCF Slack:** `#otel-ebpf`  
-📅 **SIG Meetings:** Every week  
-🤝 **Repository:** <a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">opentelemetry-ebpf-instrumentation</a>
+<CncfQRCode 
+  value="https://cloud-native.slack.com/archives/C08P9L4FPKJ"
+  :width="200"
+  :height="200"
+  :margin="2"
+/>
 
-</div>
-
-<div v-click="2">
-
-## Get Involved:
-
-🐛 **Report bugs** and issues  
-💡 **Suggest features**  
-📖 **Improve documentation**    
-🧪 **Share your use cases**  
+`#otel-ebpf-instrumentation `
 
 </div>
 
+<div>
+
+## 📅 <a href="https://groups.google.com/a/opentelemetry.io/g/calendar-ebpf-instrumentation">SIG Meeting</a>
+
+<CncfQRCode 
+  value="https://groups.google.com/a/opentelemetry.io/g/calendar-ebpf-instrumentation" 
+  :width="200"
+  :height="200"
+  :margin="2"
+/>
+
+
+Wednesdays @ 8am PT / 11am ET
+
 </div>
 
-<div v-click="3" class="mt-12 p-4 bg-green-900 bg-opacity-50 rounded-lg">
-<div class="text-center text-xl">
-<strong>We're here to help! 🙌</strong>
-</div>
 </div>
 
 <!--
