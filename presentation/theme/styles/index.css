@@ -29,32 +29,22 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Dark mode background with subtle animation */
+/* Dark mode background */
 body.dark {
-  background: linear-gradient(135deg, #0a0f1a 0%, #0d1421 25%, #0a0f1a 50%, #0f1825 75%, #0a0f1a 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 30s ease infinite;
+  background: #0a0f1a;
   color: var(--slidev-theme-text, #ffffff);
   overflow: hidden;
 }
 
-/* Light mode background with subtle CNCF stone tint */
+/* Light mode background */
 body.light {
-  background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 25%, #f5f5f5 50%, #fafafa 75%, #f8f8f8 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 30s ease infinite;
+  background: #f8f8f8;
   color: var(--slidev-theme-text, #000000);
   overflow: hidden;
 }
 
 body {
   overflow: hidden;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 /* Slidev specific overrides */

@@ -13,10 +13,9 @@ colorSchema: dark  # or 'light' or 'both'
 ## Dark Mode Features
 
 ### Background
-- Animated gradient: `#0a0f1a` → `#0d1421` → `#0f1825`
-- Subtle 30s gradient shift animation
-- Pulsing radial CNCF-colored overlays (blue, turquoise, pink)
-- Slow 120s rotating gradient effect
+- Solid color: `#0a0f1a` (dark navy)
+- Subtle static radial gradient overlays with CNCF colors (blue, turquoise, pink)
+- Overlays set at 50% opacity for visual interest without distraction
 
 ### Colors
 - **Primary text**: `#ffffff` (white)
@@ -35,10 +34,9 @@ colorSchema: dark  # or 'light' or 'both'
 ## Light Mode Features
 
 ### Background
-- Animated gradient: `#f8f8f8` → `#ffffff` → `#f5f5f5`
-- Same 30s gradient shift (more subtle)
-- Very light CNCF-colored overlays (reduced opacity)
-- Maintains visual interest without distraction
+- Solid color: `#f8f8f8` (light gray)
+- Subtle static radial gradient overlays with CNCF colors (reduced opacity)
+- Maintains visual interest without animation overhead
 
 ### Colors
 - **Primary text**: `#000000` (black)
@@ -56,11 +54,11 @@ colorSchema: dark  # or 'light' or 'both'
 
 ## Shared Features
 
-### Animated Backgrounds
-- **Pulse animation**: 8s ease-in-out cycle
-- **Rotation animation**: 120s linear rotation
-- **Gradient shift**: 30s smooth position change
-- All animations respect `prefers-reduced-motion` media query
+### Static Backgrounds
+- Solid color backgrounds for optimal performance
+- Subtle radial gradient overlays for visual depth
+- No CPU-intensive animations
+- Respects `prefers-reduced-motion` media query for accessibility
 
 ### Component Boxes
 - **Info boxes**: Blue-themed, clear border-left
@@ -128,7 +126,7 @@ colorSchema: dark  # or 'light' or 'both'
 - [x] Code blocks readable in both modes
 - [x] Component boxes have proper contrast
 - [x] Logos visible in both modes
-- [x] Animations smooth but not distracting
+- [x] Static backgrounds performant and visually appealing
 - [x] Footer hashtags visible in both modes
 - [x] 4:3 aspect ratio maintained
 - [x] Content stays within safe viewing area
@@ -178,7 +176,7 @@ Tested and working in:
 
 ## Performance
 
-- Lightweight animations using CSS transforms
-- GPU-accelerated where possible
-- Smooth 60fps on modern hardware
-- Graceful degradation on older systems
+- Static backgrounds with no CPU overhead
+- Subtle visual effects using opacity and static gradients
+- Optimized for battery life and system resources
+- Instant rendering with no animation processing
