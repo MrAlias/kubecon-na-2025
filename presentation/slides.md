@@ -11,6 +11,8 @@ drawings:
 title: Debugging Your Cluster When It's on Fire
 colorSchema: dark
 favicon: 'https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/projects/opentelemetry/icon/color/opentelemetry-icon-color.svg'
+canvasWidth: 980
+aspectRatio: '4/3'
 fonts:
   sans: 'Clarity City'
   serif: 'Clarity City'

@@ -27,6 +27,16 @@ html {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Fix for GitHub Pages scaling */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Root container fixes for production */
+#slideshow,
+.slidev-container {
+  font-size: 16px !important;
 }
 
 /* Dark mode background */
