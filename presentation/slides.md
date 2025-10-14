@@ -33,7 +33,7 @@ class: text-center
 
 <div class="grid grid-cols-2 gap-4 mt-8">
 
-<div v-click="1">
+<div>
 
 ## The Scenario
 
@@ -45,7 +45,7 @@ class: text-center
 
 </div>
 
-<div v-click="2">
+<div>
 
 ## The Pressure
 
@@ -58,7 +58,7 @@ class: text-center
 
 </div>
 
-<div v-click="3" class="mt-8 text-xl text-red-400">
+<div v-click="1" class="mt-8 text-xl text-red-400">
 Sound familiar? 😅
 </div>
 
