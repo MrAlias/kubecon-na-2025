@@ -246,17 +246,17 @@ Speaker: Tyler
 layout: default
 ---
 
-# Introducing <span class="text-green-400 text-[1em]">O</span>penTelemetry e<span class="text-green-400 text-[1em]">B</span>PF <span class="text-green-400 text-[1em]">I</span>nstrumentation 🎉
+# Introducing OBI 🎉
 
-<div class="text-center mb-8">
+<div class="mt-12 text-center text-4xl text-blue-400">
+<span class="text-green-400 text-[1em]">O</span>penTelemetry e<span class="text-green-400 text-[1em]">B</span>PF <span class="text-green-400 text-[1em]">I</span>nstrumentation
 </div>
 
-<div class="grid grid-cols-2 gap-8">
+<div class="grid grid-cols-2 gap-8 mt-8">
 
-<div v-click="1">
+<div>
 
 ## What OBI Does:
-<div class="text-left">
 
 🔍 **Automatically discovers** services  
 📊 **Generates distributed traces**  
@@ -266,12 +266,9 @@ layout: default
 
 </div>
 
-</div>
-
-<div v-click="2">
+<div>
 
 ## Key Benefits:
-<div class="text-left">
 
 ⚡ Deploy in < **30 seconds**  
 🚫 **No restarts** needed  
@@ -281,14 +278,6 @@ layout: default
 
 </div>
 
-</div>
-
-</div>
-
-<div v-click="3" class="mt-8 text-center">
-<code class="text-lg bg-gray-800 px-4 py-2 rounded">
-<a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">github.com/open-telemetry/opentelemetry-ebpf-instrumentation</a>
-</code>
 </div>
 
 <!--
