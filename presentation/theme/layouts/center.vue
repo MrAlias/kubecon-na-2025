@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import { useSlideContext } from '@slidev/client'
+
+const { $slidev } = useSlideContext()
+</script>
+
 <template>
   <div class="slidev-layout cncf-center">
     <!-- CNCF Logo in corner -->
@@ -24,6 +30,7 @@
     <!-- Footer -->
     <div class="slide-footer">
       <div class="hashtag">#KubeCon #CloudNativeCon</div>
+      <div class="slide-number">{{ $slidev.nav.currentPage }} / {{ $slidev.nav.total }}</div>
     </div>
   </div>
 </template>
@@ -102,7 +109,7 @@
 
 .slide-footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 0.75rem 3rem;
   border-top: 2px solid #0086FF;
@@ -113,6 +120,11 @@
 .hashtag {
   font-weight: 700;
   font-size: 0.95rem;
+}
+
+.slide-number {
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 /* Dark mode styles */
@@ -137,6 +149,10 @@
   color: #93EAFF;
 }
 
+.dark .slide-number {
+  color: rgba(255, 255, 255, 0.7);
+}
+
 /* Light mode styles */
 .light .cncf-center {
   background: transparent;
@@ -157,5 +173,9 @@
 
 .light .hashtag {
   color: #005bcc;
+}
+
+.light .slide-number {
+  color: rgba(0, 0, 0, 0.6);
 }
 </style>
