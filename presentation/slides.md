@@ -212,7 +212,7 @@ layout: default
 
 <div class="grid grid-cols-2 gap-8 mt-8">
 
-<div v-click="1">
+<div>
 
 ## eBPF Powers:
 <div class="text-left">
@@ -227,7 +227,7 @@ layout: default
 
 </div>
 
-<div v-click="2">
+<div>
 
 ## Perfect for Production:
 <div class="text-left">
@@ -243,7 +243,7 @@ layout: default
 
 </div>
 
-<div v-click="3" class="mt-8 text-center text-xl text-green-400">
+<div v-click="1" class="mt-8 text-center text-xl text-green-400">
 The best of both worlds! 🌟
 </div>
 
@@ -301,7 +301,7 @@ layout: default
 
 <div class="grid grid-cols-2 gap-8 mt-8">
 
-<div v-click="1">
+<div>
 
 ## Our Demo App:
 **Istio Bookinfo Sample**
@@ -316,7 +316,7 @@ layout: default
 
 </div>
 
-<div v-click="2">
+<div>
 
 ## Observability Stack:
 <div class="text-left">
@@ -332,7 +332,7 @@ layout: default
 
 </div>
 
-<div v-click="3" class="mt-12 text-center text-2xl text-blue-400">
+<div v-click="1" class="mt-12 text-center text-2xl text-blue-400">
 Let's see it in action! 🚀
 </div>
 
@@ -342,14 +342,13 @@ Speaker: Tyler
 
 ---
 layout: center
-transition: fade
 ---
 
 # 🔥 LIVE DEMO TIME 🔥
 
 ## Meet Our Problematic Cluster
 
-<div v-click="1" class="space-y-4 text-left">
+<div class="space-y-4 text-left">
 
 ✅ Bookinfo application is **running**  
 ⚠️ Users are **reporting issues**  
@@ -358,7 +357,7 @@ transition: fade
 
 </div>
 
-<div v-click="2" class="mt-8 p-4 bg-gray-800 rounded-lg font-mono text-sm">
+<div class="mt-8 p-4 bg-gray-800 rounded-lg font-mono text-sm">
 $ kubectl get pods
 </div>
 
@@ -374,15 +373,15 @@ layout: default
 
 <div class="space-y-6">
 
-<div v-click="1" class="text-xl">
+<div class="text-xl">
 Simple deployment script:
 </div>
 
-<div v-click="2" class="bg-gray-900 p-6 rounded-lg font-mono text-lg">
+<div class="bg-gray-900 p-6 rounded-lg font-mono text-lg">
 <span class="text-green-400">$</span> ./obi.sh
 </div>
 
-<div v-click="3" class="grid grid-cols-3 gap-4 mt-8">
+<div class="grid grid-cols-3 gap-4 mt-8">
 
 <div class="p-4 bg-blue-900 bg-opacity-50 rounded-lg">
 📦 OBI pods starting
@@ -400,7 +399,7 @@ Simple deployment script:
 
 </div>
 
-<div v-click="4" class="mt-8 text-center text-lg text-green-400">
+<div v-click="1" class="mt-8 text-center text-lg text-green-400">
 Watch the magic happen! ✨
 </div>
 
@@ -414,13 +413,13 @@ layout: default
 
 # Immediate Trace Collection 📊
 
-<div v-click="1" class="mb-8 text-xl">
+<div class="mb-8 text-xl">
 Switching to Grafana observability stack...
 </div>
 
 <div class="grid grid-cols-2 gap-8">
 
-<div v-click="2">
+<div>
 
 ## What We're Seeing:
 <div class="text-left">
@@ -434,7 +433,7 @@ Switching to Grafana observability stack...
 
 </div>
 
-<div v-click="3">
+<div>
 
 ## Instant Insights:
 <div class="text-left">
@@ -450,7 +449,7 @@ Switching to Grafana observability stack...
 
 </div>
 
-<div v-click="4" class="mt-8 text-center text-lg text-blue-400">
+<div v-click="1" class="mt-8 text-center text-lg text-blue-400">
 From zero to observability in seconds! 🚀
 </div>
 
@@ -464,13 +463,13 @@ layout: default
 
 # Service Map Visualization 🗺️
 
-<div v-click="1" class="mb-8 text-xl">
+<div class="mb-8 text-xl">
 Auto-generated service topology:
 </div>
 
 <div class="grid grid-cols-2 gap-8">
 
-<div v-click="2">
+<div>
 
 ## What the Map Shows:
 <div class="text-left">
@@ -484,7 +483,7 @@ Auto-generated service topology:
 
 </div>
 
-<div v-click="3">
+<div>
 
 ## Immediate Value:
 <div class="text-left">
@@ -500,7 +499,7 @@ Auto-generated service topology:
 
 </div>
 
-<div v-click="4" class="mt-8 text-center text-lg text-green-400">
+<div v-click="1" class="mt-8 text-center text-lg text-green-400">
 Instantly understand your architecture! 🏗️
 </div>
 
@@ -514,35 +513,35 @@ layout: default
 
 # Drilling Down: Finding Root Cause 🔍
 
-<div v-click="1" class="mb-6 text-xl">
+<div class="mb-6 text-xl">
 From symptoms to root cause analysis:
 </div>
 
 <div class="space-y-4">
 
-<div v-click="2" class="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg">
+<div class="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg">
 <span class="text-2xl">1️⃣</span>
 <span>Select problematic trace</span>
 </div>
 
-<div v-click="3" class="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg">
+<div class="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg">
 <span class="text-2xl">2️⃣</span>
 <span>Walk through distributed spans</span>
 </div>
 
-<div v-click="4" class="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg">
+<div class="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg">
 <span class="text-2xl">3️⃣</span>
 <span>Identify slow/failing operations</span>
 </div>
 
-<div v-click="5" class="flex items-center space-x-4 p-4 bg-green-900 bg-opacity-50 rounded-lg">
+<div class="flex items-center space-x-4 p-4 bg-green-900 bg-opacity-50 rounded-lg">
 <span class="text-2xl">4️⃣</span>
 <span><strong>Pinpoint exact service and method!</strong></span>
 </div>
 
 </div>
 
-<div v-click="6" class="mt-8 text-center text-lg text-blue-400">
+<div v-click="1" class="mt-8 text-center text-lg text-blue-400">
 From chaos to clarity in minutes! ✨
 </div>
 
@@ -556,13 +555,13 @@ layout: default
 
 # Network-Level Insights 🌐
 
-<div v-click="1" class="mb-6 text-xl">
+<div class="mb-6 text-xl">
 eBPF captures what traditional APM misses:
 </div>
 
 <div class="grid grid-cols-2 gap-6">
 
-<div v-click="2">
+<div>
 
 ## Network Data:
 <div class="text-left">
@@ -576,7 +575,7 @@ eBPF captures what traditional APM misses:
 
 </div>
 
-<div v-click="3">
+<div>
 
 ## Hidden Insights:
 <div class="text-left">
@@ -592,7 +591,7 @@ eBPF captures what traditional APM misses:
 
 </div>
 
-<div v-click="4" class="mt-8 p-4 bg-purple-900 bg-opacity-50 rounded-lg">
+<div v-click="1" class="mt-8 p-4 bg-purple-900 bg-opacity-50 rounded-lg">
 <div class="text-center text-lg">
 <strong>See the complete picture - not just your code! 🎯</strong>
 </div>
@@ -608,13 +607,13 @@ layout: default
 
 # Performance Optimization Opportunities 🚀
 
-<div v-click="1" class="mb-6 text-xl">
+<div class="mb-6 text-xl">
 What our investigation revealed:
 </div>
 
 <div class="grid grid-cols-2 gap-6">
 
-<div v-click="2" class="space-y-4">
+<div class="space-y-4">
 
 ## Issues Found:
 <div class="text-left">
@@ -628,7 +627,7 @@ What our investigation revealed:
 
 </div>
 
-<div v-click="3" class="space-y-4">
+<div class="space-y-4">
 
 ## Action Items:
 <div class="text-left">
@@ -644,7 +643,7 @@ What our investigation revealed:
 
 </div>
 
-<div v-click="4" class="mt-8 p-4 bg-green-900 bg-opacity-50 rounded-lg">
+<div v-click="1" class="mt-8 p-4 bg-green-900 bg-opacity-50 rounded-lg">
 <div class="text-center text-lg">
 <strong>Clear, actionable insights for the team! 🎯</strong>
 </div>
@@ -662,7 +661,7 @@ layout: default
 
 <div class="grid grid-cols-2 gap-8 mt-8">
 
-<div v-click="1">
+<div>
 
 ## Before OBI: 😵‍💫
 <div class="text-left">
@@ -677,7 +676,7 @@ layout: default
 
 </div>
 
-<div v-click="2">
+<div>
 
 ## After OBI: 🎯
 <div class="text-left">
@@ -694,7 +693,7 @@ layout: default
 
 </div>
 
-<div v-click="3" class="mt-8 p-4 bg-blue-900 bg-opacity-50 rounded-lg text-center">
+<div v-click="1" class="mt-8 p-4 bg-blue-900 bg-opacity-50 rounded-lg text-center">
 <h2 class="text-2xl">The power of instant observability! 🌟</h2>
 </div>
 
@@ -710,7 +709,7 @@ layout: default
 
 <div class="grid grid-cols-2 gap-8 mt-8">
 
-<div v-click="1">
+<div>
 
 ## Built for Production:
 <div class="text-left">
@@ -724,7 +723,7 @@ layout: default
 
 </div>
 
-<div v-click="2">
+<div>
 
 ## Safety Features:
 <div class="text-left">
@@ -740,7 +739,7 @@ layout: default
 
 </div>
 
-<div v-click="3" class="mt-12 p-4 bg-green-900 bg-opacity-50 rounded-lg">
+<div v-click="1" class="mt-12 p-4 bg-green-900 bg-opacity-50 rounded-lg">
 <div class="text-center text-xl">
 <strong>Safe to deploy during incidents! 🚀</strong>
 </div>
@@ -758,7 +757,7 @@ layout: default
 
 <div class="grid grid-cols-2 gap-8 mt-8">
 
-<div v-click="1">
+<div>
 
 ## eBPF Kernel Magic:
 <div class="text-left">
@@ -772,7 +771,7 @@ layout: default
 
 </div>
 
-<div v-click="2">
+<div>
 
 ## Universal Support:
 <div class="text-left">
@@ -788,7 +787,7 @@ layout: default
 
 </div>
 
-<div v-click="3" class="mt-12 p-4 bg-purple-900 bg-opacity-50 rounded-lg">
+<div v-click="1" class="mt-12 p-4 bg-purple-900 bg-opacity-50 rounded-lg">
 <div class="text-center text-xl">
 <strong>Works with your applications as-is! ✨</strong>
 </div>
@@ -806,7 +805,7 @@ layout: center
 
 <div class="space-y-4 mt-8">
 
-<div v-click="1" class="flex items-center space-x-6">
+<div class="flex items-center space-x-6">
 <div class="text-4xl">🎯</div>
 <div class="flex-1">
 
@@ -817,7 +816,7 @@ Start with dev/staging environments
 </div>
 </div>
 
-<div v-click="2" class="flex items-center space-x-6">
+<div class="flex items-center space-x-6">
 <div class="text-4xl">🔧</div>
 <div class="flex-1">
 
@@ -828,7 +827,7 @@ Choose specific services to monitor
 </div>
 </div>
 
-<div v-click="3" class="flex items-center space-x-6">
+<div class="flex items-center space-x-6">
 <div class="text-4xl">⚙️</div>
 <div class="flex-1">
 
@@ -839,7 +838,7 @@ Fine-tune what data is collected
 </div>
 </div>
 
-<div v-click="4" class="flex items-center space-x-6">
+<div class="flex items-center space-x-6">
 <div class="text-4xl">🔄</div>
 <div class="flex-1">
 
@@ -864,7 +863,7 @@ layout: default
 
 <div class="grid grid-cols-2 gap-8 mt-8">
 
-<div v-click="1">
+<div>
 
 ## Security & Permissions:
 <div class="text-left">
@@ -878,7 +877,7 @@ layout: default
 
 </div>
 
-<div v-click="2">
+<div>
 
 ## Data Collection Controls:
 <div class="text-left">
@@ -894,7 +893,7 @@ layout: default
 
 </div>
 
-<div v-click="3" class="grid grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-2 gap-8 mt-8">
 
 <div>
 
