@@ -75,23 +75,26 @@ onMounted(() => {
 
 <template>
   <div class="slidev-layout cncf-cover">
-    <!-- QR Code in top right -->
-    <div class="qr-code-container" ref="qrCodeContainer"></div>
-    
-    <!-- Header with KubeCon Logo -->
+    <!-- Header with KubeCon Logo and QR Code -->
     <div class="cover-header">
-      <!-- Dark mode logo -->
-      <img 
-        src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/other/kubecon-cloudnativecon/2025-na/white/kccnc-na-2025-white.svg" 
-        alt="KubeCon + CloudNativeCon" 
-        class="kubecon-logo dark-logo"
-      />
-      <!-- Light mode logo -->
-      <img 
-        src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/other/kubecon-cloudnativecon/2025-na/color/kccnc-na-2025-color.svg" 
-        alt="KubeCon + CloudNativeCon" 
-        class="kubecon-logo light-logo"
-      />
+      <!-- KubeCon + CloudNativeCon Logo on left -->
+      <div class="kubecon-logo-container">
+        <!-- Dark mode logo -->
+        <img 
+          src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/other/kubecon-cloudnativecon/2025-na/white/kccnc-na-2025-white.svg" 
+          alt="KubeCon + CloudNativeCon" 
+          class="kubecon-logo dark-logo"
+        />
+        <!-- Light mode logo -->
+        <img 
+          src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/other/kubecon-cloudnativecon/2025-na/color/kccnc-na-2025-color.svg" 
+          alt="KubeCon + CloudNativeCon" 
+          class="kubecon-logo light-logo"
+        />
+      </div>
+      
+      <!-- QR Code on right -->
+      <div class="qr-code-container" ref="qrCodeContainer"></div>
     </div>
     
     <!-- Main content - Centered -->
@@ -129,29 +132,37 @@ onMounted(() => {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  position: relative;
 }
 
-/* QR Code positioning */
-.qr-code-container {
-  position: absolute;
-  top: 2rem;
-  right: 3rem;
-  z-index: 10;
-  width: 120px;
-  height: 120px;
-}
-
-/* Header - fixed height for logo */
+/* Header with KubeCon logo and QR code */
 .cover-header {
-  padding: 2rem 3rem 1rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 3rem;
   flex-shrink: 0;
+  gap: 2rem;
+}
+
+/* KubeCon logo container */
+.kubecon-logo-container {
+  flex-shrink: 0;
+  order: 1;
 }
 
 .kubecon-logo {
   width: 280px;
   height: auto;
   display: block;
+}
+
+/* QR Code container */
+.qr-code-container {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  order: 2;
+  margin-left: auto;
 }
 
 .cncf-logo {
