@@ -1048,28 +1048,38 @@ Speaker: Tyler
 
 ---
 layout: end
-class: text-center
 ---
 
 # Thank You! 🙏
 
-<div class="grid grid-cols-2 gap-12 mt-12">
+<div class="grid grid-cols-2 mb-12 text-center">
 
 <div>
-<h2 class="text-2xl font-bold text-blue-400 mb-4">Nikola Grcevski</h2>
-<p class="text-lg mb-2">Grafana Labs</p>
-<p class="text-sm text-gray-300"> <a href="https://github.com/grcevski">@grcevski</a></p>
+
+<img src="https://avatars.githubusercontent.com/u/5543599?v=4" alt="Tyler Yahn" class="w-32 h-32 rounded-full mx-auto mb-4" />
+
+## Tyler Yahn
+
+🏢 Splunk
+
+<a href="https://github.com/MrAlias">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="inline-block w-5 h-5 mr-1 bg-white rounded-full p-0.5" />@MrAlias
+</a>
+
 </div>
 
 <div>
-<h2 class="text-2xl font-bold text-blue-400 mb-4">Tyler Yahn</h2>
-<p class="text-lg mb-2">Splunk</p>
-<p class="text-sm text-gray-300"> <a href="https://github.com/MrAlias">@MrAlias</a></p>
-</div>
+
+<img src="https://avatars.githubusercontent.com/u/6207777?v=4" alt="Nikola Grcevski" class="w-32 h-32 rounded-full mx-auto mb-4" />
+
+## Nikola Grcevski
+
+🏢 Grafana Labs
+
+<a href="https://github.com/grcevski">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="inline-block w-5 h-5 mr-1 bg-white rounded-full p-0.5" />@grcevski
+</a>
 
 </div>
 
-<div class="mt-12 space-y-4">
-<div class="text-xl">🤔 <strong>Questions?</strong> Find us in the hallway track!</div>
-<div class="text-lg">🧪 <strong>Try OBI:</strong> <a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">github.com/open-telemetry/opentelemetry-ebpf-instrumentation</a></div>
 </div>

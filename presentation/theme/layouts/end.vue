@@ -1,19 +1,100 @@
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import QRCodeStyling from 'qr-code-styling'
+
+const qrCodeContainer = ref<HTMLElement>()
+
+onMounted(() => {
+  if (qrCodeContainer.value) {
+    const isDark = document.documentElement.classList.contains('dark')
+    
+    const qrCode = new QRCodeStyling({
+      width: 120,
+      height: 120,
+      data: 'https://mralias.github.io/kubecon-na-2025',
+      margin: 0,
+      qrOptions: {
+        typeNumber: 0,
+        mode: 'Byte',
+        errorCorrectionLevel: 'M'
+      },
+      imageOptions: {
+        hideBackgroundDots: true,
+        imageSize: 0.4,
+        margin: 0
+      },
+      dotsOptions: {
+        type: 'rounded',
+        color: isDark ? '#ffffff' : '#000000'
+      },
+      backgroundOptions: {
+        color: 'transparent'
+      },
+      cornersSquareOptions: {
+        type: 'extra-rounded',
+        color: isDark ? '#ffffff' : '#000000'
+      },
+      cornersDotOptions: {
+        type: 'dot',
+        color: isDark ? '#ffffff' : '#000000'
+      }
+    })
+    
+    qrCode.append(qrCodeContainer.value)
+    
+    // Watch for theme changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          const isDark = document.documentElement.classList.contains('dark')
+          qrCode.update({
+            dotsOptions: {
+              type: 'rounded',
+              color: isDark ? '#ffffff' : '#000000'
+            },
+            cornersSquareOptions: {
+              type: 'extra-rounded',
+              color: isDark ? '#ffffff' : '#000000'
+            },
+            cornersDotOptions: {
+              type: 'dot',
+              color: isDark ? '#ffffff' : '#000000'
+            }
+          })
+        }
+      })
+    })
+    
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    })
+  }
+})
+</script>
+
 <template>
   <div class="slidev-layout end cncf-end">
-    <!-- KubeCon + CloudNativeCon Logo -->
-    <div class="kubecon-logo-container">
-      <!-- Dark mode logo -->
-      <img 
-        src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/other/kubecon-cloudnativecon/2025-na/white/kccnc-na-2025-white.svg" 
-        alt="KubeCon + CloudNativeCon" 
-        class="kubecon-logo dark-logo"
-      />
-      <!-- Light mode logo -->
-      <img 
-        src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/other/kubecon-cloudnativecon/2025-na/color/kccnc-na-2025-color.svg" 
-        alt="KubeCon + CloudNativeCon" 
-        class="kubecon-logo light-logo"
-      />
+    <!-- Header with KubeCon Logo and QR Code -->
+    <div class="end-header">
+      <!-- KubeCon + CloudNativeCon Logo on left -->
+      <div class="kubecon-logo-container">
+        <!-- Dark mode logo -->
+        <img 
+          src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/other/kubecon-cloudnativecon/2025-na/white/kccnc-na-2025-white.svg" 
+          alt="KubeCon + CloudNativeCon" 
+          class="kubecon-logo dark-logo"
+        />
+        <!-- Light mode logo -->
+        <img 
+          src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/other/kubecon-cloudnativecon/2025-na/color/kccnc-na-2025-color.svg" 
+          alt="KubeCon + CloudNativeCon" 
+          class="kubecon-logo light-logo"
+        />
+      </div>
+      
+      <!-- QR Code on right -->
+      <div class="qr-code-container" ref="qrCodeContainer"></div>
     </div>
     
     <!-- Main content -->
@@ -51,19 +132,37 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  position: relative;
 }
 
-/* KubeCon logo container at top */
-.kubecon-logo-container {
-  padding: 2rem 3rem 1rem 3rem;
+/* Header with KubeCon logo and QR code */
+.end-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 3rem;
   flex-shrink: 0;
+  gap: 2rem;
+}
+
+/* KubeCon logo container */
+.kubecon-logo-container {
+  flex-shrink: 0;
+  order: 1;
 }
 
 .kubecon-logo {
   width: 280px;
   height: auto;
   display: block;
+}
+
+/* QR Code container */
+.qr-code-container {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  order: 2;
+  margin-left: auto;
 }
 
 /* Logo visibility control */
@@ -106,6 +205,9 @@
 .end-content :deep(h1) {
   font-size: clamp(2.5rem, 6vw, 3.5rem);
   margin-bottom: 1.5rem;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .end-content :deep(h2) {
