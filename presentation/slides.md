@@ -113,25 +113,34 @@ Speaker: Nikola
 -->
 
 ---
-layout: default
+layout: center
+class: slide-with-thought-bubble
 ---
 
 # What if we could instrument instantly? ⚡
 
-<div>
+<div class="grid grid-cols-[200px_1fr] gap-8 items-center max-w-4xl mx-auto">
 
-## Imagine 🤔💭
-
-🎯 Add complete observability in **seconds**  
-🚫 **No code changes** required  
-🚫 **No service restarts** needed  
-📊 **Immediate insights** into system behavior  
-🔍 See exactly what's happening across **all services**
-
+<div class="text-center text-8xl leading-none">
+🤔
 </div>
 
-<div v-click="1" class="mt-12 text-2xl text-green-400">
-Today we'll show you how. 🚀
+<div class="thought-bubble-container">
+<div class="thought-bubble">
+
+🎯 Add complete observability in **seconds**?
+
+🚫 **No code changes** required?
+
+🚫 **No service restarts** needed?
+
+📊 **Immediate insights** into system behavior?
+
+🔍 See exactly what's happening across **all services**?
+
+</div>
+</div>
+
 </div>
 
 <!--

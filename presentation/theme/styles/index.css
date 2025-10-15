@@ -16,6 +16,9 @@
 /* Import components */
 @import './components.css';
 
+/* Import thought bubble styles */
+@import './thought-bubble.css';
+
 /* Global resets and base styles */
 * {
   margin: 0;
