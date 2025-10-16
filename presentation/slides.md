@@ -350,17 +350,19 @@ layout: default
 
 # Demo Setup Preview 🎬
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="grid grid-cols-2 gap-8 mt-4">
 
 <div>
 
 ## Our Demo App:
-**Istio Bookinfo Sample**
-<div class="text-left">
 
-📚 **4 core microservices** (productpage, details, reviews, ratings)  
-🌍 **4 programming languages** (Python, Ruby, Java, Node.js/Go)  
-� Real book review application  
+**Istio Bookinfo Sample**
+
+<div class="text-left text-sm">
+
+📚 **4 core microservices**  
+🌍 **4 programming languages**  
+📖 Real book review application  
 🔥 **With simulated problems!**
 
 </div>
@@ -383,12 +385,36 @@ layout: default
 
 </div>
 
-<div v-click="1" class="mt-12 text-center text-2xl text-blue-400">
-Let's see it in action! 🚀
+<div class="mt-8 text-center">
+
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#1a3a52','primaryTextColor':'#e3f2fd','primaryBorderColor':'#0086FF','lineColor':'#0086FF','fontSize':'14px'}}}%%
+graph LR
+    User([👤 User]) -->|HTTP| ProdPage[productpage<br/>Python 🔥]
+    ProdPage -->|HTTP| Details[details<br/>Ruby]
+    ProdPage -->|HTTP| Reviews[reviews<br/>Java 🔥]
+    Reviews -->|HTTP| Ratings[ratings<br/>Node.js/Go 🔥]
+    Ratings -->|TCP| DB[(Database)]
+```
+
 </div>
 
 <!--
 Speaker: Tyler
+
+Architecture Overview:
+- User hits the productpage service (Python) - entry point
+- Productpage calls details service (Ruby) for book information
+- Productpage calls reviews service (Java) for reviews
+- Reviews service calls ratings service (Node.js or Go) for star ratings
+- Ratings service connects to a database
+
+Problems marked with 🔥:
+- Productpage: Slow response times
+- Reviews: Inefficient calls
+- Ratings: Database connection issues (main problem)
+
+This gives the audience a visual map before the demo so they can follow along
 -->
 
 ---
