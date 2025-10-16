@@ -425,6 +425,10 @@ layout: center
 
 ## Meet Our Problematic Cluster
 
+<div class="mb-6 text-center text-2xl text-blue-400">
+⏱️ 5-minute guided tour
+</div>
+
 <div class="space-y-4 text-left">
 
 ✅ Bookinfo application is **running**  
@@ -440,6 +444,11 @@ $ kubectl get pods
 
 <!--
 Speaker: Nikola driving (Tyler commentary)
+
+Set the expectation: This is a 5-minute guided tour
+- Creates urgency and keeps audience engaged
+- Sets clear time boundary
+- Audience will time along with you mentally
 -->
 
 ---
