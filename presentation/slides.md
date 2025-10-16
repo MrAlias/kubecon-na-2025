@@ -636,55 +636,82 @@ Speaker: Nikola driving (Tyler commentary)
 -->
 
 ---
-layout: default
+layout: center
 ---
 
-# Network-Level Insights 🌐
+# What We Just Accomplished 🏆
 
-<div class="mb-6 text-xl">
-eBPF captures what traditional APM misses:
+<div class="mt-8 grid grid-cols-4 gap-6 text-center">
+
+<div class="p-6 bg-blue-900 bg-opacity-30 rounded-lg">
+<div class="text-4xl mb-2">⚡</div>
+<div class="text-3xl font-bold text-blue-400">30s</div>
+<div class="text-lg">Deployment</div>
 </div>
 
-<div class="grid grid-cols-2 gap-6">
-
-<div>
-
-## Network Data:
-<div class="text-left">
-
-🌐 **Service-to-service** communication  
-💾 **Database connection** patterns  
-🔗 **External API call** latencies  
-📊 **Network performance** metrics
-
+<div class="p-6 bg-blue-900 bg-opacity-30 rounded-lg">
+<div class="text-4xl mb-2">📊</div>
+<div class="text-3xl font-bold text-blue-400">10s</div>
+<div class="text-lg">First Traces</div>
 </div>
 
+<div class="p-6 bg-blue-900 bg-opacity-30 rounded-lg">
+<div class="text-4xl mb-2">📝</div>
+<div class="text-3xl font-bold text-blue-400">0</div>
+<div class="text-lg">Code Changes</div>
 </div>
 
-<div>
-
-## Hidden Insights:
-<div class="text-left">
-
-🐌 **Connection pool** exhaustion  
-🔄 **Retry patterns**  
-📡 **DNS resolution** times  
-🔒 **TLS handshake** delays
-
+<div class="p-6 bg-green-900 bg-opacity-30 rounded-lg">
+<div class="text-4xl mb-2">🎯</div>
+<div class="text-3xl font-bold text-green-400">5m</div>
+<div class="text-lg">Root Cause</div>
 </div>
 
 </div>
 
+<div v-click="1" class="mt-12 text-center">
+
+<div class="text-4xl font-bold text-green-400">
+From Zero to Root Cause in 5 Minutes! 🌟
 </div>
 
-<div v-click="1" class="mt-8 p-4 bg-purple-900 bg-opacity-50 rounded-lg">
+<div class="mt-8 p-4 bg-purple-900 bg-opacity-50 rounded-lg">
 <div class="text-center text-lg">
-<strong>See the complete picture - not just your code! 🎯</strong>
+<strong>See the complete picture - not just your code! 🔭</strong>
 </div>
+</div>
+
 </div>
 
 <!--
-Speaker: Nikola driving (Tyler commentary)
+Speaker: Tyler
+
+WOW MOMENT - Let this sink in!
+
+What we just witnessed:
+- 30 seconds: Deployed OBI with a single command
+  * No code changes
+  * No configuration files
+  * No service restarts
+  
+- A few seconds later: Distributed traces started flowing
+  * Automatic service discovery
+  * All 4 microservices instrumented
+  * Multiple languages supported seamlessly
+  
+- 5 minutes total: Identified exact root cause
+  * Ratings service database connection timeout
+  * Specific method and error
+  * Complete distributed trace context
+
+Compare this to traditional approach:
+- Traditional: 2-3 DAYS of development, testing, deployment
+- OBI: 5 MINUTES from deployment to solution
+
+This is the power of eBPF-based instrumentation!
+
+Pause here - let the audience absorb the magnitude of this achievement
+This is your "drop the mic" moment before moving into the value proposition
 -->
 
 ---
