@@ -767,368 +767,377 @@ This is your "drop the mic" moment before moving into the value proposition
 -->
 
 ---
-layout: default
----
-
-# Performance Optimization Opportunities 🚀
-
-<div class="mb-6 text-xl">
-What our investigation revealed:
-</div>
-
-<div class="grid grid-cols-2 gap-6">
-
-<div class="space-y-4">
-
-## Issues Found:
-<div class="text-left">
-
-🐌 **Slow database connections** in Ratings Service  
-🔄 **Inefficient review calls** in Reviews Service  
-💾 **Memory pressure** in Details Service  
-🌐 **Network latency** between services
-
-</div>
-
-</div>
-
-<div class="space-y-4">
-
-## Action Items:
-<div class="text-left">
-
-📊 **Optimize database** connection pooling  
-⚡ **Cache book details** responses  
-🔧 **Tune service** resource limits  
-⏱️ **Add retries** for failing calls
-
-</div>
-
-</div>
-
-</div>
-
-<div v-click="1" class="mt-8 p-4 bg-green-900 bg-opacity-50 rounded-lg">
-<div class="text-center text-lg">
-<strong>Clear, actionable insights for the team! 🎯</strong>
-</div>
-</div>
-
-<!--
-Speaker: Nikola driving (Tyler commentary)
--->
-
----
-layout: default
+layout: center
 ---
 
 # From Chaos to Clarity ✨
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="mt-6 text-center">
 
-<div>
+<div class="space-y-3 mt-6">
 
-## Before OBI: 😵‍💫
-<div class="text-left">
-
-❓ **"Something's wrong"**  
-⏰ **Hours** of investigation  
-🔍 **Blind troubleshooting**  
-😰 **Stress and guesswork**  
-🔥 **Fighting fires** blindly
-
+<div class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
+<div class="p-3 bg-red-900 bg-opacity-20 rounded-lg">
+❓ <strong>"Something's wrong"</strong>
 </div>
-
-</div>
-
-<div>
-
-## After OBI: 🎯
-<div class="text-left">
-
-✅ **"Ratings Service database connection timeout"**  
-📊 **5 minutes** to root cause  
-🎯 **Specific fix** identified  
-😌 **Confidence** in solution  
-🚀 **Proactive** optimization
-
-</div>
-
-</div>
-
-</div>
-
-<div v-click="1" class="mt-8 p-4 bg-blue-900 bg-opacity-50 rounded-lg text-center">
-<h2 class="text-2xl">The power of instant observability! 🌟</h2>
-</div>
-
-<!--
-Speaker: T
--->
-
----
-layout: default
----
-
-# Production-Safe by Design 🛡️
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-
-<div>
-
-## Built for Production:
-<div class="text-left">
-
-⚡ **Low overhead** (< 2% CPU impact)  
-🛡️ **Fail-safe mechanisms**  
-📊 **Resource limits** and controls  
-🔄 **Easy enable/disable**
-
-</div>
-
-</div>
-
-<div>
-
-## Safety Features:
-<div class="text-left">
-
-🚫 **No kernel modules**  
-🔒 **Sandboxed execution**  
-📈 **Gradual rollout** support  
-🎯 **Selective targeting**
-
-</div>
-
-</div>
-
-</div>
-
-<div v-click="1" class="mt-12 p-4 bg-green-900 bg-opacity-50 rounded-lg">
-<div class="text-center text-xl">
-<strong>Safe to deploy during incidents! 🚀</strong>
+<div class="text-3xl text-blue-400">→</div>
+<div class="p-3 bg-green-900 bg-opacity-20 rounded-lg">
+✅ <strong>"Ratings Service database connection timeout"</strong>
 </div>
 </div>
 
-<!--
-Speaker: Nikola
--->
-
----
-layout: default
----
-
-# No Application Changes Required 🚫
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-
-<div>
-
-## eBPF Kernel Magic:
-<div class="text-left">
-
-🚫 **No code modifications**  
-🚫 **No library installations**  
-🚫 **No recompilation**  
-🚫 **No configuration files**
-
+<div class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
+<div class="p-3 bg-red-900 bg-opacity-20 rounded-lg">
+⏰ <strong>Hours</strong> of investigation
 </div>
-
-</div>
-
-<div>
-
-## Universal Support:
-<div class="text-left">
-
-✅ **Any programming language**  
-✅ **Any framework**  
-✅ **Existing binaries** unchanged  
-✅ **Legacy applications** supported
-
-</div>
-
-</div>
-
-</div>
-
-<div v-click="1" class="mt-12 p-4 bg-purple-900 bg-opacity-50 rounded-lg">
-<div class="text-center text-xl">
-<strong>Works with your applications as-is! ✨</strong>
+<div class="text-3xl text-blue-400">→</div>
+<div class="p-3 bg-green-900 bg-opacity-20 rounded-lg">
+📊 <strong>5 minutes</strong> to root cause
 </div>
 </div>
 
-<!--
-Speaker: Tyler
--->
-
----
-layout: center
----
-
-# Gradual Rollout Strategy 📈
-
-<div class="space-y-4 mt-8">
-
-<div class="flex items-center space-x-6">
-<div class="text-4xl">🎯</div>
-<div class="flex-1">
-
-### Namespace-level targeting
-
-Start with dev/staging environments
-
+<div class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
+<div class="p-3 bg-red-900 bg-opacity-20 rounded-lg">
+🔍 <strong>Blind</strong> troubleshooting
+</div>
+<div class="text-3xl text-blue-400">→</div>
+<div class="p-3 bg-green-900 bg-opacity-20 rounded-lg">
+🎯 <strong>Specific fix</strong> identified
 </div>
 </div>
 
-<div class="flex items-center space-x-6">
-<div class="text-4xl">🔧</div>
-<div class="flex-1">
-
-### Selective service instrumentation
-
-Choose specific services to monitor
-
+<div class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
+<div class="p-3 bg-red-900 bg-opacity-20 rounded-lg">
+😰 <strong>Stress</strong> and guesswork
+</div>
+<div class="text-3xl text-blue-400">→</div>
+<div class="p-3 bg-green-900 bg-opacity-20 rounded-lg">
+😌 <strong>Confidence</strong> in solution
 </div>
 </div>
 
-<div class="flex items-center space-x-6">
-<div class="text-4xl">⚙️</div>
-<div class="flex-1">
-
-### Granular configuration controls
-
-Fine-tune what data is collected
-
+<div class="grid grid-cols-[1fr_auto_1fr] gap-4 items-center">
+<div class="p-3 bg-red-900 bg-opacity-20 rounded-lg">
+🔥 Fighting fires
+</div>
+<div class="text-3xl text-blue-400">→</div>
+<div class="p-3 bg-green-900 bg-opacity-20 rounded-lg">
+🚀 <strong>Proactive</strong> optimization
 </div>
 </div>
 
-<div class="flex items-center space-x-6">
-<div class="text-4xl">🔄</div>
-<div class="flex-1">
-
-### Easy disable/enable
-
-Turn off instantly if needed
-
-</div>
 </div>
 
 </div>
 
 <!--
 Speaker: Tyler
+
+The Complete Value Story:
+
+Before OBI (The Pain):
+- Vague problem statements
+- Hours wasted investigating
+- Trial and error approach
+- High stress for team
+- Reactive firefighting
+
+After OBI (The Relief):
+- Precise problem identification
+- 5 minutes to answer
+- Targeted solution
+- Team confidence restored
+- Proactive optimization possible
+
+The ROI (The Business Case):
+
+🏢 Reduced MTTR (Mean Time To Resolution):
+- Traditional: Hours to days
+- With OBI: Minutes
+- Faster resolution = Less customer impact = Higher availability
+
+💰 Cost Savings:
+- No development time needed
+- No testing cycles
+- No deployment overhead
+- Developer time freed for features
+- Reduced operational costs
+
+😊 Team Morale:
+- Less 3am firefighting
+- More sleep for engineers
+- Higher job satisfaction
+- Better work-life balance
+- Reduced burnout
+
+📊 Better Decisions:
+- Data-driven fixes instead of guesses
+- See real behavior, not assumptions
+- Prioritize based on actual impact
+- Optimize with confidence
+- Measure improvements accurately
+
+This slide speaks to different audiences:
+- SREs: Focus on MTTR and stress reduction
+- Developers: Focus on time savings
+- Product Owners: Focus on cost and decisions
+- Execs: Focus on ROI and morale
 -->
 
 ---
 layout: default
 ---
 
-# Enterprise Considerations 🏢
+# By The Numbers 📊
 
 <div class="grid grid-cols-2 gap-8 mt-8">
 
+<div class="space-y-6">
+
+## Time Saved:
+
+<div class="p-4 bg-blue-900 bg-opacity-30 rounded-lg">
+<div class="text-4xl font-bold text-blue-400">5-7 days → 5 minutes</div>
+<div class="text-lg">Traditional instrumentation vs OBI</div>
+</div>
+
+<div class="p-4 bg-blue-900 bg-opacity-30 rounded-lg">
+<div class="text-4xl font-bold text-blue-400">99.4% faster</div>
+<div class="text-lg">Time to first trace</div>
+</div>
+
+</div>
+
+<div class="space-y-6">
+
+## Real Impact:
+
+<div class="p-4 bg-green-900 bg-opacity-30 rounded-lg">
+<div class="text-4xl font-bold text-green-400">$0</div>
+<div class="text-lg">Engineering hours to deploy</div>
+</div>
+
+<div class="p-4 bg-green-900 bg-opacity-30 rounded-lg">
+<div class="text-4xl font-bold text-green-400">0 restarts</div>
+<div class="text-lg">Zero application downtime</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-8 p-6 bg-purple-900 bg-opacity-30 rounded-lg text-center">
+<div class="text-2xl font-bold">Every minute saved during an incident = happier customers</div>
+</div>
+
+<!--
+Speaker: Tyler
+
+Real numbers from what we just demonstrated:
+- Traditional: 5-7 days of work (instrumenting 3 services, PRs, testing, deployment)
+- OBI: 5 minutes total (deploy + observe + identify)
+- That's 99.4% reduction in time to observability
+
+Cost calculation:
+- Traditional: 3-5 engineers × 1-2 days each = 15-40 engineering hours
+- OBI: 5 minutes of SRE time
+- At $150/hour average loaded cost = $2,250-6,000 saved per incident
+
+Zero downtime:
+- No service restarts required
+- Safe to deploy during active incidents
+- Works with existing binaries
+
+This isn't theory - you just watched it happen live
+-->
+
+---
+layout: default
+---
+
+# What You Need ✅
+
+<div class="mt-12">
+
+<div class="grid grid-cols-2 gap-12 text-center">
+
 <div>
-
-## Security & Permissions:
-<div class="text-left">
-
-🔬 **Fine-grained capabilities** instead of root  
-🛡️ **Unprivileged deployment** options  
-📋 **Capability controls** (CAP_BPF, CAP_PERFMON, etc.)  
-🧩 **No kernel modules** required  
-
-</div>
-
+<div class="text-6xl mb-4">🐧</div>
+<div class="text-2xl font-bold mb-2">Linux Kernel 5.8+</div>
+<div class="text-gray-400">(or RHEL 4.18+ with backports)</div>
 </div>
 
 <div>
-
-## Data Collection Controls:
-<div class="text-left">
-
-🎛️ **Selective instrumentation** (HTTP, gRPC, SQL, etc.)  
-🔍 **Pattern-based filtering** by attributes  
-📤 **Configurable data export** (OTLP, Prometheus)  
-⚙️ **Route decorators** for low cardinality  
-
+<div class="text-6xl mb-4">💻</div>
+<div class="text-2xl font-bold mb-2">x86_64 or arm64</div>
+<div class="text-gray-400">(Standard architectures)</div>
 </div>
 
 </div>
 
-</div>
-
-<div class="grid grid-cols-2 gap-8 mt-8">
-
-<div>
-
-## Integration Support:
-<div class="text-left">
-
-🔗 **Manual Instrumention**  
-📈 **Built-in Observability**  
-🎯 **OpenTelemetry Collector** integration  
-☸️ **Kubernetes RBAC** & metadata decoration  
-
-</div>
-
-</div>
-
-<div>
-
-## Key Limitations:
-<div class="text-left">
-
-🔧 **Kernel 5.8+ required** (4.18+ for RHEL)  
-🖥️ **x86_64/arm64 only**  
-⚡ **No real-time custom attributes**  
-
-</div>
-
+<div class="mt-12 p-6 bg-blue-900 bg-opacity-30 rounded-lg text-center">
+<div class="text-3xl font-bold mb-2">✅ All major cloud providers</div>
+<div class="text-lg text-gray-300">If you're running modern Linux containers, you're ready</div>
 </div>
 
 </div>
 
 <!--
 Speaker: Nikola
+
+Keep this simple and positive:
+
+Kernel requirement:
+- 5.8+ is from 2020 - 5 years old at this point
+- RHEL/CentOS 8+ users have backported eBPF (kernel 4.18+)
+- Check with: uname -r
+
+Architecture:
+- x86_64 (Intel/AMD) - standard everywhere
+- arm64 (Graviton, M-series) - growing fast
+- Covers 99%+ of production deployments
+- Check with: uname -m
+
+The big picture:
+- These aren't limitations, they're standard requirements
+- 95% of modern K8s clusters already meet these
+- Cloud providers: AWS, GCP, Azure, DigitalOcean all qualify
+- On-prem: Most recent installations qualify
+
+This is a "check the box" slide, not a blocker slide
 -->
 
 ---
 layout: default
 ---
 
-# Next Steps 🚀
+# What OBI Observes 🔍
 
-<div class="grid grid-cols-3 gap-8 mt-8 text-center">
+<div class="mt-6">
 
-<div>
-
-### 📚 <a href="https://opentelemetry.io/docs/zero-code/obi/">Docs</a>
-
-<CncfQRCode 
-  value="https://opentelemetry.io/docs/zero-code/obi/" 
-  :width="200"
-  :height="200"
-  :margin="2"
-/>
+<div class="text-center mb-6">
+<div class="text-2xl font-bold">Covers the protocols that matter most</div>
 </div>
 
-<div>
-
-### 💻 <a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">Repository</a>
-
-<CncfQRCode 
-  value="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation" 
-  :width="200"
-  :height="200"
-  :margin="2"
-/>
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b-2 border-blue-500">
+<th class="p-4 text-xl font-bold">Category</th>
+<th class="p-4 text-xl font-bold">Protocols Supported</th>
+<th class="p-4 text-xl font-bold text-center">Coverage</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-700 bg-green-900 bg-opacity-10">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<span class="text-3xl">🌐</span>
+<span class="font-bold">Web Traffic</span>
+</div>
+</td>
+<td class="p-4">HTTP/HTTPS, REST APIs, gRPC, WebSockets</td>
+<td class="p-4 text-center">
+<span class="text-2xl">✅</span>
+</td>
+</tr>
+<tr class="border-b border-gray-700 bg-green-900 bg-opacity-10">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<span class="text-3xl">💾</span>
+<span class="font-bold">Databases</span>
+</div>
+</td>
+<td class="p-4">PostgreSQL, MySQL, MongoDB, Redis</td>
+<td class="p-4 text-center">
+<span class="text-2xl">✅</span>
+</td>
+</tr>
+<tr class="border-b border-gray-700 bg-green-900 bg-opacity-10">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<span class="text-3xl">📨</span>
+<span class="font-bold">Messaging</span>
+</div>
+</td>
+<td class="p-4">Kafka, AMQP (RabbitMQ), MQTT</td>
+<td class="p-4 text-center">
+<span class="text-2xl">✅</span>
+</td>
+</tr>
+<tr class="bg-yellow-900 bg-opacity-10">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<span class="text-3xl">📊</span>
+<span class="font-bold">Custom Spans</span>
+</div>
+</td>
+<td class="p-4">Business logic, internal functions, custom attributes</td>
+<td class="p-4 text-center">
+<span class="text-2xl">➕</span>
+<div class="text-xs text-gray-400">manual instrumentation</div>
+</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 
+<!--
+Speaker: Nikola
+
+Protocol coverage - the practical view:
+
+The table shows what OBI handles automatically vs what needs manual instrumentation
+
+Web traffic (90% of microservices):
+- HTTP/HTTPS - covers REST APIs, webhooks, most inter-service calls
+- gRPC - growing standard for high-performance services
+- WebSockets - real-time communication
+- Captures request/response, timing, errors
+
+Databases (where most performance issues live):
+- PostgreSQL, MySQL - most common SQL databases
+- MongoDB - popular NoSQL choice
+- Redis - caching, pub/sub, queues
+- See connection patterns, slow queries, timeout issues
+
+Messaging (async communication):
+- Kafka - event streaming
+- AMQP - RabbitMQ and similar
+- MQTT - IoT and lightweight messaging
+
+Custom metrics - the yellow row:
+- This is where manual instrumentation shines
+- Business metrics (orders processed, revenue, etc.)
+- Internal function tracing
+- Application-specific attributes
+
+The philosophy:
+- OBI covers network-level protocols - what services say to each other
+- Manual instrumentation covers application logic - what happens inside
+- You don't need to choose - use BOTH!
+
+Best practice:
+1. Deploy OBI first - instant baseline visibility
+2. Identify hot spots from traces
+3. Add manual instrumentation to those specific areas for deeper insight
+4. Now you have complete observability with minimal effort
+
+This isn't "OBI vs manual instrumentation" - it's "OBI + manual instrumentation"
+Best of both worlds!
+-->
+
+---
+layout: default
+---
+
+# Try It Yourself 🚀
+
+<div class="grid grid-cols-3 mt-8 text-center">
+
 <div>
 
-### 🧪 <a href="https://github.com/MrAlias/kubecon-na-2025">Try the Demo</a>
+### 🧪 Try the Demo
 
 <CncfQRCode 
   value="https://github.com/MrAlias/kubecon-na-2025" 
@@ -1137,32 +1146,76 @@ layout: default
   :margin="2"
 />
 
-</div>
+Be up and exploring < 10 min
 
 </div>
 
-<div class="grid grid-cols-4 gap-8 mt-8 text-center">
+<div>
 
-<div class="p-4 bg-blue-900 bg-opacity-50 rounded-lg">
-🐛 <p><strong>Report</strong> bugs</p>
+### 📖 Docs
+
+<CncfQRCode 
+  value="https://opentelemetry.io/docs/zero-code/obi/" 
+  :width="200"
+  :height="200"
+  :margin="2"
+/>
+
+Helm charts  
+Examples  
+Best practices
+
 </div>
 
-<div class="p-4 bg-green-900 bg-opacity-50 rounded-lg">
-💡 <p><strong>Suggest</strong> features</p>
-</div>
+<div>
 
-<div class="p-4 bg-purple-900 bg-opacity-50 rounded-lg">
-📖 <p><strong>Improve</strong>  docs</p>
-</div>
+### 💬 Get Help
 
-<div class="p-4 bg-yellow-900 bg-opacity-50 rounded-lg">
-🧪 <p><strong>Share</strong> your use cases</p>
+<CncfQRCode 
+  value="https://cloud-native.slack.com/archives/C08P9L4FPKJ"
+  :width="200"
+  :height="200"
+  :margin="2"
+/>
+
+**CNCF Slack**
+
+`#otel-ebpf-instrumentation`
+
+Active community support
+
 </div>
 
 </div>
 
 <!--
 Speaker: Tyler
+
+Make this tangible - what can they do TODAY?
+
+1. Clone the demo repo - it's all there:
+   - Bookinfo application pre-configured
+   - OBI deployment scripts
+   - Grafana/Tempo/Loki stack ready
+   - Takes < 10 minutes start to finish
+
+2. Read production docs if you want to go further:
+   - Official Helm charts for production
+   - Configuration examples for real scenarios
+   - Best practices learned from early adopters
+
+3. Join Slack when you have questions:
+   - Active community responds quickly
+   - We (speakers) are both active there
+   - Share your use case, get specific help
+
+The goal: Deploy in staging before end of day
+- Not asking for production commitment
+- Just validate it works in YOUR environment
+- See the value firsthand
+- Then you can make informed decisions
+
+This is a "try it now" moment, not a "think about it" moment
 -->
 
 ---
