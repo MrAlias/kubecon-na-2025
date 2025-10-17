@@ -757,7 +757,7 @@ What we just witnessed:
   * Complete distributed trace context
 
 Compare this to traditional approach:
-- Traditional: 2-3 DAYS of development, testing, deployment
+- Traditional: DAYS of development, testing, deployment
 - OBI: 5 MINUTES from deployment to solution
 
 This is the power of eBPF-based instrumentation!
