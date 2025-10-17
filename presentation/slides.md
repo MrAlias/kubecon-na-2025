@@ -120,40 +120,69 @@ layout: default
 
 <div class="relative min-h-[500px]">
 
-<div v-click-hide="1" class="absolute inset-0 p-6 bg-red-900 bg-opacity-30 rounded-lg">
+<div v-click-hide="1" class="absolute inset-0 p-6 bg-red-900 bg-opacity-30 rounded-lg flex flex-col">
 
 ## 🐌 Traditional Observability Timeline
 
-<div class="relative mt-12">
+<div class="relative flex-1 flex items-stretch mt-6">
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#2d1b2e','primaryTextColor':'#D62293','primaryBorderColor':'#D62293','lineColor':'#D62293'}}}%%
+---
+title: 5-7 Days of Work While Your System Burns 🔥
+config:
+  theme: base
+  themeVariables:
+    primaryColor: "#2d1b2e"
+    primaryTextColor: "#D62293"
+    primaryBorderColor: "#D62293"
+    lineColor: "#D62293"
+    critBkgColor: "#7f1d1d"
+    critBorderColor: "#ef4444"
+    activeTaskBkgColor: "#4a1e3a"
+    activeTaskBorderColor: "#D62293"
+  gantt:
+    titleTopMargin: 25
+    barHeight: 30
+    barGap: 3
+    topPadding: 75
+    rightPadding: 75
+    leftPadding: 75
+    gridLineStartPadding: 10
+    fontSize: 18
+    sectionFontSize: 24
+---
 gantt
-    title 2-3 Days of Work While Your System Burns 🔥
     todayMarker off
     dateFormat HH:mm
-    axisFormat %H:%M:%S
-    
+    axisFormat %H:%M
+
     section Day 1
-    Write instrumentation code           :a1, 06:00, 4h
-    Write tests                          :a2, after a1, 2h
-    Fix instrumentation code             :a3, after a2, 3h
-    Write more tests                     :a4, after a3, 2h
-    Open PR                              :a5, after a4, 1h
-    
+    Instrument Productpage               :a1, 06:00, 3h
+    Test & fix                           :a2, after a1, 3h
+    Instrument Reviews                   :a3, after a2, 4h
+    Build & test                         :a4, after a3, 2h
+
     section Day 2
-    Respond to reviews                   :b1, 06:00, 1h
-    Apply fixes                          :b2, after b1, 3h
-    Resubmit                             :b3, after b2, 1h
-    CI/CD pipeline                       :b4, after b3, 2h
-    Deploy to staging                    :b5, after b4, 2h
-    Staging validation                   :b6, after b5, 3h
-    
+    Fix Reviews issues                   :b1, 06:00, 2h
+    Instrument Ratings                   :b2, after b1, 3h
+    Integration testing                  :b3, after b2, 3h
+    Submit 3 PRs                         :b4, after b3, 2h
+
     section Day 3
-    Production deployment                :c1, 06:00, 2h
-    Rolling restart services             :c2, after c1, 2h
-    Wait for data collection             :c3, after c2, 1h
-    Finally start debugging!             :crit, c4, after c3, 1h
+    PR reviews & feedback                :c1, 06:00, 3h
+    Apply fixes to all 3                 :c2, after c1, 4h
+    Re-test integrations                 :c3, after c2, 3h
+
+    section Day 4
+    CI/CD for all services               :d1, 06:00, 3h
+    Deploy to staging                    :d2, after d1, 2h
+    Staging validation                   :d3, after d2, 3h
+    Fix staging issues                   :d4, after d3, 2h
+
+    section Day 5
+    Production deployment                :e1, 06:00, 3h
+    Rolling restarts                     :e2, after e1, 2h
+    Finally debug!                       :crit, e3, after e2, 1h
 ```
 
 <div class="absolute top-0 right-0 text-6xl opacity-50">😰</div>
@@ -162,29 +191,52 @@ gantt
 
 </div>
 
-<div v-click="1" class="absolute inset-0 p-6 bg-green-900 bg-opacity-30 rounded-lg">
+<div v-click="1" class="absolute inset-0 p-6 bg-green-900 bg-opacity-30 rounded-lg flex flex-col">
 
 ## ⚡What We Actually Need
 
-<div class="relative mt-12">
+<div class="relative flex-1 flex items-stretch mt-6">
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#1a3a52','primaryTextColor':'#0a0f1a','primaryBorderColor':'#0086FF','lineColor':'#0086FF'}}}%%
+---
+title: 2-3 Minutes to Full Observability ✨
+config:
+  theme: base
+  themeVariables:
+    primaryColor: "#1a5233"
+    primaryTextColor: "#93eaff"
+    primaryBorderColor: "#22c55e"
+    lineColor: "#22c55e"
+    fontSize: 18
+    doneTaskBkgColor: "#15803d"
+    doneTaskBorderColor: "#22c55e"
+    critBkgColor: "#166534"
+    critBorderColor: "#4ade80"
+  gantt:
+    titleTopMargin: 25
+    barHeight: 60
+    barGap: 4
+    topPadding: 75
+    rightPadding: 75
+    leftPadding: 75
+    gridLineStartPadding: 10
+    fontSize: 18
+    sectionFontSize: 24
+---
 gantt
-    title 2-3 Minutes to Full Observability ✨
     todayMarker off
     dateFormat mm:ss
-    axisFormat %H:%M:%S
-    
-    section Day 1
-    Deploy instrumentation          :done, a1, 00:00, 30s
+    axisFormat %M:%S
+
+    section Hour 1
+    Deploy OBI                      :done, a1, 00:00, 30s
     Auto-discover services          :done, a2, after a1, 30s
     Traces start flowing            :done, a3, after a2, 10s
     Identify root cause             :crit, done, a4, after a3, 60s
 ```
 
 <div class="absolute top-0 right-0 text-6xl">🚀</div>
-<div class="absolute left-1/2 transform -translate-x-1/2 text-2xl font-bold text-green-400">
+<div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 text-2xl font-bold text-green-400">
 From DAYS → MINUTES
 </div>
 

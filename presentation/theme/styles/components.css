@@ -232,3 +232,18 @@ img {
   font-style: italic;
   color: rgba(0, 0, 0, 0.6);
 }
+
+/* Mermaid diagram scaling */
+.mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: visible;
+}
+
+.mermaid svg {
+  max-width: none !important;
+  width: auto !important;
+  height: auto !important;
+}
