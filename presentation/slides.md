@@ -1035,7 +1035,7 @@ layout: default
 <span class="font-bold">Web Traffic</span>
 </div>
 </td>
-<td class="p-4">HTTP/HTTPS, REST APIs, gRPC, WebSockets</td>
+<td class="p-4">HTTP/HTTPS, REST APIs, gRPC</td>
 <td class="p-4 text-center">
 <span class="text-2xl">✅</span>
 </td>
@@ -1059,7 +1059,7 @@ layout: default
 <span class="font-bold">Messaging</span>
 </div>
 </td>
-<td class="p-4">Kafka, AMQP (RabbitMQ), MQTT</td>
+<td class="p-4">Kafka</td>
 <td class="p-4 text-center">
 <span class="text-2xl">✅</span>
 </td>
@@ -1074,7 +1074,7 @@ layout: default
 <td class="p-4">Business logic, internal functions, custom attributes</td>
 <td class="p-4 text-center">
 <span class="text-2xl">➕</span>
-<div class="text-xs text-gray-400">manual instrumentation</div>
+<div class="text-xs text-gray-400">SDK instrumentation</div>
 </td>
 </tr>
 </tbody>
@@ -1092,7 +1092,6 @@ The table shows what OBI handles automatically vs what needs manual instrumentat
 Web traffic (90% of microservices):
 - HTTP/HTTPS - covers REST APIs, webhooks, most inter-service calls
 - gRPC - growing standard for high-performance services
-- WebSockets - real-time communication
 - Captures request/response, timing, errors
 
 Databases (where most performance issues live):
@@ -1103,14 +1102,12 @@ Databases (where most performance issues live):
 
 Messaging (async communication):
 - Kafka - event streaming
-- AMQP - RabbitMQ and similar
-- MQTT - IoT and lightweight messaging
 
 Custom metrics - the yellow row:
-- This is where manual instrumentation shines
 - Business metrics (orders processed, revenue, etc.)
 - Internal function tracing
 - Application-specific attributes
+- OBI collaborates with any manual SDK instrumentation here
 
 The philosophy:
 - OBI covers network-level protocols - what services say to each other
@@ -1123,7 +1120,7 @@ Best practice:
 3. Add manual instrumentation to those specific areas for deeper insight
 4. Now you have complete observability with minimal effort
 
-This isn't "OBI vs manual instrumentation" - it's "OBI + manual instrumentation"
+This isn't "OBI vs SDK instrumentation" - it's "OBI + SDK instrumentation"
 Best of both worlds!
 -->
 
