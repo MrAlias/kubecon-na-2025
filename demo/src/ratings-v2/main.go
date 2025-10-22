@@ -150,7 +150,7 @@ func initMongoDB() error {
 		return fmt.Errorf("MONGO_DB_URL environment variable not set")
 	}
 
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 120*time.Second)
 	defer cancel()
 
 	client, err := mongo.Connect(ctx, options.Client().ApplyURI(mongoURL))
