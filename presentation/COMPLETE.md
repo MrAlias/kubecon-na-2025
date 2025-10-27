@@ -1,4 +1,4 @@
-# 🎉 CNCF/KubeCon Slidev Theme - Complete!
+# 🎉 CNCF/KubeCon Slidev Theme - Complete
 
 ## Summary
 
@@ -7,23 +7,29 @@ I've successfully built a custom Slidev theme for your KubeCon + CloudNativeCon 
 ## ✅ What Was Implemented
 
 ### 1. **Official CNCF Brand Colors**
-From https://www.cncf.io/brand-guidelines/:
+
+From [CNCF brand-guidelines](https://www.cncf.io/brand-guidelines/):
+
 - **CNCF Blue** (#0086FF) - Primary brand color
-- **CNCF Turquoise** (#93EAFF) - Accent color  
+- **CNCF Turquoise** (#93EAFF) - Accent color
 - **CNCF Pink** (#D62293) - Highlight/warning color
 - **CNCF Stone** (#E5E5E5) - Secondary text
 - **CNCF Black** (#000000) - Text and backgrounds
 - **CNCF Cloud White** (#FFFFFF) - Light backgrounds
 
 ### 2. **Official Typography - Clarity City**
+
 From VMware's open source Clarity City font (CNCF's official typeface):
+
 - **Headlines**: Clarity City Bold (weight: 700)
 - **Body Text**: Clarity City Regular (weight: 400)
 - **Code**: Fira Code (monospace fallback)
 - Fonts loaded from CDN with proper fallbacks
 
 ### 3. **Official Logos**
-From https://github.com/cncf/artwork:
+
+From [CNCF artwork](https://github.com/cncf/artwork):
+
 - CNCF horizontal logo (full color)
 - CNCF icon logo (for compact spaces)
 - KubeCon + CloudNativeCon 2024 NA logo (will need update to 2025)
@@ -31,7 +37,9 @@ From https://github.com/cncf/artwork:
 - Proper clear space maintained (1rem padding minimum)
 
 ### 4. **CNCF Style Guide Compliance**
-Following https://github.com/cncf/foundation/blob/main/style-guide.md:
+
+Following [CNCF style-guide](https://github.com/cncf/foundation/blob/main/style-guide.md):
+
 - ✅ "cloud native" (no hyphen, lowercase)
 - ✅ "open source" (no hyphen, lowercase)
 - ✅ "Kubernetes" (proper capitalization)
@@ -39,9 +47,11 @@ Following https://github.com/cncf/foundation/blob/main/style-guide.md:
 - ✅ "KubeCon + CloudNativeCon" (full event name, never shortened)
 
 ### 5. **Professional Layouts**
+
 Four custom Vue layouts:
 
 #### Cover Layout (`layout: cover`)
+
 - Title slides with full branding
 - KubeCon + CloudNativeCon logo (top left)
 - CNCF logo in footer
@@ -49,12 +59,14 @@ Four custom Vue layouts:
 - Event metadata support
 
 #### Center Layout (`layout: center`)
+
 - Centered content presentation
 - CNCF icon logo (top right)
 - Clean, focused design
 - Optional footer
 
 #### Default Layout (`layout: default`)
+
 - Standard content slides
 - Left-aligned content
 - CNCF icon logo (top right)
@@ -62,13 +74,16 @@ Four custom Vue layouts:
 - Page numbers
 
 #### End Layout (`layout: end`)
+
 - Thank you slides
 - KubeCon + CloudNativeCon logo (top left)
 - CNCF logo in footer
 - Centered content for contact info
 
 ### 6. **Content Safety Features**
+
 Ensures all content stays within the presentation viewport:
+
 - **Safe margins**: 2rem top/bottom, 3rem left/right
 - **Responsive typography**: CSS clamp() for automatic font scaling
 - **Overflow protection**: All containers constrained
@@ -76,7 +91,9 @@ Ensures all content stays within the presentation viewport:
 - **Image handling**: max-width: 100% for all images
 
 ### 7. **Component Library**
+
 Ready-to-use styled components:
+
 - **Info boxes** (blue accent border)
 - **Warning boxes** (pink accent border)
 - **Success boxes** (turquoise accent border)
@@ -88,6 +105,7 @@ Ready-to-use styled components:
 - **Grid layouts** (2 and 3 columns)
 
 ### 8. **Accessibility Features**
+
 - ✅ WCAG AA color contrast ratios met
 - ✅ Reduced motion support (prefers-reduced-motion)
 - ✅ Semantic HTML structure
@@ -96,6 +114,7 @@ Ready-to-use styled components:
 - ✅ Focus indicators
 
 ### 9. **Performance Optimizations**
+
 - Fonts loaded via CDN with `font-display: swap`
 - SVG logos for crisp display at any resolution
 - CSS-only animations (no heavy JavaScript)
@@ -104,7 +123,7 @@ Ready-to-use styled components:
 
 ## 📁 File Structure Created
 
-```
+```console
 presentation/
 ├── theme/                              # Custom CNCF theme
 │   ├── layouts/                        # Vue layout components
@@ -139,21 +158,26 @@ presentation/
 ## 🚀 Quick Start
 
 ### 1. Start Development Server
+
 ```bash
 cd /home/tyler/code/kubecon-na-2025/presentation
 npm run dev
 ```
+
 Or use the helper script:
+
 ```bash
 ./present.sh dev
 ```
 
 ### 2. View Your Presentation
-- The dev server will start at http://localhost:3030
+
+- The dev server will start at `http://localhost:3030`
 - Your slides now have full CNCF/KubeCon branding
 - Press `O` in the browser for presenter mode
 
 ### 3. Build for Production
+
 ```bash
 npm run build
 # or
@@ -161,6 +185,7 @@ npm run build
 ```
 
 ### 4. Export to PDF
+
 ```bash
 npm run export
 # or
@@ -189,7 +214,7 @@ The theme is already configured in `slides.md`:
 theme: ./theme
 colorSchema: dark
 fonts:
-  sans: 'Clarity City'
+  sans: "Clarity City"
 ---
 ```
 
@@ -197,9 +222,8 @@ fonts:
 
 ```yaml
 ---
-layout: cover  # or: center, default, end
+layout: cover # or: center, default, end
 ---
-
 # Your Slide Title
 ```
 
@@ -207,9 +231,7 @@ layout: cover  # or: center, default, end
 
 ```html
 <!-- Info box -->
-<div class="info-box">
-  Important information with blue accent
-</div>
+<div class="info-box">Important information with blue accent</div>
 
 <!-- Two-column layout -->
 <div class="two-column">
@@ -231,6 +253,7 @@ layout: cover  # or: center, default, end
 ## ✅ Brand Compliance Checklist
 
 ### Logo Requirements
+
 - [x] Using official CNCF logos (unmodified)
 - [x] Using official KubeCon + CloudNativeCon logo
 - [x] Proper clear space maintained (1rem minimum)
@@ -238,18 +261,21 @@ layout: cover  # or: center, default, end
 - [x] KubeCon + CloudNativeCon kept together (not separated)
 
 ### Color Requirements
+
 - [x] Official CNCF Blue (#0086FF)
 - [x] Full secondary palette implemented
 - [x] No custom colors outside brand guidelines
 - [x] Proper WCAG AA contrast ratios
 
 ### Typography Requirements
+
 - [x] Clarity City Bold for headlines
 - [x] Clarity City Regular for body text
 - [x] Proper font loading with fallbacks
 - [x] Responsive font sizing (clamp functions)
 
 ### Style Guide Requirements
+
 - [x] "cloud native" (no hyphen)
 - [x] "open source" (no hyphen)
 - [x] "Kubernetes" (proper capitalization)
@@ -257,12 +283,14 @@ layout: cover  # or: center, default, end
 - [x] "KubeCon + CloudNativeCon" (full name)
 
 ### Layout Requirements
+
 - [x] Content stays within viewport (safe margins)
 - [x] No overflow on any slide type
 - [x] Responsive design for different displays
 - [x] Proper spacing and padding
 
 ### Accessibility Requirements
+
 - [x] WCAG AA color contrast
 - [x] Reduced motion support
 - [x] Semantic HTML structure
@@ -278,33 +306,43 @@ When official 2025 logos become available:
    - `theme/layouts/end.vue` (line ~8)
 
 2. Replace:
-```
+
+```text
 2024-kubecon-cloudnativecon-north-america/color/2024-kubecon-na-color.svg
 ```
+
 with:
-```
+
+```text
 2025-kubecon-cloudnativecon-north-america/color/2025-kubecon-na-color.svg
 ```
 
 ## 💡 Pro Tips
 
 ### 1. Presenter Mode
+
 Press `O` in the browser to open presenter mode with:
+
 - Speaker notes
 - Next slide preview
 - Timer
 
 ### 2. Grid View
+
 Press `G` to see all slides in a grid layout
 
 ### 3. Dark/Light Toggle
+
 Press `D` to toggle between dark and light mode (theme optimized for dark)
 
 ### 4. Drawing Mode
+
 Press `B` to enable drawing on slides
 
 ### 5. Testing
+
 Always test on your actual presentation display:
+
 - Projector resolution
 - Aspect ratio
 - Color accuracy
@@ -312,37 +350,44 @@ Always test on your actual presentation display:
 ## 🎯 Key Features for Your Presentation
 
 ### ✅ Professional Appearance
+
 Matches the official KubeCon presentation template, giving your talk a conference-appropriate look.
 
 ### ✅ Content Safety
+
 Proper margins ensure nothing gets cut off when projected or shared.
 
 ### ✅ Easy to Use
+
 Just write markdown - the theme handles all styling automatically.
 
 ### ✅ Brand Compliant
+
 Meets all CNCF and KubeCon brand guidelines requirements.
 
 ### ✅ Accessible
+
 WCAG AA compliant with proper contrast and reduced motion support.
 
 ### ✅ Performance
+
 Optimized for smooth transitions and fast loading.
 
 ## 🔗 Official Resources Referenced
 
 All branding follows these official sources:
 
-- **CNCF Brand Guidelines**: https://www.cncf.io/brand-guidelines/
-- **KubeCon Branding**: https://www.cncf.io/kubecon-cloudnativecon-branding-guidelines/
-- **CNCF Style Guide**: https://github.com/cncf/foundation/blob/main/style-guide.md
-- **CNCF Artwork**: https://github.com/cncf/artwork
-- **Clarity City Font**: https://github.com/vmware/clarity-city
-- **Slidev Documentation**: https://sli.dev/
+- [CNCF Brand Guidelines](https://www.cncf.io/brand-guidelines/)
+- [KubeCon Branding](https://www.cncf.io/kubecon-cloudnativecon-branding-guidelines/)
+- [CNCF Style Guide](https://github.com/cncf/foundation/blob/main/style-guide.md)
+- [CNCF Artwork](https://github.com/cncf/artwork)
+- [Clarity City Font](https://github.com/vmware/clarity-city)
+- [Slidev Documentation](https://sli.dev/)
 
-## 🎊 You're All Set!
+## 🎊 You're All Set
 
 Your presentation now has:
+
 - ✅ Official CNCF/KubeCon branding
 - ✅ Professional layouts
 - ✅ Safe content delivery
@@ -361,21 +406,23 @@ Your presentation now has:
 ## 📞 Need Help?
 
 Check these resources:
+
 1. **THEME_SETUP.md** - Complete usage guide
 2. **QUICK_REFERENCE.md** - Quick reference for common tasks
 3. **COMPLIANCE.md** - Brand guidelines checklist
-4. **Slidev Docs** - https://sli.dev/
+4. [**Slidev Docs**](https://sli.dev/)
 
 ## 📝 License & Attribution
 
 This theme uses official CNCF brand assets subject to the [Linux Foundation Trademark Usage Guidelines](https://www.linuxfoundation.org/legal/trademark-usage).
 
 **Required Attribution**:
+
 > "CNCF and the CNCF logo design are registered trademarks of the Cloud Native Computing Foundation."
 
 ---
 
-## 🎉 Enjoy Your Presentation!
+## 🎉 Enjoy Your Presentation
 
 **You're ready for KubeCon + CloudNativeCon North America 2025!**
 

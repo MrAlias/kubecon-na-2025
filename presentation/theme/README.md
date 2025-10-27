@@ -5,6 +5,7 @@ A custom Slidev theme following the official CNCF and KubeCon + CloudNativeCon b
 ## Features
 
 ### Official Branding Compliance
+
 - ✅ Uses official CNCF color palette
   - Primary: CNCF Blue (#0086FF), CNCF Black (#000000)
   - Secondary: CNCF Turquoise (#93EAFF), CNCF Pink (#D62293), CNCF Stone (#E5E5E5)
@@ -13,12 +14,14 @@ A custom Slidev theme following the official CNCF and KubeCon + CloudNativeCon b
 - ✅ Follows CNCF Style Guide conventions
 
 ### Layout Safety
+
 - Content padding ensures nothing goes off-screen
 - Responsive typography with clamp() for all screen sizes
 - Safe viewing area with proper margins
 - Overflow protection for all content types
 
 ### Professional Design
+
 - Clean, modern layouts (cover, center, default, end)
 - Smooth transitions and animations
 - Dark mode optimized
@@ -38,7 +41,9 @@ theme: ./theme
 ## Layouts
 
 ### Cover Layout
+
 Use for title slides with KubeCon + CloudNativeCon branding:
+
 ```yaml
 ---
 layout: cover
@@ -46,7 +51,9 @@ layout: cover
 ```
 
 ### Center Layout
+
 Centered content with CNCF logo:
+
 ```yaml
 ---
 layout: center
@@ -54,7 +61,9 @@ layout: center
 ```
 
 ### Default Layout
+
 Standard content layout with header space:
+
 ```yaml
 ---
 layout: default
@@ -62,7 +71,9 @@ layout: default
 ```
 
 ### End Layout
+
 Thank you / closing slides:
+
 ```yaml
 ---
 layout: end
@@ -72,7 +83,9 @@ layout: end
 ## Customization
 
 ### Colors
+
 All CNCF brand colors are available as CSS variables:
+
 - `--cncf-blue`
 - `--cncf-black`
 - `--cncf-turquoise`
@@ -81,6 +94,7 @@ All CNCF brand colors are available as CSS variables:
 - `--cncf-cloud-white`
 
 ### Typography
+
 - Headlines: Clarity City Bold
 - Body: Clarity City Regular
 - Code: Fira Code (monospace)
@@ -88,11 +102,13 @@ All CNCF brand colors are available as CSS variables:
 ## Brand Guidelines Compliance
 
 This theme follows:
+
 - [CNCF Brand Guidelines](https://www.cncf.io/brand-guidelines/)
 - [KubeCon + CloudNativeCon Branding Guidelines](https://www.cncf.io/kubecon-cloudnativecon-branding-guidelines/)
 - [CNCF Style Guide](https://github.com/cncf/foundation/blob/main/style-guide.md)
 
 ### Key Requirements Met
+
 - ✅ No logo modifications
 - ✅ Proper logo clear space
 - ✅ Official color usage only

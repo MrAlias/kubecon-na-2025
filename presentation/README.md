@@ -15,44 +15,47 @@ Custom Slidev presentation theme following official CNCF and KubeCon + CloudNati
 
 ## 🎨 Brand Colors
 
-| Color | Hex | Usage |
-|-------|-----|-------|
-| CNCF Blue | `#0086FF` | Primary brand color |
-| CNCF Black | `#000000` | Text, backgrounds |
-| CNCF Turquoise | `#93EAFF` | Accent, highlights |
-| CNCF Pink | `#D62293` | Warnings, emphasis |
-| CNCF Stone | `#E5E5E5` | Secondary text |
+| Color            | Hex       | Usage                   |
+| ---------------- | --------- | ----------------------- |
+| CNCF Blue        | `#0086FF` | Primary brand color     |
+| CNCF Black       | `#000000` | Text, backgrounds       |
+| CNCF Turquoise   | `#93EAFF` | Accent, highlights      |
+| CNCF Pink        | `#D62293` | Warnings, emphasis      |
+| CNCF Stone       | `#E5E5E5` | Secondary text          |
 | CNCF Cloud White | `#FFFFFF` | Backgrounds, light text |
 
 ## 📖 Documentation
 
-- **[THEME_SETUP.md](../THEME_SETUP.md)** - Complete setup and usage guide
-- **[QUICK_REFERENCE.md](./QUICK_REFERENCE.md)** - Quick reference for common tasks
-- **[COMPLIANCE.md](./COMPLIANCE.md)** - Brand compliance checklist
+- **[THEME_SETUP.md](./THEME_SETUP.md)** - Complete setup and usage guide
+- **[QUICK_REFERENCE.md](./theme/QUICK_REFERENCE.md)** - Quick reference for common tasks
+- **[COMPLIANCE.md](./theme/COMPLIANCE.md)** - Brand compliance checklist
 - **[README.md](./README.md)** - Theme overview
 
 ## 🚀 Quick Start
 
 1. Theme is already configured in `slides.md`:
-```yaml
----
-theme: ./theme
----
-```
+
+   ```yaml
+   ---
+   theme: ./theme
+   ---
+   ```
 
 2. Install dependencies:
-```bash
-npm install
-```
+
+   ```bash
+   npm install
+   ```
 
 3. Start development server:
-```bash
-npm run dev
-```
+
+   ```bash
+   npm run dev
+   ```
 
 ## 📁 Theme Structure
 
-```
+```console
 theme/
 ├── layouts/           # Vue layout components
 │   ├── cover.vue     # Title slide layout
@@ -75,18 +78,22 @@ theme/
 ## 🎯 Key Guidelines
 
 ### Logo Usage
+
 - ✅ Always use official logos from CNCF artwork repository
 - ✅ Maintain proper clear space (1rem minimum)
 - ❌ Never modify, stretch, or recolor logos
 - ❌ Never separate "KubeCon" from "CloudNativeCon"
 
 ### Typography
+
 - Headlines: **Clarity City Bold** (700)
 - Body: **Clarity City Regular** (400)
 - Code: **Fira Code** (monospace)
 
 ### Writing Style
+
 Per [CNCF Style Guide](https://github.com/cncf/foundation/blob/main/style-guide.md):
+
 - "cloud native" (no hyphen)
 - "open source" (no hyphen)
 - "Kubernetes" (proper capitalization)
@@ -105,11 +112,13 @@ Per [CNCF Style Guide](https://github.com/cncf/foundation/blob/main/style-guide.
 This theme uses official CNCF brand assets subject to the [Linux Foundation Trademark Usage Guidelines](https://www.linuxfoundation.org/legal/trademark-usage).
 
 **Attribution Required**:
+
 > "CNCF and the CNCF logo design are registered trademarks of the Cloud Native Computing Foundation."
 
 ## 🤝 Contributing
 
 This is a presentation-specific theme. For issues or suggestions:
+
 1. Check brand guidelines for compliance
 2. Test changes across all layouts
 3. Ensure content stays within safe viewing area

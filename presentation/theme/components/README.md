@@ -65,6 +65,7 @@ layout: center
 ### Implementation Details
 
 Based on the `qr-code-styling` library with custom Vue wrapper that:
+
 - Monitors DOM changes to detect theme switches
 - Automatically re-renders when the theme changes
 - Uses computed properties to determine current color scheme
