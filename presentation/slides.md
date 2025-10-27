@@ -1225,10 +1225,10 @@ layout: default
 
 <div>
 
-## 💬 <a href="https://cloud-native.slack.com/archives/C08P9L4FPKJ">CNCF Slack</a>
+## 🗃️ <a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">Repository</a>
 
 <CncfQRCode 
-  value="https://cloud-native.slack.com/archives/C08P9L4FPKJ"
+  value="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation"
   :width="200"
   :height="200"
   :margin="2"
