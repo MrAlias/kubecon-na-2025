@@ -27,9 +27,11 @@ Nikola Grcevski, Grafana Labs & Tyler Yahn, Splunk
 Speaker: Tyler (with Nikola introducing himself)
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # The 3 AM Page 📞
 
@@ -43,7 +45,6 @@ layout: default
 🌐 Multiple services in different languages  
 💾 Databases showing connection issues  
 👥 Users reporting slow responses and errors
-
 
 </div>
 
@@ -68,9 +69,11 @@ Sound familiar? 😅
 Speaker: Tyler
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # The Traditional Observability Dilemma
 
@@ -78,7 +81,7 @@ layout: default
 
 <div>
 
-## Adding Observability:
+## Adding Observability
 
 ✏️ Code changes  
 🧪 Testing  
@@ -89,7 +92,7 @@ layout: default
 
 <div>
 
-## During an Incident:
+## During an Incident
 
 ❌ Can't restart services  
 ❌ Can't deploy changes  
@@ -112,9 +115,11 @@ layout: default
 Speaker: Nikola
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # Observability Time Cost ⏰
 
@@ -250,9 +255,11 @@ From DAYS → MINUTES
 Speaker: Nikola
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # <img src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/projects/opentelemetry/icon/color/opentelemetry-icon-color.svg" alt="OpenTelemetry" style="display: inline-block; height: 1em; vertical-align: middle; margin-right: 0.3em;" /><span style="color: #f5a800; font-size: inherit;">Open</span><span style="color: #425cc7; font-size: inherit;">Telemetry</span> in 60 Seconds
 
@@ -261,6 +268,7 @@ layout: default
 <div>
 
 ## What?
+
 <div class="text-left">
 
 🧰 Observability toolkit  
@@ -275,6 +283,7 @@ layout: default
 <div>
 
 ## Why?
+
 <div class="text-left">
 
 ⭐ Industry standard for observability  
@@ -307,9 +316,11 @@ Speaker: Tyler
   * Generating large amounts of data is only useful if you can interpret this data.
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # The eBPF Advantage 🚀
 
@@ -317,7 +328,8 @@ layout: default
 
 <div>
 
-## eBPF Powers:
+## eBPF Powers
+
 <div class="text-left">
 
 🔧 **Kernel-level** instrumentation  
@@ -332,7 +344,8 @@ layout: default
 
 <div>
 
-## Perfect for Production:
+## Perfect for Production
+
 <div class="text-left">
 
 🔥 Safe during incidents  
@@ -354,9 +367,11 @@ The best of both worlds! 🌟
 Speaker: Tyler
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # Introducing OBI 🎉
 
@@ -368,7 +383,7 @@ layout: default
 
 <div>
 
-## What OBI Does:
+## What OBI Does
 
 🔍 **Automatically discovers** services  
 📊 **Generates distributed traces**  
@@ -380,7 +395,7 @@ layout: default
 
 <div>
 
-## Key Benefits:
+## Key Benefits
 
 ⚡ Deploy in < **30 seconds**  
 🚫 **No restarts** needed  
@@ -396,9 +411,11 @@ layout: default
 Speaker: Tyler
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # Demo Setup Preview 🎬
 
@@ -406,9 +423,9 @@ layout: default
 
 <div>
 
-## Our Demo App:
+## Our Demo App
 
-**Istio Bookinfo Sample**
+Istio Bookinfo Sample
 
 <div class="text-left text-sm">
 
@@ -423,7 +440,8 @@ layout: default
 
 <div>
 
-## Observability Stack:
+## Observability Stack
+
 <div class="text-left">
 
 🔍 **Grafana LGTM stack** for observability  
@@ -469,9 +487,11 @@ Problems marked with 🔥:
 This gives the audience a visual map before the demo so they can follow along
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: center
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # 🔥 LIVE DEMO TIME 🔥
 
@@ -503,9 +523,11 @@ Set the expectation: This is a 5-minute guided tour
 - Audience will time along with you mentally
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # Deploy OBI in 30 Seconds ⚡
 
@@ -545,9 +567,11 @@ Watch the magic happen! ✨
 Speaker: Nikola driving (Tyler commentary)
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # Immediate Trace Collection 📊
 
@@ -559,7 +583,8 @@ Switching to Grafana observability stack...
 
 <div>
 
-## What We're Seeing:
+## What We're Seeing
+
 <div class="text-left">
 
 📊 **Traces appearing** within seconds  
@@ -573,7 +598,8 @@ Switching to Grafana observability stack...
 
 <div>
 
-## Instant Insights:
+## Instant Insights
+
 <div class="text-left">
 
 ⏱️ **Timing information**  
@@ -595,9 +621,11 @@ From zero to observability in seconds! 🚀
 Speaker: Nikola driving (Tyler commentary)
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # Service Map Visualization 🗺️
 
@@ -609,7 +637,8 @@ Auto-generated service topology:
 
 <div>
 
-## What the Map Shows:
+## What the Map Shows
+
 <div class="text-left">
 
 🗺️ **Visual service relationships**  
@@ -623,7 +652,8 @@ Auto-generated service topology:
 
 <div>
 
-## Immediate Value:
+## Immediate Value
+
 <div class="text-left">
 
 🎯 **Spot bottlenecks** instantly  
@@ -645,9 +675,11 @@ Instantly understand your architecture! 🏗️
 Speaker: Nikola driving (Tyler commentary)
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # Drilling Down: Finding Root Cause 🔍
 
@@ -687,9 +719,11 @@ From chaos to clarity in minutes! ✨
 Speaker: Nikola driving (Tyler commentary)
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: center
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # What We Just Accomplished 🏆
 
@@ -766,9 +800,11 @@ Pause here - let the audience absorb the magnitude of this achievement
 This is your "drop the mic" moment before moving into the value proposition
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: center
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # From Chaos to Clarity ✨
 
@@ -884,9 +920,11 @@ This slide speaks to different audiences:
 - Execs: Focus on ROI and morale
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # By The Numbers 📊
 
@@ -894,7 +932,7 @@ layout: default
 
 <div class="space-y-6">
 
-## Time Saved:
+## Time Saved
 
 <div class="p-4 bg-blue-900 bg-opacity-30 rounded-lg">
 <div class="text-4xl font-bold text-blue-400">5-7 days → 5 minutes</div>
@@ -910,7 +948,7 @@ layout: default
 
 <div class="space-y-6">
 
-## Real Impact:
+## Real Impact
 
 <div class="p-4 bg-green-900 bg-opacity-30 rounded-lg">
 <div class="text-4xl font-bold text-green-400">$0</div>
@@ -951,9 +989,11 @@ Zero downtime:
 This isn't theory - you just watched it happen live
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # What You Need ✅
 
@@ -1007,9 +1047,11 @@ The big picture:
 This is a "check the box" slide, not a blocker slide
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # What OBI Observes 🔍
 
@@ -1124,9 +1166,11 @@ This isn't "OBI vs SDK instrumentation" - it's "OBI + SDK instrumentation"
 Best of both worlds!
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # Try It Yourself 🚀
 
@@ -1136,12 +1180,7 @@ layout: default
 
 ### 🧪 Try the Demo
 
-<CncfQRCode 
-  value="https://github.com/MrAlias/kubecon-na-2025" 
-  :width="200"
-  :height="200"
-  :margin="2"
-/>
+<CncfQRCode value="https://github.com/MrAlias/kubecon-na-2025" :width="200" :height="200" :margin="2" />
 
 Be up and exploring < 10 min
 
@@ -1151,12 +1190,7 @@ Be up and exploring < 10 min
 
 ### 📖 Docs
 
-<CncfQRCode 
-  value="https://opentelemetry.io/docs/zero-code/obi/" 
-  :width="200"
-  :height="200"
-  :margin="2"
-/>
+<CncfQRCode value="https://opentelemetry.io/docs/zero-code/obi/" :width="200" :height="200" :margin="2" />
 
 Helm charts  
 Examples  
@@ -1168,14 +1202,9 @@ Best practices
 
 ### 💬 Get Help
 
-<CncfQRCode 
-  value="https://cloud-native.slack.com/archives/C08P9L4FPKJ"
-  :width="200"
-  :height="200"
-  :margin="2"
-/>
+<CncfQRCode value="https://cloud-native.slack.com/archives/C08P9L4FPKJ" :width="200" :height="200" :margin="2" />
 
-**CNCF Slack**
+#### CNCF Slack
 
 `#otel-ebpf-instrumentation`
 
@@ -1215,9 +1244,11 @@ The goal: Deploy in staging before end of day
 This is a "try it now" moment, not a "think about it" moment
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # Join the Community 🤝
 
@@ -1227,14 +1258,9 @@ layout: default
 
 ## 🗃️ <a href="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation">Repository</a>
 
-<CncfQRCode 
-  value="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation"
-  :width="200"
-  :height="200"
-  :margin="2"
-/>
+<CncfQRCode value="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation" :width="200" :height="200" :margin="2" />
 
-`#otel-ebpf-instrumentation `
+`#otel-ebpf-instrumentation`
 
 </div>
 
@@ -1242,13 +1268,7 @@ layout: default
 
 ## 📅 <a href="https://groups.google.com/a/opentelemetry.io/g/calendar-ebpf-instrumentation">SIG Meeting</a>
 
-<CncfQRCode 
-  value="https://groups.google.com/a/opentelemetry.io/g/calendar-ebpf-instrumentation" 
-  :width="200"
-  :height="200"
-  :margin="2"
-/>
-
+<CncfQRCode value="https://groups.google.com/a/opentelemetry.io/g/calendar-ebpf-instrumentation" :width="200" :height="200" :margin="2" />
 
 Wednesdays @ 8am PT / 11am ET
 
@@ -1260,9 +1280,11 @@ Wednesdays @ 8am PT / 11am ET
 Speaker: Tyler
 -->
 
+<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: end
 ---
+<!-- markdownlint-enable MD022 MD003 -->
 
 # Thank You! 🙏
 
