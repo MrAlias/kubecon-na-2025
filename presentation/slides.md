@@ -715,55 +715,33 @@ layout: center
 <!--
 Speaker: Tyler
 
-The Complete Value Story:
-
-Before OBI (The Pain):
-- Vague problem statements
-- Hours wasted investigating
-- Trial and error approach
-- High stress for team
-- Reactive firefighting
-
-After OBI (The Relief):
-- Precise problem identification
-- 5 minutes to answer
-- Targeted solution
-- Team confidence restored
-- Proactive optimization possible
-
-The ROI (The Business Case):
-
-🏢 Reduced MTTR (Mean Time To Resolution):
-- Traditional: Hours to days
-- With OBI: Minutes
-- Faster resolution = Less customer impact = Higher availability
-
-💰 Cost Savings:
-- No development time needed
-- No testing cycles
-- No deployment overhead
-- Developer time freed for features
-- Reduced operational costs
-
-😊 Team Morale:
-- Less 3am firefighting
-- More sleep for engineers
-- Higher job satisfaction
-- Better work-life balance
-- Reduced burnout
-
-📊 Better Decisions:
-- Data-driven fixes instead of guesses
-- See real behavior, not assumptions
-- Prioritize based on actual impact
-- Optimize with confidence
-- Measure improvements accurately
-
-This slide speaks to different audiences:
-- SREs: Focus on MTTR and stress reduction
-- Developers: Focus on time savings
-- Product Owners: Focus on cost and decisions
-- Execs: Focus on ROI and morale
+- The Complete Value Story - showing before/after transformation
+- Walk through each before → after:
+  1. "Something's wrong" → "Ratings Service database connection timeout"
+     * Vague symptom to precise diagnosis
+     * Actionable information
+  2. Hours of investigation → 5 minutes to root cause
+     * Massive time savings
+     * Faster MTTR (Mean Time To Resolution)
+  3. Blind troubleshooting → Specific fix identified
+     * No more guessing and checking
+     * Data-driven decisions
+  4. Stress and guesswork → Confidence in solution
+     * Team morale improvement
+     * Less burnout from firefighting
+  5. Fighting fires → Proactive optimization
+     * Shift from reactive to proactive
+     * Use traces to optimize before problems occur
+- The ROI story (implicit in these transformations):
+  * Reduced MTTR: Minutes vs hours/days
+  * Cost savings: No development overhead
+  * Team morale: Less 3am firefighting
+  * Better decisions: Data over assumptions
+- This speaks to different audiences:
+  * SREs: MTTR and stress reduction
+  * Developers: Time savings
+  * Product: Cost and decisions
+  * Execs: ROI and morale
 -->
 
 ---
