@@ -27,11 +27,9 @@ Nikola Grcevski, Grafana Labs & Tyler Yahn, Splunk
 Speaker: Tyler (with Nikola introducing himself)
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # The 3 AM Page 📞
 
@@ -69,11 +67,9 @@ Sound familiar? 😅
 Speaker: Tyler
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # The Traditional Observability Dilemma
 
@@ -115,11 +111,9 @@ layout: default
 Speaker: Nikola
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Observability Time Cost ⏰
 
@@ -255,11 +249,9 @@ From DAYS → MINUTES
 Speaker: Nikola
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # <img src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/projects/opentelemetry/icon/color/opentelemetry-icon-color.svg" alt="OpenTelemetry" style="display: inline-block; height: 1em; vertical-align: middle; margin-right: 0.3em;" /><span style="color: #f5a800; font-size: inherit;">Open</span><span style="color: #425cc7; font-size: inherit;">Telemetry</span> in 60 Seconds
 
@@ -316,11 +308,9 @@ Speaker: Tyler
   * Generating large amounts of data is only useful if you can interpret this data.
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # The eBPF Advantage 🚀
 
@@ -367,11 +357,9 @@ The best of both worlds! 🌟
 Speaker: Tyler
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Introducing OBI 🎉
 
@@ -411,11 +399,9 @@ layout: default
 Speaker: Tyler
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Demo Setup Preview 🎬
 
@@ -487,11 +473,9 @@ Problems marked with 🔥:
 This gives the audience a visual map before the demo so they can follow along
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: center
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # 🔥 LIVE DEMO TIME 🔥
 
@@ -523,11 +507,9 @@ Set the expectation: This is a 5-minute guided tour
 - Audience will time along with you mentally
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Deploy OBI in 30 Seconds ⚡
 
@@ -567,11 +549,9 @@ Watch the magic happen! ✨
 Speaker: Nikola driving (Tyler commentary)
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Immediate Trace Collection 📊
 
@@ -621,11 +601,9 @@ From zero to observability in seconds! 🚀
 Speaker: Nikola driving (Tyler commentary)
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Service Map Visualization 🗺️
 
@@ -675,11 +653,9 @@ Instantly understand your architecture! 🏗️
 Speaker: Nikola driving (Tyler commentary)
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Drilling Down: Finding Root Cause 🔍
 
@@ -719,11 +695,9 @@ From chaos to clarity in minutes! ✨
 Speaker: Nikola driving (Tyler commentary)
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: center
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # What We Just Accomplished 🏆
 
@@ -800,11 +774,9 @@ Pause here - let the audience absorb the magnitude of this achievement
 This is your "drop the mic" moment before moving into the value proposition
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: center
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # From Chaos to Clarity ✨
 
@@ -920,11 +892,9 @@ This slide speaks to different audiences:
 - Execs: Focus on ROI and morale
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # By The Numbers 📊
 
@@ -989,11 +959,9 @@ Zero downtime:
 This isn't theory - you just watched it happen live
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # What You Need ✅
 
@@ -1047,11 +1015,9 @@ The big picture:
 This is a "check the box" slide, not a blocker slide
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # What OBI Observes 🔍
 
@@ -1166,11 +1132,9 @@ This isn't "OBI vs SDK instrumentation" - it's "OBI + SDK instrumentation"
 Best of both worlds!
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Try It Yourself 🚀
 
@@ -1244,11 +1208,9 @@ The goal: Deploy in staging before end of day
 This is a "try it now" moment, not a "think about it" moment
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Join the Community 🤝
 
@@ -1280,11 +1242,9 @@ Wednesdays @ 8am PT / 11am ET
 Speaker: Tyler
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: end
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Thank You! 🙏
 
