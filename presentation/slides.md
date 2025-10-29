@@ -615,32 +615,37 @@ From Zero to Root Cause in 5 Minutes! 🌟
 <!--
 Speaker: Tyler
 
-WOW MOMENT - Let this sink in!
-
-What we just witnessed:
-- 30 seconds: Deployed OBI with a single command
-  * No code changes
-  * No configuration files
-  * No service restarts
-  
-- A few seconds later: Distributed traces started flowing
-  * Automatic service discovery
-  * All 4 microservices instrumented
-  * Multiple languages supported seamlessly
-  
-- 5 minutes total: Identified exact root cause
-  * Ratings service database connection timeout
-  * Specific method and error
-  * Complete distributed trace context
-
-Compare this to traditional approach:
-- Traditional: DAYS of development, testing, deployment
-- OBI: 5 MINUTES from deployment to solution
-
-This is the power of eBPF-based instrumentation!
-
-Pause here - let the audience absorb the magnitude of this achievement
-This is your "drop the mic" moment before moving into the value proposition
+- WOW MOMENT - Let this sink in! Pause for effect
+- Break down what we just witnessed (reinforce the numbers):
+  * 30 seconds: Deployed OBI with single command
+    - No code changes required
+    - No configuration files needed
+    - No service restarts
+  * 10 seconds later: Distributed traces started flowing
+    - Automatic service discovery
+    - All 4 microservices instrumented
+    - Multiple languages supported seamlessly
+  * 0 code changes: Literally zero modifications
+    - Didn't touch Python, Java, Ruby, or Node.js code
+    - No SDK dependencies added
+    - Existing binaries completely unchanged
+  * 5 minutes total: Identified exact root cause
+    - Ratings service database connection timeout
+    - Specific method and error message
+    - Complete distributed trace context
+- Compare to traditional approach:
+  * Traditional: DAYS of development, testing, deployment
+  * OBI: 5 MINUTES from deployment to solution
+  * 99%+ time savings
+- Click: "From Zero to Root Cause in 5 Minutes!"
+  * This is the power of eBPF-based instrumentation
+  * OpenTelemetry standard + eBPF automation
+- Bottom section (click): "See the complete picture - not just your code!"
+  * Network calls, database connections, service mesh
+  * Things you couldn't see even with manual instrumentation
+- Pause here - let audience absorb the magnitude
+  * This is your "drop the mic" moment
+  * Sets up the value proposition slide
 -->
 
 ---
