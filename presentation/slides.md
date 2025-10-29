@@ -65,6 +65,21 @@ Sound familiar? 😅
 
 <!--
 Speaker: Tyler
+
+- We've all been here - production is down, users are complaining
+- I can speak to this personally ...
+- The scenario:
+  * Intermittent failures - the worst kind, hard to reproduce
+  * Polyglot environment - Python, Java, Ruby, Node.js all talking to each other
+  * Database connection issues showing up
+  * End users seeing slow responses and errors
+- The pressure is real:
+  * Need to fix it NOW - every minute costs money and reputation
+  * Can't make it worse - no cowboy fixes
+  * Limited visibility - you don't have traces or metrics set up yet
+  * Maximum stress for the entire team
+- Pause for the click: "Sound familiar?"
+- This is the reality for most teams without proper observability
 -->
 
 ---
