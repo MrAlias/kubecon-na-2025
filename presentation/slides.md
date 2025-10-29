@@ -376,6 +376,23 @@ The best of both worlds! 🌟
 
 <!--
 Speaker: Tyler
+
+- eBPF is the key technology that makes OBI possible
+- eBPF Powers:
+  * Kernel-level instrumentation - runs in the Linux kernel itself
+  * No application changes - doesn't touch your code or binaries
+  * High performance, low overhead - <1% CPU impact typically
+  * Safe and secure - verified by kernel before execution, can't crash system
+  * Captures network AND application data - sees everything
+- Perfect for Production incidents:
+  * Safe during incidents - can deploy while system is having issues
+  * Comprehensive visibility - sees all services, all protocols
+  * Zero configuration - no YAML files, no environment variables
+  * Instant activation - starts collecting data immediately
+- Click: "Best of both worlds"
+  * OpenTelemetry's standard observability
+  * eBPF's zero-code instrumentation
+  * This combination is what makes OBI special
 -->
 
 ---
