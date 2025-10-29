@@ -1040,31 +1040,34 @@ Active community support
 <!--
 Speaker: Tyler
 
-Make this tangible - what can they do TODAY?
-
-1. Clone the demo repo - it's all there:
-   - Bookinfo application pre-configured
-   - OBI deployment scripts
-   - Grafana/Tempo/Loki stack ready
-   - Takes < 10 minutes start to finish
-
-2. Read production docs if you want to go further:
-   - Official Helm charts for production
-   - Configuration examples for real scenarios
-   - Best practices learned from early adopters
-
-3. Join Slack when you have questions:
-   - Active community responds quickly
-   - We (speakers) are both active there
-   - Share your use case, get specific help
-
-The goal: Deploy in staging before end of day
-- Not asking for production commitment
-- Just validate it works in YOUR environment
-- See the value firsthand
-- Then you can make informed decisions
-
-This is a "try it now" moment, not a "think about it" moment
+- Make this tangible - what can they do TODAY? Focus on action
+- Three ways to get started (left to right):
+  1. Try the Demo (QR code)
+     * Clone the demo repo - everything is there
+     * Bookinfo application pre-configured
+     * OBI deployment scripts ready
+     * Grafana/Tempo/Loki stack included
+     * Takes < 10 minutes from clone to exploring
+     * Perfect for local testing or staging
+  2. Read Production Docs (QR code)
+     * Official Helm charts for production deployment
+     * Configuration examples for real scenarios
+     * Best practices from early adopters
+     * Integration guides for different backends
+  3. Get Help (QR code)
+     * CNCF Slack #otel-ebpf-instrumentation
+     * Active community responds quickly
+     * We (both speakers) are active there
+     * Share your use case, get specific help
+- The goal: Deploy in staging before end of day
+  * Not asking for production commitment yet
+  * Just validate it works in YOUR environment
+  * See the value firsthand with your services
+  * Then make informed decisions about production
+- This is a "try it now" moment, not a "think about it" moment
+  * Lower the barrier - it's really this easy
+  * Scan QR with phone right now
+  * Start experimenting this afternoon
 -->
 
 ---
