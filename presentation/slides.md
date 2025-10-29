@@ -793,22 +793,29 @@ layout: default
 <!--
 Speaker: Tyler
 
-Real numbers from what we just demonstrated:
-- Traditional: 5-7 days of work (instrumenting 3 services, PRs, testing, deployment)
-- OBI: 5 minutes total (deploy + observe + identify)
-- That's 99.4% reduction in time to observability
-
-Cost calculation:
-- Traditional: 3-5 engineers × 1-2 days each = 15-40 engineering hours
-- OBI: 5 minutes of SRE time
-- At $150/hour average loaded cost = $2,250-6,000 saved per incident
-
-Zero downtime:
-- No service restarts required
-- Safe to deploy during active incidents
-- Works with existing binaries
-
-This isn't theory - you just watched it happen live
+- Real numbers from what we just demonstrated - make it concrete
+- Time Saved section:
+  * 5-7 days → 5 minutes
+    - Traditional: Instrumenting 3+ services, PRs, testing, deployment
+    - OBI: Deploy + observe + identify
+  * 99.4% faster
+    - This is the actual math: (7 days - 5 min) / 7 days ≈ 99.4%
+    - Time to first trace dramatically reduced
+- Real Impact section:
+  * $0 engineering hours to deploy
+    - Cost calculation: Traditional = 3-5 engineers × 1-2 days = 15-40 hours
+    - At $150/hour loaded cost = $2,250-6,000 saved per incident
+    - OBI = 5 minutes of SRE time ≈ $12.50
+  * 0 restarts
+    - No service downtime required
+    - Safe to deploy during active incidents
+    - Works with existing binaries
+- Bottom callout: "Every minute saved during an incident = happier customers"
+  * MTTR directly impacts customer experience
+  * Faster resolution = less revenue loss
+  * Better SLAs and reliability metrics
+- This isn't theory - audience just watched it happen live
+- These numbers are conservative - many orgs see even better results
 -->
 
 ---
