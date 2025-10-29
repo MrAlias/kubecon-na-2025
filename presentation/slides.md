@@ -511,19 +511,27 @@ graph LR
 <!--
 Speaker: Tyler
 
-Architecture Overview:
-- User hits the productpage service (Python) - entry point
-- Productpage calls details service (Ruby) for book information
-- Productpage calls reviews service (Java) for reviews
-- Reviews service calls ratings service (Node.js or Go) for star ratings
-- Ratings service connects to a database
-
-Problems marked with 🔥:
-- Productpage: Slow response times
-- Reviews: Inefficient calls
-- Ratings: Database connection issues (main problem)
-
-This gives the audience a visual map before the demo so they can follow along
+- Setting context for the demo - what we'll be looking at
+- Our Demo App: Istio Bookinfo Sample
+  * 4 core microservices - realistic distributed system
+  * 4 programming languages - productpage (Python), details (Ruby), reviews (Java), ratings (Node.js)
+  * Real book review application - not a toy example
+  * With simulated problems! - the 🔥 icons show where issues exist
+- Observability Stack:
+  * Grafana LGTM stack - Loki (logs), Grafana (dashboards), Tempo (traces), Mimir (metrics)
+  * Service topology visualization - see the architecture
+  * CNCF open-source tools only - no proprietary dependencies
+  * Real-time insights - watch data flow in live
+- Architecture diagram explanation:
+  * User → productpage (entry point)
+  * productpage → details (book info) AND reviews (review text)
+  * reviews → ratings (star ratings)
+  * ratings → database (persistence)
+- Problems we injected (🔥 icons):
+  * productpage: Slow response times
+  * reviews: Inefficient calls
+  * ratings: Database connection issues (this is the main problem we'll find)
+- This gives audience a mental map before we dive into the live demo
 -->
 
 ---
