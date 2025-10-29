@@ -435,6 +435,21 @@ layout: default
 
 <!--
 Speaker: Tyler
+
+- OBI = OpenTelemetry eBPF Instrumentation
+- What OBI Does (the magic):
+  * Automatically discovers services - no service registry needed
+  * Generates distributed traces - full request path across services
+  * Creates service topology maps - visual representation of your architecture
+  * Captures network-level insights - protocols, connections, errors
+  * Zero configuration - just deploy and go
+- Key Benefits (why you should care):
+  * Deploy in < 30 seconds - single kubectl command or Helm chart
+  * No restarts needed - existing pods keep running
+  * Any language supported - Python, Java, Go, Ruby, Node.js, etc.
+  * Production safe - eBPF guarantees it won't crash your services
+  * Open source - Apache 2.0 license, part of OpenTelemetry project
+- This is what we'll demo next - going from nothing to full observability in minutes
 -->
 
 ---
