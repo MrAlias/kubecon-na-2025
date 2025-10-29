@@ -311,16 +311,22 @@ layout: default
 <!--
 Speaker: Tyler
 
-* Open-source, vendor-agnostic project that provides APIs, SDKs, and other tools to help you add observability to your applications.
-* It used to be the case, that if you wanted to add observability to your application, you needed to take a dependency on a vendor’s agent or instrumentation packages.
-* This vendor dependency locked you into that relationship
-  * Required large code change to switch
-* OpenTelemetry prevents this vendor lock in
-  * Instrument once with the OpenTelemetry APIs and be compatible with most OSS observability platforms and OpenTelemetry vendor ecosystem
-* This high degree of compatibility comes from the rich set of tooling and SDKs OpenTelemetry provides
-  * These components allow for the custom processing and exporting of the telemetry data
-* Preventing vendor lock-in and interoperability is a big part of OpenTelemetry, but not the only ones
-  * Generating large amounts of data is only useful if you can interpret this data.
+- Quick OpenTelemetry overview for those unfamiliar
+- What is it?
+  * Open-source observability toolkit - APIs, SDKs, collectors
+  * CNCF Incubating project - industry backing and governance
+  * Vendor-agnostic - not tied to any specific vendor
+  * Works with Grafana, Splunk, DataDog, Honeycomb, etc.
+- Why does it matter?
+  * Industry standard - most organizations are adopting it
+  * No vendor lock-in - instrument once, export anywhere
+  * Rich ecosystem - extensive language support and integrations
+  * One API to rule them all - consistent across languages
+- The catch (click): Traditional OTel requires code changes
+  * You need to modify your application code
+  * Add SDK dependencies
+  * Redeploy your services
+  * This is what we're going to solve with OBI
 -->
 
 ---
