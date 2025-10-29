@@ -1,0 +1,17 @@
+# Define glob patterns for files to include and exclude
+globs:
+  - "**/*.md"
+  - "!node_modules"
+
+# Configure specific markdownlint rules
+config:
+  # Slide design may need to skip header levels
+  MD001: false
+  # Disable the MD013 rule (Line length)
+  MD013: false
+  # Slides can reuse titles
+  MD024: false
+  # Allow multiple titles (likely one per slide)
+  MD025: false
+  # Allow inline HTML
+  MD033: false
