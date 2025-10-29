@@ -114,7 +114,9 @@ spec:
             - name: OTEL_EBPF_PROFILE_PORT
               value: "6060"
             - name: OTEL_EBPF_LOG_LEVEL
-              value: "DEBUG"
+              value: "INFO"
+            - name: OTEL_EBPF_BPF_DEBUG
+              value: "TRUE"
             - name: OTEL_EBPF_KUBE_CLUSTER_NAME
               value: "bookinfo-demo"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
@@ -129,7 +131,9 @@ spec:
             - name: OTEL_EBPF_ROUTE_HARVESTER_TIMEOUT
               value: "1s"
             - name: OTEL_EBPF_OTLP_TRACES_BATCH_TIMEOUT
-              value: "1s"
+              value: "5s"
+            - name: OTEL_EBPF_TRACES_INSTRUMENTATIONS
+              value: "*"
           securityContext:
             runAsUser: 0
             readOnlyRootFilesystem: true
