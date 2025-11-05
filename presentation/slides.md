@@ -1084,7 +1084,7 @@ layout: default
 
 <CncfQRCode value="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation" :width="200" :height="200" :margin="2" />
 
-`#otel-ebpf-instrumentation`
+[opentelemetry-ebpf-instrumentation](https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation)
 
 </div>
 
