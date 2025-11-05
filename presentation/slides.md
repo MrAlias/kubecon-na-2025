@@ -1029,7 +1029,7 @@ Best practices
 
 #### CNCF Slack
 
-`#otel-ebpf-instrumentation`
+[otel-ebpf-instrumentation](https://cloud-native.slack.com/archives/C08P9L4FPKJ)
 
 Active community support
 
