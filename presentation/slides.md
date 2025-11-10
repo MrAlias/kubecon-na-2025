@@ -1110,7 +1110,7 @@ layout: end
 
 # Thank You! 🙏
 
-<div class="grid grid-cols-2 mb-12 text-center">
+<div class="grid grid-cols-3 mb-12 text-center">
 
 <div>
 
@@ -1136,6 +1136,20 @@ layout: end
 
 <a href="https://github.com/grcevski">
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="inline-block w-5 h-5 mr-1 bg-white rounded-full p-0.5" />@grcevski
+</a>
+
+</div>
+
+<div>
+
+<img src="https://avatars.sched.co/1/cf/19957104/avatar.jpg?f27" alt="Mario Macías" class="w-32 h-32 rounded-full mx-auto mb-4" />
+
+## Mario Macías
+
+🏢 Grafana Labs
+
+<a href="https://github.com/mariomac">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" class="inline-block w-5 h-5 mr-1 bg-white rounded-full p-0.5" />@mariomac
 </a>
 
 </div>
