@@ -26,7 +26,7 @@ Mario Macías, Grafana Labs
 Tyler Yahn, Splunk
 
 <!--
-Speaker: Tyler (with Nikola introducing himself)
+Speaker: Tyler (with Mario introducing himself)
 -->
 
 ---
@@ -125,7 +125,7 @@ layout: default
 </div>
 
 <!--
-Speaker: Nikola
+Speaker: Mario
 -->
 
 ---
@@ -263,7 +263,7 @@ From DAYS → MINUTES
 </div>
 
 <!--
-Speaker: Nikola
+Speaker: Mario
 -->
 
 ---
@@ -562,7 +562,7 @@ $ kubectl get pods
 </div>
 
 <!--
-Speaker: Nikola driving (Tyler commentary)
+Speaker: Mario driving (Tyler commentary)
 
 -->
 
@@ -852,7 +852,7 @@ layout: default
 </div>
 
 <!--
-Speaker: Nikola
+Speaker: Mario
 
 Keep this simple and positive:
 
@@ -952,7 +952,7 @@ layout: default
 </div>
 
 <!--
-Speaker: Nikola
+Speaker: Mario
 
 Protocol coverage - the practical view:
 
