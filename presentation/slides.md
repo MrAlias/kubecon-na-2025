@@ -21,7 +21,9 @@ fonts:
 
 # Debugging Your Cluster When It's on Fire 🔥
 
-Nikola Grcevski, Grafana Labs & Tyler Yahn, Splunk
+Nikola Grcevski, Grafana Labs  
+Mario Macías, Grafana Labs  
+Tyler Yahn, Splunk
 
 <!--
 Speaker: Tyler (with Nikola introducing himself)
