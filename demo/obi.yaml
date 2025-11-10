@@ -105,8 +105,8 @@ spec:
       containers:
         - name: obi
           terminationMessagePolicy: FallbackToLogsOnError
-          image: "obi:local"
-          imagePullPolicy: "Never"
+          image: "otel/ebpf-instrument:v0.2.0"
+          imagePullPolicy: "Always"
           command: ["/ebpf-instrument", "--config=/config/obi-config.yml"]
           env:
             - name: OTEL_EBPF_TRACE_PRINTER
