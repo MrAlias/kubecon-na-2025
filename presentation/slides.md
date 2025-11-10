@@ -27,11 +27,9 @@ Nikola Grcevski, Grafana Labs & Tyler Yahn, Splunk
 Speaker: Tyler (with Nikola introducing himself)
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # The 3 AM Page 📞
 
@@ -67,13 +65,26 @@ Sound familiar? 😅
 
 <!--
 Speaker: Tyler
+
+- We've all been here - production is down, users are complaining
+- I can speak to this personally ...
+- The scenario:
+  * Intermittent failures - the worst kind, hard to reproduce
+  * Polyglot environment - Python, Java, Ruby, Node.js all talking to each other
+  * Database connection issues showing up
+  * End users seeing slow responses and errors
+- The pressure is real:
+  * Need to fix it NOW - every minute costs money and reputation
+  * Can't make it worse - no cowboy fixes
+  * Limited visibility - you don't have traces or metrics set up yet
+  * Maximum stress for the entire team
+- Pause for the click: "Sound familiar?"
+- This is the reality for most teams without proper observability
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # The Traditional Observability Dilemma
 
@@ -115,11 +126,9 @@ layout: default
 Speaker: Nikola
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Observability Time Cost ⏰
 
@@ -255,11 +264,9 @@ From DAYS → MINUTES
 Speaker: Nikola
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # <img src="https://raw.githubusercontent.com/cncf/artwork/refs/heads/main/projects/opentelemetry/icon/color/opentelemetry-icon-color.svg" alt="OpenTelemetry" style="display: inline-block; height: 1em; vertical-align: middle; margin-right: 0.3em;" /><span style="color: #f5a800; font-size: inherit;">Open</span><span style="color: #425cc7; font-size: inherit;">Telemetry</span> in 60 Seconds
 
@@ -304,23 +311,27 @@ layout: default
 <!--
 Speaker: Tyler
 
-* Open-source, vendor-agnostic project that provides APIs, SDKs, and other tools to help you add observability to your applications.
-* It used to be the case, that if you wanted to add observability to your application, you needed to take a dependency on a vendor’s agent or instrumentation packages.
-* This vendor dependency locked you into that relationship
-  * Required large code change to switch
-* OpenTelemetry prevents this vendor lock in
-  * Instrument once with the OpenTelemetry APIs and be compatible with most OSS observability platforms and OpenTelemetry vendor ecosystem
-* This high degree of compatibility comes from the rich set of tooling and SDKs OpenTelemetry provides
-  * These components allow for the custom processing and exporting of the telemetry data
-* Preventing vendor lock-in and interoperability is a big part of OpenTelemetry, but not the only ones
-  * Generating large amounts of data is only useful if you can interpret this data.
+- Quick OpenTelemetry overview for those unfamiliar
+- What is it?
+  * Open-source observability toolkit - APIs, SDKs, collectors
+  * CNCF Incubating project - industry backing and governance
+  * Vendor-agnostic - not tied to any specific vendor
+  * Works with Grafana, Splunk, DataDog, Honeycomb, etc.
+- Why does it matter?
+  * Industry standard - most organizations are adopting it
+  * No vendor lock-in - instrument once, export anywhere
+  * Rich ecosystem - extensive language support and integrations
+  * One API to rule them all - consistent across languages
+- The catch (click): Traditional OTel requires code changes
+  * You need to modify your application code
+  * Add SDK dependencies
+  * Redeploy your services
+  * This is what we're going to solve with OBI
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # The eBPF Advantage 🚀
 
@@ -365,13 +376,28 @@ The best of both worlds! 🌟
 
 <!--
 Speaker: Tyler
+
+- eBPF is the key technology that makes OBI possible
+- eBPF Powers:
+  * Kernel-level instrumentation - runs in the Linux kernel itself
+  * No application changes - doesn't touch your code or binaries
+  * High performance, low overhead - <1% CPU impact typically
+  * Safe and secure - verified by kernel before execution, can't crash system
+  * Captures network AND application data - sees everything
+- Perfect for Production incidents:
+  * Safe during incidents - can deploy while system is having issues
+  * Comprehensive visibility - sees all services, all protocols
+  * Zero configuration - no YAML files, no environment variables
+  * Instant activation - starts collecting data immediately
+- Click: "Best of both worlds"
+  * OpenTelemetry's standard observability
+  * eBPF's zero-code instrumentation
+  * This combination is what makes OBI special
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Introducing OBI 🎉
 
@@ -409,13 +435,26 @@ layout: default
 
 <!--
 Speaker: Tyler
+
+- OBI = OpenTelemetry eBPF Instrumentation
+- What OBI Does (the magic):
+  * Automatically discovers services - no service registry needed
+  * Generates distributed traces - full request path across services
+  * Creates service topology maps - visual representation of your architecture
+  * Captures network-level insights - protocols, connections, errors
+  * Zero configuration - just deploy and go
+- Key Benefits (why you should care):
+  * Deploy in < 30 seconds - single kubectl command or Helm chart
+  * No restarts needed - existing pods keep running
+  * Any language supported - Python, Java, Go, Ruby, Node.js, etc.
+  * Production safe - eBPF guarantees it won't crash your services
+  * Open source - Apache 2.0 license, part of OpenTelemetry project
+- This is what we'll demo next - going from nothing to full observability in minutes
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Demo Setup Preview 🎬
 
@@ -472,26 +511,32 @@ graph LR
 <!--
 Speaker: Tyler
 
-Architecture Overview:
-- User hits the productpage service (Python) - entry point
-- Productpage calls details service (Ruby) for book information
-- Productpage calls reviews service (Java) for reviews
-- Reviews service calls ratings service (Node.js or Go) for star ratings
-- Ratings service connects to a database
-
-Problems marked with 🔥:
-- Productpage: Slow response times
-- Reviews: Inefficient calls
-- Ratings: Database connection issues (main problem)
-
-This gives the audience a visual map before the demo so they can follow along
+- Setting context for the demo - what we'll be looking at
+- Our Demo App: Istio Bookinfo Sample
+  * 4 core microservices - realistic distributed system
+  * 4 programming languages - productpage (Python), details (Ruby), reviews (Java), ratings (Node.js)
+  * Real book review application - not a toy example
+  * With simulated problems! - the 🔥 icons show where issues exist
+- Observability Stack:
+  * Grafana LGTM stack - Loki (logs), Grafana (dashboards), Tempo (traces), Mimir (metrics)
+  * Service topology visualization - see the architecture
+  * CNCF open-source tools only - no proprietary dependencies
+  * Real-time insights - watch data flow in live
+- Architecture diagram explanation:
+  * User → productpage (entry point)
+  * productpage → details (book info) AND reviews (review text)
+  * reviews → ratings (star ratings)
+  * ratings → database (persistence)
+- Problems we injected (🔥 icons):
+  * productpage: Slow response times
+  * reviews: Inefficient calls
+  * ratings: Database connection issues (this is the main problem we'll find)
+- This gives audience a mental map before we dive into the live demo
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: center
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # 🔥 LIVE DEMO TIME 🔥
 
@@ -517,213 +562,11 @@ $ kubectl get pods
 <!--
 Speaker: Nikola driving (Tyler commentary)
 
-Set the expectation: This is a 5-minute guided tour
-- Creates urgency and keeps audience engaged
-- Sets clear time boundary
-- Audience will time along with you mentally
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
----
-layout: default
----
-<!-- markdownlint-enable MD022 MD003 -->
-
-# Deploy OBI in 30 Seconds ⚡
-
-<div class="space-y-6">
-
-<div class="text-xl">
-Simple deployment script:
-</div>
-
-<div class="bg-gray-900 p-6 rounded-lg font-mono text-lg">
-<span class="text-green-400">$</span> ./obi.sh
-</div>
-
-<div class="grid grid-cols-3 gap-4 mt-8">
-
-<div class="p-4 bg-blue-900 bg-opacity-50 rounded-lg">
-📦 OBI pods starting
-</div>
-
-<div class="p-4 bg-green-900 bg-opacity-50 rounded-lg">
-🚫 No app restarts needed  
-</div>
-
-<div class="p-4 bg-purple-900 bg-opacity-50 rounded-lg">
-⚡ Instrumentation begins
-</div>
-
-</div>
-
-</div>
-
-<div v-click="1" class="mt-8 text-center text-lg text-green-400">
-Watch the magic happen! ✨
-</div>
-
-<!--
-Speaker: Nikola driving (Tyler commentary)
--->
-
-<!-- markdownlint-disable MD022 MD003 -->
----
-layout: default
----
-<!-- markdownlint-enable MD022 MD003 -->
-
-# Immediate Trace Collection 📊
-
-<div class="mb-8 text-xl">
-Switching to Grafana observability stack...
-</div>
-
-<div class="grid grid-cols-2 gap-8">
-
-<div>
-
-## What We're Seeing
-
-<div class="text-left">
-
-📊 **Traces appearing** within seconds  
-🎯 **Automatic service discovery**  
-📈 **No configuration** required  
-🔍 **Request flows** across services
-
-</div>
-
-</div>
-
-<div>
-
-## Instant Insights
-
-<div class="text-left">
-
-⏱️ **Timing information**  
-🔴 **Error detection**  
-🗺️ **Service relationships**  
-📊 **Performance metrics**
-
-</div>
-
-</div>
-
-</div>
-
-<div v-click="1" class="mt-8 text-center text-lg text-blue-400">
-From zero to observability in seconds! 🚀
-</div>
-
-<!--
-Speaker: Nikola driving (Tyler commentary)
--->
-
-<!-- markdownlint-disable MD022 MD003 -->
----
-layout: default
----
-<!-- markdownlint-enable MD022 MD003 -->
-
-# Service Map Visualization 🗺️
-
-<div class="mb-8 text-xl">
-Auto-generated service topology:
-</div>
-
-<div class="grid grid-cols-2 gap-8">
-
-<div>
-
-## What the Map Shows
-
-<div class="text-left">
-
-🗺️ **Visual service relationships**  
-📊 **Traffic flow patterns**  
-🔴 **Services with high error rates**  
-⚡ **Response time indicators**
-
-</div>
-
-</div>
-
-<div>
-
-## Immediate Value
-
-<div class="text-left">
-
-🎯 **Spot bottlenecks** instantly  
-📈 **Understand dependencies**  
-🔍 **Find problem services**  
-🏗️ **See your architecture** clearly
-
-</div>
-
-</div>
-
-</div>
-
-<div v-click="1" class="mt-8 text-center text-lg text-green-400">
-Instantly understand your architecture! 🏗️
-</div>
-
-<!--
-Speaker: Nikola driving (Tyler commentary)
--->
-
-<!-- markdownlint-disable MD022 MD003 -->
----
-layout: default
----
-<!-- markdownlint-enable MD022 MD003 -->
-
-# Drilling Down: Finding Root Cause 🔍
-
-<div class="mb-6 text-xl">
-From symptoms to root cause analysis:
-</div>
-
-<div class="space-y-4">
-
-<div class="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg">
-<span class="text-2xl">1️⃣</span>
-<span>Select problematic trace</span>
-</div>
-
-<div class="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg">
-<span class="text-2xl">2️⃣</span>
-<span>Walk through distributed spans</span>
-</div>
-
-<div class="flex items-center space-x-4 p-4 bg-gray-800 rounded-lg">
-<span class="text-2xl">3️⃣</span>
-<span>Identify slow/failing operations</span>
-</div>
-
-<div class="flex items-center space-x-4 p-4 bg-green-900 bg-opacity-50 rounded-lg">
-<span class="text-2xl">4️⃣</span>
-<span><strong>Pinpoint exact service and method!</strong></span>
-</div>
-
-</div>
-
-<div v-click="1" class="mt-8 text-center text-lg text-blue-400">
-From chaos to clarity in minutes! ✨
-</div>
-
-<!--
-Speaker: Nikola driving (Tyler commentary)
--->
-
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: center
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # What We Just Accomplished 🏆
 
@@ -772,39 +615,42 @@ From Zero to Root Cause in 5 Minutes! 🌟
 <!--
 Speaker: Tyler
 
-WOW MOMENT - Let this sink in!
-
-What we just witnessed:
-- 30 seconds: Deployed OBI with a single command
-  * No code changes
-  * No configuration files
-  * No service restarts
-  
-- A few seconds later: Distributed traces started flowing
-  * Automatic service discovery
-  * All 4 microservices instrumented
-  * Multiple languages supported seamlessly
-  
-- 5 minutes total: Identified exact root cause
-  * Ratings service database connection timeout
-  * Specific method and error
-  * Complete distributed trace context
-
-Compare this to traditional approach:
-- Traditional: DAYS of development, testing, deployment
-- OBI: 5 MINUTES from deployment to solution
-
-This is the power of eBPF-based instrumentation!
-
-Pause here - let the audience absorb the magnitude of this achievement
-This is your "drop the mic" moment before moving into the value proposition
+- WOW MOMENT - Let this sink in! Pause for effect
+- Break down what we just witnessed (reinforce the numbers):
+  * 30 seconds: Deployed OBI with single command
+    - No code changes required
+    - No configuration files needed
+    - No service restarts
+  * 10 seconds later: Distributed traces started flowing
+    - Automatic service discovery
+    - All 4 microservices instrumented
+    - Multiple languages supported seamlessly
+  * 0 code changes: Literally zero modifications
+    - Didn't touch Python, Java, Ruby, or Node.js code
+    - No SDK dependencies added
+    - Existing binaries completely unchanged
+  * 5 minutes total: Identified exact root cause
+    - Ratings service database connection timeout
+    - Specific method and error message
+    - Complete distributed trace context
+- Compare to traditional approach:
+  * Traditional: DAYS of development, testing, deployment
+  * OBI: 5 MINUTES from deployment to solution
+  * 99%+ time savings
+- Click: "From Zero to Root Cause in 5 Minutes!"
+  * This is the power of eBPF-based instrumentation
+  * OpenTelemetry standard + eBPF automation
+- Bottom section (click): "See the complete picture - not just your code!"
+  * Network calls, database connections, service mesh
+  * Things you couldn't see even with manual instrumentation
+- Pause here - let audience absorb the magnitude
+  * This is your "drop the mic" moment
+  * Sets up the value proposition slide
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: center
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # From Chaos to Clarity ✨
 
@@ -869,62 +715,38 @@ layout: center
 <!--
 Speaker: Tyler
 
-The Complete Value Story:
-
-Before OBI (The Pain):
-- Vague problem statements
-- Hours wasted investigating
-- Trial and error approach
-- High stress for team
-- Reactive firefighting
-
-After OBI (The Relief):
-- Precise problem identification
-- 5 minutes to answer
-- Targeted solution
-- Team confidence restored
-- Proactive optimization possible
-
-The ROI (The Business Case):
-
-🏢 Reduced MTTR (Mean Time To Resolution):
-- Traditional: Hours to days
-- With OBI: Minutes
-- Faster resolution = Less customer impact = Higher availability
-
-💰 Cost Savings:
-- No development time needed
-- No testing cycles
-- No deployment overhead
-- Developer time freed for features
-- Reduced operational costs
-
-😊 Team Morale:
-- Less 3am firefighting
-- More sleep for engineers
-- Higher job satisfaction
-- Better work-life balance
-- Reduced burnout
-
-📊 Better Decisions:
-- Data-driven fixes instead of guesses
-- See real behavior, not assumptions
-- Prioritize based on actual impact
-- Optimize with confidence
-- Measure improvements accurately
-
-This slide speaks to different audiences:
-- SREs: Focus on MTTR and stress reduction
-- Developers: Focus on time savings
-- Product Owners: Focus on cost and decisions
-- Execs: Focus on ROI and morale
+- The Complete Value Story - showing before/after transformation
+- Walk through each before → after:
+  1. "Something's wrong" → "Ratings Service database connection timeout"
+     * Vague symptom to precise diagnosis
+     * Actionable information
+  2. Hours of investigation → 5 minutes to root cause
+     * Massive time savings
+     * Faster MTTR (Mean Time To Resolution)
+  3. Blind troubleshooting → Specific fix identified
+     * No more guessing and checking
+     * Data-driven decisions
+  4. Stress and guesswork → Confidence in solution
+     * Team morale improvement
+     * Less burnout from firefighting
+  5. Fighting fires → Proactive optimization
+     * Shift from reactive to proactive
+     * Use traces to optimize before problems occur
+- The ROI story (implicit in these transformations):
+  * Reduced MTTR: Minutes vs hours/days
+  * Cost savings: No development overhead
+  * Team morale: Less 3am firefighting
+  * Better decisions: Data over assumptions
+- This speaks to different audiences:
+  * SREs: MTTR and stress reduction
+  * Developers: Time savings
+  * Product: Cost and decisions
+  * Execs: ROI and morale
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # By The Numbers 📊
 
@@ -971,29 +793,34 @@ layout: default
 <!--
 Speaker: Tyler
 
-Real numbers from what we just demonstrated:
-- Traditional: 5-7 days of work (instrumenting 3 services, PRs, testing, deployment)
-- OBI: 5 minutes total (deploy + observe + identify)
-- That's 99.4% reduction in time to observability
-
-Cost calculation:
-- Traditional: 3-5 engineers × 1-2 days each = 15-40 engineering hours
-- OBI: 5 minutes of SRE time
-- At $150/hour average loaded cost = $2,250-6,000 saved per incident
-
-Zero downtime:
-- No service restarts required
-- Safe to deploy during active incidents
-- Works with existing binaries
-
-This isn't theory - you just watched it happen live
+- Real numbers from what we just demonstrated - make it concrete
+- Time Saved section:
+  * 5-7 days → 5 minutes
+    - Traditional: Instrumenting 3+ services, PRs, testing, deployment
+    - OBI: Deploy + observe + identify
+  * 99.4% faster
+    - This is the actual math: (7 days - 5 min) / 7 days ≈ 99.4%
+    - Time to first trace dramatically reduced
+- Real Impact section:
+  * $0 engineering hours to deploy
+    - Cost calculation: Traditional = 3-5 engineers × 1-2 days = 15-40 hours
+    - At $150/hour loaded cost = $2,250-6,000 saved per incident
+    - OBI = 5 minutes of SRE time ≈ $12.50
+  * 0 restarts
+    - No service downtime required
+    - Safe to deploy during active incidents
+    - Works with existing binaries
+- Bottom callout: "Every minute saved during an incident = happier customers"
+  * MTTR directly impacts customer experience
+  * Faster resolution = less revenue loss
+  * Better SLAs and reliability metrics
+- This isn't theory - audience just watched it happen live
+- These numbers are conservative - many orgs see even better results
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # What You Need ✅
 
@@ -1047,11 +874,9 @@ The big picture:
 This is a "check the box" slide, not a blocker slide
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # What OBI Observes 🔍
 
@@ -1166,11 +991,9 @@ This isn't "OBI vs SDK instrumentation" - it's "OBI + SDK instrumentation"
 Best of both worlds!
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Try It Yourself 🚀
 
@@ -1206,7 +1029,7 @@ Best practices
 
 #### CNCF Slack
 
-`#otel-ebpf-instrumentation`
+[otel-ebpf-instrumentation](https://cloud-native.slack.com/archives/C08P9L4FPKJ)
 
 Active community support
 
@@ -1217,38 +1040,39 @@ Active community support
 <!--
 Speaker: Tyler
 
-Make this tangible - what can they do TODAY?
-
-1. Clone the demo repo - it's all there:
-   - Bookinfo application pre-configured
-   - OBI deployment scripts
-   - Grafana/Tempo/Loki stack ready
-   - Takes < 10 minutes start to finish
-
-2. Read production docs if you want to go further:
-   - Official Helm charts for production
-   - Configuration examples for real scenarios
-   - Best practices learned from early adopters
-
-3. Join Slack when you have questions:
-   - Active community responds quickly
-   - We (speakers) are both active there
-   - Share your use case, get specific help
-
-The goal: Deploy in staging before end of day
-- Not asking for production commitment
-- Just validate it works in YOUR environment
-- See the value firsthand
-- Then you can make informed decisions
-
-This is a "try it now" moment, not a "think about it" moment
+- Make this tangible - what can they do TODAY? Focus on action
+- Three ways to get started (left to right):
+  1. Try the Demo (QR code)
+     * Clone the demo repo - everything is there
+     * Bookinfo application pre-configured
+     * OBI deployment scripts ready
+     * Grafana/Tempo/Loki stack included
+     * Takes < 10 minutes from clone to exploring
+     * Perfect for local testing or staging
+  2. Read Production Docs (QR code)
+     * Official Helm charts for production deployment
+     * Configuration examples for real scenarios
+     * Best practices from early adopters
+     * Integration guides for different backends
+  3. Get Help (QR code)
+     * CNCF Slack #otel-ebpf-instrumentation
+     * Active community responds quickly
+     * We (both speakers) are active there
+     * Share your use case, get specific help
+- The goal: Deploy in staging before end of day
+  * Not asking for production commitment yet
+  * Just validate it works in YOUR environment
+  * See the value firsthand with your services
+  * Then make informed decisions about production
+- This is a "try it now" moment, not a "think about it" moment
+  * Lower the barrier - it's really this easy
+  * Scan QR with phone right now
+  * Start experimenting this afternoon
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: default
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Join the Community 🤝
 
@@ -1260,7 +1084,7 @@ layout: default
 
 <CncfQRCode value="https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation" :width="200" :height="200" :margin="2" />
 
-`#otel-ebpf-instrumentation`
+[opentelemetry-ebpf-instrumentation](https://github.com/open-telemetry/opentelemetry-ebpf-instrumentation)
 
 </div>
 
@@ -1280,11 +1104,9 @@ Wednesdays @ 8am PT / 11am ET
 Speaker: Tyler
 -->
 
-<!-- markdownlint-disable MD022 MD003 -->
 ---
 layout: end
 ---
-<!-- markdownlint-enable MD022 MD003 -->
 
 # Thank You! 🙏
 
