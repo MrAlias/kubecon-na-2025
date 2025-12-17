@@ -2,3 +2,4 @@
 (cd src/reviews && docker build -t reviews:local -f Dockerfile .)
 (cd src/ratings && docker build -t ratings:local -f Dockerfile .)
 (cd src/ratings-v2 && docker build -t ratings-v2:local -f Dockerfile .)
+(cd src/users && docker build -t users:local -f Dockerfile .)
