@@ -239,6 +239,10 @@ spec:
           env:
             - name: LOG_DIR
               value: "/tmp/logs"
+            - name: USER_SERVICE_HOSTNAME
+              value: "users"
+            - name: USER_SERVICE_PORT
+              value: "9080"
           ports:
             - containerPort: 9080
           volumeMounts:
@@ -280,6 +284,10 @@ spec:
               value: "true"
             - name: LOG_DIR
               value: "/tmp/logs"
+            - name: USER_SERVICE_HOSTNAME
+              value: "users"
+            - name: USER_SERVICE_PORT
+              value: "9080"
           ports:
             - containerPort: 9080
           volumeMounts:
@@ -326,6 +334,10 @@ spec:
               value: "/tmp/logs"
             - name: RATINGS_HOSTNAME
               value: "ratings-v2"
+            - name: USER_SERVICE_HOSTNAME
+              value: "users"
+            - name: USER_SERVICE_PORT
+              value: "9080"
           ports:
             - containerPort: 9080
           volumeMounts:
@@ -391,6 +403,11 @@ spec:
         - name: productpage
           image: docker.io/istio/examples-bookinfo-productpage-v1:1.20.3
           imagePullPolicy: IfNotPresent
+          env:
+            - name: USER_SERVICE_HOSTNAME
+              value: "users"
+            - name: USER_SERVICE_PORT
+              value: "9080"
           ports:
             - containerPort: 9080
           volumeMounts:
@@ -517,4 +534,57 @@ spec:
         - name: data-db
           emptyDir: {}
 ---
-
+##################################################################################################
+# Users service
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: users
+  labels:
+    app: users
+    service: users
+spec:
+  ports:
+    - port: 9080
+      name: http
+  selector:
+    app: users
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: bookinfo-users
+  labels:
+    account: users
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: users-v1
+  labels:
+    app: users
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: users
+        version: v1
+    spec:
+      serviceAccountName: bookinfo-users
+      containers:
+        - name: users
+          image: users:local
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9080
+          env:
+            - name: LOG_LEVEL
+              value: "info"
+---
