@@ -150,20 +150,40 @@ func initMongoDB() error {
 		return fmt.Errorf("MONGO_DB_URL environment variable not set")
 	}
 
+	var (
+		client  *mongo.Client
+		lastErr error
+	)
+
+	backoff := time.Second
+	const maxAttempts = 6
+
+	for attempt := 1; attempt <= maxAttempts; attempt++ {
+		ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+		client, lastErr = mongo.Connect(ctx, options.Client().ApplyURI(mongoURL))
+		if lastErr == nil {
+			lastErr = client.Ping(ctx, nil)
+		}
+		cancel()
+
+		if lastErr == nil {
+			mongoClient = client
+			break
+		}
+
+		log.Printf("MongoDB connect attempt %d/%d failed: %v", attempt, maxAttempts, lastErr)
+		time.Sleep(backoff)
+		if backoff < 30*time.Second {
+			backoff *= 2
+		}
+	}
+
+	if lastErr != nil {
+		return lastErr
+	}
+
 	ctx, cancel := context.WithTimeout(context.Background(), 120*time.Second)
 	defer cancel()
-
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(mongoURL))
-	if err != nil {
-		return err
-	}
-
-	// Test the connection
-	if err := client.Ping(ctx, nil); err != nil {
-		return err
-	}
-
-	mongoClient = client
 
 	// Initialize database with sample records
 	if err := initializeRatingsData(ctx); err != nil {
