@@ -535,6 +535,88 @@ spec:
           emptyDir: {}
 ---
 ##################################################################################################
+# Users DB (SQLite libsql/sqld)
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: users-db
+  labels:
+    app: users-db
+    service: users-db
+spec:
+  clusterIP: None
+  ports:
+    - port: 8080
+      targetPort: 8080
+      name: http
+  selector:
+    app: users-db
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: users-db-data
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: users-db
+  labels:
+    app: users-db
+spec:
+  serviceName: users-db
+  replicas: 1
+  selector:
+    matchLabels:
+      app: users-db
+  template:
+    metadata:
+      labels:
+        app: users-db
+    spec:
+      containers:
+        - name: sqld
+          image: ghcr.io/libsql/sqld:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: SQLD_HTTP_LISTEN_ADDR
+              value: "0.0.0.0:8080"
+          volumeMounts:
+            - name: data
+              mountPath: /var/lib/sqld
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: users-db-data
+---
+##################################################################################################
 # Users service
 ##################################################################################################
 apiVersion: v1
@@ -587,4 +669,5 @@ spec:
           env:
             - name: LOG_LEVEL
               value: "info"
----
+            - name: DATABASE_URL
+              value: "http://users-db.default.svc.cluster.local:8080"

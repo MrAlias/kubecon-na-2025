@@ -1,32 +1,41 @@
-use rusqlite::{Connection, Result as SqliteResult};
-use std::path::Path;
+use libsql::Builder;
 
 pub struct Database {
-    conn: Connection,
+    db: libsql::Database,
 }
 
 impl Database {
-    pub fn new<P: AsRef<Path>>(path: P) -> SqliteResult<Self> {
-        let conn = Connection::open(path)?;
-        Ok(Database { conn })
+    pub async fn new(url: &str) -> Result<Self, Box<dyn std::error::Error>> {
+        // Create a remote database connection via libsql
+        let db = Builder::new_remote(url.to_string(), "".to_string())
+            .build()
+            .await?;
+        
+        Ok(Database { db })
     }
 
-    pub fn init(&self) -> SqliteResult<()> {
-        self.conn.execute(
+    pub async fn init(&self) -> Result<(), Box<dyn std::error::Error>> {
+        let conn = self.db.connect()?;
+        
+        // Create the users table
+        conn.execute(
             "CREATE TABLE IF NOT EXISTS users (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 username TEXT UNIQUE NOT NULL
             )",
-            [],
-        )?;
+            (),
+        )
+        .await?;
 
         // Seed with initial users
-        self.seed_initial_users()?;
+        self.seed_initial_users().await?;
 
         Ok(())
     }
 
-    fn seed_initial_users(&self) -> SqliteResult<()> {
+    async fn seed_initial_users(&self) -> Result<(), Box<dyn std::error::Error>> {
+        let conn = self.db.connect()?;
+        
         let seed_users = vec![
             "Alice Johnson",
             "Bob Smith",
@@ -35,69 +44,82 @@ impl Database {
 
         for username in seed_users {
             // Insert or ignore if already exists
-            self.conn.execute(
-                "INSERT OR IGNORE INTO users (username) VALUES (?1)",
-                [username],
-            )?;
+            let _ = conn
+                .execute(
+                    "INSERT OR IGNORE INTO users (username) VALUES (?1)",
+                    libsql::params![username],
+                )
+                .await;
         }
 
         Ok(())
     }
 
-    pub fn get_user(&self, id: i32) -> SqliteResult<Option<crate::User>> {
-        let mut stmt = self.conn.prepare(
-            "SELECT id, username FROM users WHERE id = ?1"
-        )?;
+    pub async fn get_user(&self, id: i32) -> Result<Option<crate::User>, Box<dyn std::error::Error>> {
+        let conn = self.db.connect()?;
+        
+        let mut rows = conn.query(
+            "SELECT id, username FROM users WHERE id = ?1",
+            libsql::params![id],
+        )
+        .await?;
 
-        let result = stmt.query_row([id], |row| {
-            Ok(crate::User {
+        if let Some(row) = rows.next().await? {
+            let user = crate::User {
                 id: row.get(0)?,
                 username: row.get(1)?,
-            })
-        });
-
-        match result {
-            Ok(user) => Ok(Some(user)),
-            Err(rusqlite::Error::QueryReturnedNoRows) => Ok(None),
-            Err(e) => Err(e),
+            };
+            Ok(Some(user))
+        } else {
+            Ok(None)
         }
     }
 
-    pub fn list_users(&self) -> SqliteResult<Vec<crate::User>> {
-        let mut stmt = self.conn.prepare(
-            "SELECT id, username FROM users ORDER BY id"
-        )?;
+    pub async fn list_users(&self) -> Result<Vec<crate::User>, Box<dyn std::error::Error>> {
+        let conn = self.db.connect()?;
+        let mut rows = conn.query(
+            "SELECT id, username FROM users ORDER BY id",
+            (),
+        )
+        .await?;
 
-        let users = stmt.query_map([], |row| {
-            Ok(crate::User {
+        let mut users = Vec::new();
+        while let Some(row) = rows.next().await? {
+            let user = crate::User {
                 id: row.get(0)?,
                 username: row.get(1)?,
-            })
-        })?
-        .collect::<SqliteResult<Vec<_>>>()?;
+            };
+            users.push(user);
+        }
 
         Ok(users)
     }
 
-    pub fn create_or_get_user(&self, username: &str) -> SqliteResult<crate::User> {
-        // Try to insert the user
-        let insert_result = self.conn.execute(
+    pub async fn create_or_get_user(&self, username: &str) -> Result<crate::User, Box<dyn std::error::Error>> {
+        let conn = self.db.connect()?;
+        
+        // Try to insert the user (may fail if it already exists)
+        let _ = conn.execute(
             "INSERT INTO users (username) VALUES (?1)",
-            [username],
-        );
+            libsql::params![username],
+        )
+        .await;
 
         // Get the user (whether newly inserted or already existed)
-        let mut stmt = self.conn.prepare(
-            "SELECT id, username FROM users WHERE username = ?1"
-        )?;
+        let mut rows = conn.query(
+            "SELECT id, username FROM users WHERE username = ?1",
+            libsql::params![username],
+        )
+        .await?;
 
-        let user = stmt.query_row([username], |row| {
-            Ok(crate::User {
+        if let Some(row) = rows.next().await? {
+            let user = crate::User {
                 id: row.get(0)?,
                 username: row.get(1)?,
-            })
-        })?;
-
-        Ok(user)
+            };
+            Ok(user)
+        } else {
+            Err("User not found after creation".into())
+        }
     }
 }

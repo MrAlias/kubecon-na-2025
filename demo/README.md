@@ -67,6 +67,8 @@ productpage   ClusterIP   10.96.51.171    <none>        9080/TCP    162m
 ratings       ClusterIP   10.96.101.154   <none>        9080/TCP    162m
 ratings-v2    ClusterIP   10.96.58.3      <none>        9080/TCP    31m
 reviews       ClusterIP   10.96.220.73    <none>        9080/TCP    162m
+users         ClusterIP   10.96.220.99    <none>        9080/TCP    162m
+users-db      ClusterIP   None            <none>        8080/TCP    162m
 ```
 
 ## Deploy a Local Observability Cluster

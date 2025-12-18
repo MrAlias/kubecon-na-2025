@@ -1,6 +1,6 @@
-use actix_web::{web, App, HttpServer, HttpResponse, middleware};
+use actix_web::{web, App, HttpServer, middleware};
 use serde::{Deserialize, Serialize};
-use std::sync::Mutex;
+use std::sync::Arc;
 
 mod db;
 mod handlers;
@@ -19,7 +19,7 @@ pub struct CreateUserRequest {
 }
 
 pub struct AppState {
-    db: Mutex<Database>,
+    db: Arc<Database>,
 }
 
 #[actix_web::main]
@@ -32,15 +32,22 @@ async fn main() -> std::io::Result<()> {
 
     log::info!("Starting users service");
 
-    // Initialize database
-    let db_path = "/tmp/users.db";
-    let db = Database::new(db_path).expect("Failed to initialize database");
-    db.init().expect("Failed to initialize database schema");
+    // Get database URL from environment or use default
+    let database_url = std::env::var("DATABASE_URL")
+        .unwrap_or_else(|_| "http://users-db.default.svc.cluster.local:8080".to_string());
     
-    log::info!("Database initialized at {}", db_path);
+    log::info!("Connecting to database at {}", database_url);
+
+    // Initialize database
+    let db = Database::new(&database_url).await
+        .expect("Failed to initialize database");
+    db.init().await
+        .expect("Failed to initialize database schema");
+    
+    log::info!("Database initialized successfully");
 
     let app_state = web::Data::new(AppState {
-        db: Mutex::new(db),
+        db: Arc::new(db),
     });
 
     let bind_addr = "0.0.0.0:9080";

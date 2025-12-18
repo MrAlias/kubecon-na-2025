@@ -1,6 +1,6 @@
-use actix_web::{web, HttpRequest, HttpResponse};
+use actix_web::{web, HttpResponse};
 use serde_json::json;
-use crate::{AppState, User, CreateUserRequest};
+use crate::{AppState, CreateUserRequest};
 
 pub async fn health() -> HttpResponse {
     HttpResponse::Ok().json(json!({
@@ -9,9 +9,7 @@ pub async fn health() -> HttpResponse {
 }
 
 pub async fn list_users(state: web::Data<AppState>) -> HttpResponse {
-    let db = state.db.lock().unwrap();
-    
-    match db.list_users() {
+    match state.db.list_users().await {
         Ok(users) => HttpResponse::Ok().json(users),
         Err(e) => {
             log::error!("Database error: {}", e);
@@ -27,9 +25,8 @@ pub async fn get_user(
     path: web::Path<i32>,
 ) -> HttpResponse {
     let user_id = path.into_inner();
-    let db = state.db.lock().unwrap();
     
-    match db.get_user(user_id) {
+    match state.db.get_user(user_id).await {
         Ok(Some(user)) => HttpResponse::Ok().json(user),
         Ok(None) => HttpResponse::NotFound().json(json!({
             "error": "User not found"
@@ -55,9 +52,7 @@ pub async fn create_user(
         }));
     }
 
-    let db = state.db.lock().unwrap();
-    
-    match db.create_or_get_user(username) {
+    match state.db.create_or_get_user(username).await {
         Ok(user) => HttpResponse::Ok().json(user),
         Err(e) => {
             log::error!("Database error: {}", e);
