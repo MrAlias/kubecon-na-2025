@@ -547,9 +547,9 @@ metadata:
 spec:
   clusterIP: None
   ports:
-    - port: 8080
-      targetPort: 8080
-      name: http
+    - port: 5432
+      targetPort: 5432
+      name: postgres
   selector:
     app: users-db
 ---
@@ -582,18 +582,23 @@ spec:
         app: users-db
     spec:
       containers:
-        - name: sqld
-          image: ghcr.io/libsql/sqld:latest
+        - name: postgres
+          image: postgres:17-alpine
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 8080
-              name: http
+            - containerPort: 5432
+              name: postgres
           env:
-            - name: SQLD_HTTP_LISTEN_ADDR
-              value: "0.0.0.0:8080"
+            - name: POSTGRES_DB
+              value: "main"
+            - name: POSTGRES_USER
+              value: "postgres"
+            - name: POSTGRES_HOST_AUTH_METHOD
+              value: "trust"
           volumeMounts:
             - name: data
-              mountPath: /var/lib/sqld
+              mountPath: /var/lib/postgresql/data
+              subPath: pgdata
           resources:
             requests:
               memory: "128Mi"
@@ -603,12 +608,12 @@ spec:
               cpu: "500m"
           livenessProbe:
             tcpSocket:
-              port: 8080
+              port: 5432
             initialDelaySeconds: 10
             periodSeconds: 10
           readinessProbe:
-            tcpSocket:
-              port: 8080
+            exec:
+              command: ["pg_isready", "-U", "postgres"]
             initialDelaySeconds: 5
             periodSeconds: 5
       volumes:
@@ -670,4 +675,4 @@ spec:
             - name: LOG_LEVEL
               value: "info"
             - name: DATABASE_URL
-              value: "http://users-db.default.svc.cluster.local:8080"
+              value: "postgresql://postgres@users-db.default.svc.cluster.local:5432/main"

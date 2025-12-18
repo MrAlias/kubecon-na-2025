@@ -1,125 +1,100 @@
-use libsql::Builder;
+use postgres::Client;
 
-pub struct Database {
-    db: libsql::Database,
-}
+// All database functions are synchronous (not async) to maintain proper trace
+// context propagation when using OpenTelemetry eBPF Instrumentation (OBI).
+// Async database operations can lose trace context when spawning tasks.
 
-impl Database {
-    pub async fn new(url: &str) -> Result<Self, Box<dyn std::error::Error>> {
-        // Create a remote database connection via libsql
-        let db = Builder::new_remote(url.to_string(), "".to_string())
-            .build()
-            .await?;
-        
-        Ok(Database { db })
-    }
-
-    pub async fn init(&self) -> Result<(), Box<dyn std::error::Error>> {
-        let conn = self.db.connect()?;
-        
-        // Create the users table
-        conn.execute(
+pub fn init_database(client: &mut Client) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    // Create the users table
+    client
+        .execute(
             "CREATE TABLE IF NOT EXISTS users (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                id SERIAL PRIMARY KEY,
                 username TEXT UNIQUE NOT NULL
             )",
-            (),
-        )
-        .await?;
+            &[],
+        )?;
 
-        // Seed with initial users
-        self.seed_initial_users().await?;
+    // Seed with initial users
+    seed_initial_users(client)?;
 
-        Ok(())
+    Ok(())
+}
+
+fn seed_initial_users(client: &mut Client) -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
+    let seed_users = vec![
+        "Alice Johnson",
+        "Bob Smith",
+        "Carol Williams",
+    ];
+
+    for username in seed_users {
+        // Insert or ignore if already exists
+        let _ = client
+            .execute(
+                "INSERT INTO users (username) VALUES ($1) ON CONFLICT (username) DO NOTHING",
+                &[&username],
+            );
     }
 
-    async fn seed_initial_users(&self) -> Result<(), Box<dyn std::error::Error>> {
-        let conn = self.db.connect()?;
-        
-        let seed_users = vec![
-            "Alice Johnson",
-            "Bob Smith",
-            "Carol Williams",
-        ];
+    Ok(())
+}
 
-        for username in seed_users {
-            // Insert or ignore if already exists
-            let _ = conn
-                .execute(
-                    "INSERT OR IGNORE INTO users (username) VALUES (?1)",
-                    libsql::params![username],
-                )
-                .await;
-        }
+pub fn get_user(client: &mut Client, id: i32) -> Result<Option<crate::User>, Box<dyn std::error::Error + Send + Sync>> {
+    let rows = client
+        .query(
+            "SELECT id, username FROM users WHERE id = $1",
+            &[&id],
+        )?;
 
-        Ok(())
+    if let Some(row) = rows.first() {
+        let user = crate::User {
+            id: row.get(0),
+            username: row.get(1),
+        };
+        Ok(Some(user))
+    } else {
+        Ok(None)
     }
+}
 
-    pub async fn get_user(&self, id: i32) -> Result<Option<crate::User>, Box<dyn std::error::Error>> {
-        let conn = self.db.connect()?;
-        
-        let mut rows = conn.query(
-            "SELECT id, username FROM users WHERE id = ?1",
-            libsql::params![id],
-        )
-        .await?;
+pub fn list_users(client: &mut Client) -> Result<Vec<crate::User>, Box<dyn std::error::Error + Send + Sync>> {
+    let rows = client
+        .query("SELECT id, username FROM users ORDER BY id", &[])?;
 
-        if let Some(row) = rows.next().await? {
-            let user = crate::User {
-                id: row.get(0)?,
-                username: row.get(1)?,
-            };
-            Ok(Some(user))
-        } else {
-            Ok(None)
-        }
-    }
+    let users = rows
+        .iter()
+        .map(|row| crate::User {
+            id: row.get(0),
+            username: row.get(1),
+        })
+        .collect();
 
-    pub async fn list_users(&self) -> Result<Vec<crate::User>, Box<dyn std::error::Error>> {
-        let conn = self.db.connect()?;
-        let mut rows = conn.query(
-            "SELECT id, username FROM users ORDER BY id",
-            (),
-        )
-        .await?;
+    Ok(users)
+}
 
-        let mut users = Vec::new();
-        while let Some(row) = rows.next().await? {
-            let user = crate::User {
-                id: row.get(0)?,
-                username: row.get(1)?,
-            };
-            users.push(user);
-        }
+pub fn create_or_get_user(client: &mut Client, username: &str) -> Result<crate::User, Box<dyn std::error::Error + Send + Sync>> {
+    // Try to insert the user (ignores if it already exists)
+    let _ = client
+        .execute(
+            "INSERT INTO users (username) VALUES ($1) ON CONFLICT (username) DO NOTHING",
+            &[&username],
+        );
 
-        Ok(users)
-    }
+    // Get the user (whether newly inserted or already existed)
+    let rows = client
+        .query(
+            "SELECT id, username FROM users WHERE username = $1",
+            &[&username],
+        )?;
 
-    pub async fn create_or_get_user(&self, username: &str) -> Result<crate::User, Box<dyn std::error::Error>> {
-        let conn = self.db.connect()?;
-        
-        // Try to insert the user (may fail if it already exists)
-        let _ = conn.execute(
-            "INSERT INTO users (username) VALUES (?1)",
-            libsql::params![username],
-        )
-        .await;
-
-        // Get the user (whether newly inserted or already existed)
-        let mut rows = conn.query(
-            "SELECT id, username FROM users WHERE username = ?1",
-            libsql::params![username],
-        )
-        .await?;
-
-        if let Some(row) = rows.next().await? {
-            let user = crate::User {
-                id: row.get(0)?,
-                username: row.get(1)?,
-            };
-            Ok(user)
-        } else {
-            Err("User not found after creation".into())
-        }
+    if let Some(row) = rows.first() {
+        let user = crate::User {
+            id: row.get(0),
+            username: row.get(1),
+        };
+        Ok(user)
+    } else {
+        Err("User not found after creation".into())
     }
 }

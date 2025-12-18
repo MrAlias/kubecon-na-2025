@@ -1,11 +1,10 @@
 use actix_web::{web, App, HttpServer, middleware};
 use serde::{Deserialize, Serialize};
-use std::sync::Arc;
+use postgres::{Client, NoTls};
+use std::sync::{Arc, Mutex};
 
 mod db;
 mod handlers;
-
-use db::Database;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
 pub struct User {
@@ -18,8 +17,12 @@ pub struct CreateUserRequest {
     pub username: String,
 }
 
+// Using a single synchronous postgres client wrapped in Arc<Mutex> instead of
+// async connection pooling. This design choice ensures proper trace context
+// propagation when using OpenTelemetry eBPF Instrumentation (OBI).
+// Async database operations can break tracing context when spawning tasks.
 pub struct AppState {
-    db: Arc<Database>,
+    client: Arc<Mutex<Client>>,
 }
 
 #[actix_web::main]
@@ -34,20 +37,31 @@ async fn main() -> std::io::Result<()> {
 
     // Get database URL from environment or use default
     let database_url = std::env::var("DATABASE_URL")
-        .unwrap_or_else(|_| "http://users-db.default.svc.cluster.local:8080".to_string());
+        .unwrap_or_else(|_| "postgresql://postgres@users-db.default.svc.cluster.local:5432/main".to_string());
     
     log::info!("Connecting to database at {}", database_url);
 
-    // Initialize database
-    let db = Database::new(&database_url).await
-        .expect("Failed to initialize database");
-    db.init().await
-        .expect("Failed to initialize database schema");
+    // Create single synchronous connection (no pooling) in a blocking thread.
+    // This maintains proper trace context propagation with OpenTelemetry eBPF Instrumentation (OBI).
+    // Async connection handling breaks the trace context chain.
+    // We initialize in a blocking thread to avoid runtime nesting issues.
+    let client = std::thread::spawn(move || {
+        let mut client = Client::connect(&database_url, NoTls)
+            .expect("Failed to connect to database");
+
+        // Initialize database schema
+        db::init_database(&mut client)
+            .expect("Failed to initialize database schema");
+        
+        client
+    })
+    .join()
+    .expect("Failed to join database initialization thread");
     
     log::info!("Database initialized successfully");
 
     let app_state = web::Data::new(AppState {
-        db: Arc::new(db),
+        client: Arc::new(Mutex::new(client)),
     });
 
     let bind_addr = "0.0.0.0:9080";
