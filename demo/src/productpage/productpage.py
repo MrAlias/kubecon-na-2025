@@ -56,8 +56,17 @@ ratingsHostname = "ratings" if (os.environ.get("RATINGS_HOSTNAME") is None) else
 ratingsPort = "9080" if (os.environ.get("RATINGS_SERVICE_PORT") is None) else os.environ.get("RATINGS_SERVICE_PORT")
 reviewsHostname = "reviews" if (os.environ.get("REVIEWS_HOSTNAME") is None) else os.environ.get("REVIEWS_HOSTNAME")
 reviewsPort = "9080" if (os.environ.get("REVIEWS_SERVICE_PORT") is None) else os.environ.get("REVIEWS_SERVICE_PORT")
+usersHostname = "users" if (os.environ.get("USER_SERVICE_HOSTNAME") is None) else os.environ.get("USER_SERVICE_HOSTNAME")
+usersPort = "9080" if (os.environ.get("USER_SERVICE_PORT") is None) else os.environ.get("USER_SERVICE_PORT")
 
 flood_factor = 0 if (os.environ.get("FLOOD_FACTOR") is None) else int(os.environ.get("FLOOD_FACTOR"))
+
+# Username to user ID mapping for login
+username_to_id = {
+    'Alice Johnson': 1,
+    'Bob Smith': 2,
+    'Carol Williams': 3,
+}
 
 details = {
     "name": "http://{0}{1}:{2}".format(detailsHostname, servicesDomain, detailsPort),
@@ -130,8 +139,8 @@ def getForwardHeaders(request):
     propagator.inject(headers, ctx)
 
     # We handle other (non x-b3-***) headers manually
-    if 'user' in session:
-        headers['end-user'] = session['user']
+    if 'user_id' in session:
+        headers['end-user'] = str(session['user_id'])
 
     # Keep this in sync with the headers in details and reviews.
     incoming_headers = [
@@ -224,9 +233,30 @@ def health():
 
 @app.route('/login', methods=['POST'])
 def login():
-    user = request.values.get('username')
+    username = request.values.get('username')
     response = app.make_response(redirect(request.referrer))
-    session['user'] = user
+    
+    if not username:
+        return response
+    
+    try:
+        # Call the users service to create or get the user
+        users_url = "http://{0}:{1}".format(usersHostname, usersPort)
+        user_response = requests.post(
+            users_url + "/users",
+            json={"username": username},
+            timeout=3.0
+        )
+        
+        if user_response.status_code == 200:
+            user_data = user_response.json()
+            # Store both username and user ID in session
+            session['user'] = username
+            session['user_id'] = user_data['id']
+    except Exception as e:
+        app.logger.error(f"Failed to create/get user: {e}")
+        session['user'] = username
+    
     return response
 
 

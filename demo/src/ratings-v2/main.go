@@ -310,8 +310,8 @@ func handleV2Ratings(w http.ResponseWriter, productID int) {
 	result := RatingData{
 		ID: productID,
 		Ratings: map[string]interface{}{
-			"Reviewer1": firstRating,
-			"Reviewer2": secondRating,
+			"1": firstRating,
+			"2": secondRating,
 		},
 	}
 
@@ -412,8 +412,8 @@ func getLocalReviews(productID int) RatingData {
 	return RatingData{
 		ID: productID,
 		Ratings: map[string]interface{}{
-			"Reviewer1": 5,
-			"Reviewer2": 4,
+			"1": 5,
+			"2": 4,
 		},
 	}
 }

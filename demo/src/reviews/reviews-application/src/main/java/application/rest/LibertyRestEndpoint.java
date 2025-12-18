@@ -47,6 +47,12 @@ public class LibertyRestEndpoint extends Application {
       : System.getenv("RATINGS_SERVICE_PORT");
   private final static String ratings_service = String.format("http://%s%s:%s/ratings", ratings_hostname,
       services_domain, ratings_port);
+  private final static String users_hostname = System.getenv("USER_SERVICE_HOSTNAME") == null ? "users"
+      : System.getenv("USER_SERVICE_HOSTNAME");
+  private final static String users_port = System.getenv("USER_SERVICE_PORT") == null ? "9080"
+      : System.getenv("USER_SERVICE_PORT");
+  private final static String users_service = String.format("http://%s%s:%s/users", users_hostname,
+      services_domain, users_port);
   private final static String pod_hostname = System.getenv("HOSTNAME");
   private final static String clustername = System.getenv("CLUSTER_NAME");
 
@@ -109,7 +115,7 @@ public class LibertyRestEndpoint extends Application {
       "jwt",
   };
 
-  private String getJsonResponse(String productId, int starsReviewer1, int starsReviewer2) {
+  private String getJsonResponse(String productId, String reviewer1Name, String reviewer2Name, int starsReviewer1, int starsReviewer2) {
     String result = "{";
     result += "\"id\": \"" + productId + "\",";
     result += "\"podname\": \"" + pod_hostname + "\",";
@@ -118,7 +124,7 @@ public class LibertyRestEndpoint extends Application {
 
     // reviewer 1:
     result += "{";
-    result += "  \"reviewer\": \"Reviewer1\",";
+    result += "  \"reviewer\": \"" + reviewer1Name + "\",";
     result += "  \"text\": \"An extremely entertaining play by Shakespeare. The slapstick humour is refreshing!\"";
     if (ratings_enabled) {
       if (starsReviewer1 != -1) {
@@ -131,7 +137,7 @@ public class LibertyRestEndpoint extends Application {
 
     // reviewer 2:
     result += "{";
-    result += "  \"reviewer\": \"Reviewer2\",";
+    result += "  \"reviewer\": \"" + reviewer2Name + "\",";
     result += "  \"text\": \"Absolutely fun and entertaining. The play lacks thematic depth when compared to other plays by Shakespeare.\"";
     if (ratings_enabled) {
       if (starsReviewer2 != -1) {
@@ -187,6 +193,38 @@ public class LibertyRestEndpoint extends Application {
     }
   }
 
+  private String getUserName(int userId, HttpHeaders requestHeaders) {
+    try {
+      Client client = ClientBuilder.newBuilder().build();
+      WebTarget userTarget = client.target(users_service + "/" + userId);
+      Invocation.Builder builder = userTarget.request(MediaType.APPLICATION_JSON);
+      
+      // Propagate tracing headers
+      for (String header : headers_to_propagate) {
+        String value = requestHeaders.getHeaderString(header);
+        if (value != null) {
+          builder.header(header, value);
+        }
+      }
+
+      Response r = builder.get();
+      int statusCode = r.getStatusInfo().getStatusCode();
+      if (statusCode == Response.Status.OK.getStatusCode()) {
+        try (StringReader stringReader = new StringReader(r.readEntity(String.class));
+            JsonReader jsonReader = Json.createReader(stringReader)) {
+          JsonObject userObj = jsonReader.readObject();
+          return userObj.getString("username");
+        }
+      } else {
+        System.out.println("Error: unable to contact " + users_service + "/" + userId + " got status of " + statusCode);
+        return "User" + userId;
+      }
+    } catch (ProcessingException e) {
+      System.err.println("Error: unable to contact " + users_service + " got exception " + e);
+      return "User" + userId;
+    }
+  }
+
   @GET
   @Path("/health")
   public Response health() {
@@ -205,19 +243,23 @@ public class LibertyRestEndpoint extends Application {
       if (ratingsResponse != null) {
         if (ratingsResponse.containsKey("ratings")) {
           JsonObject ratings = ratingsResponse.getJsonObject("ratings");
-          if (ratings.containsKey("Reviewer1")) {
-            starsReviewer1 = ratings.getInt("Reviewer1");
+          if (ratings.containsKey("1")) {
+            starsReviewer1 = ratings.getInt("1");
           }
-          if (ratings.containsKey("Reviewer2")) {
-            starsReviewer2 = ratings.getInt("Reviewer2");
+          if (ratings.containsKey("2")) {
+            starsReviewer2 = ratings.getInt("2");
           }
         }
       }
     }
 
+    // Fetch actual user names from users service
+    String reviewer1Name = getUserName(1, requestHeaders);
+    String reviewer2Name = getUserName(2, requestHeaders);
+
     Thread.sleep(random.nextInt(5000));
 
-    String jsonResStr = getJsonResponse(Integer.toString(productId), starsReviewer1, starsReviewer2);
+    String jsonResStr = getJsonResponse(Integer.toString(productId), reviewer1Name, reviewer2Name, starsReviewer1, starsReviewer2);
     return Response.ok().type(MediaType.APPLICATION_JSON).entity(jsonResStr).build();
   }
 }

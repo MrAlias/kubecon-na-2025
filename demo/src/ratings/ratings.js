@@ -141,8 +141,8 @@ dispatcher.onGet(/^\/ratings\/[0-9]*/, function (req, res) {
               var result = {
                 id: productId,
                 ratings: {
-                  Reviewer1: firstRating,
-                  Reviewer2: secondRating,
+                  "1": firstRating,
+                  "2": secondRating,
                 },
               };
               res.writeHead(200, { "Content-type": "application/json" });
@@ -184,8 +184,8 @@ dispatcher.onGet(/^\/ratings\/[0-9]*/, function (req, res) {
                 var result = {
                   id: productId,
                   ratings: {
-                    Reviewer1: firstRating,
-                    Reviewer2: secondRating,
+                    "1": firstRating,
+                    "2": secondRating,
                   },
                 };
 
@@ -269,8 +269,8 @@ function getLocalReviews(productId) {
   return {
     id: productId,
     ratings: {
-      Reviewer1: 5,
-      Reviewer2: 4,
+      "1": 5,
+      "2": 4,
     },
   };
 }
